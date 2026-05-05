@@ -21,7 +21,6 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 input[type=text],input[type=date],select{width:100%;height:40px;border:1px solid var(--border2);border-radius:var(--r);background:#fff;color:var(--text);font-family:inherit;font-size:14px;padding:0 12px;outline:none}
 input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(29,158,117,0.12)}
 button{font-family:inherit;cursor:pointer}
-
 /* LOGIN */
 .login-bg{flex:1;display:flex;align-items:center;justify-content:center;padding:24px;background:var(--bg)}
 .login-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);padding:36px 32px;width:100%;max-width:400px}
@@ -36,7 +35,7 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .btn-primary{width:100%;height:44px;background:var(--green);color:#fff;border:none;border-radius:var(--r);font-size:14px;font-weight:600;cursor:pointer;transition:background .15s}
 .btn-primary:hover{background:#0F6E56}
 .login-footer{margin-top:20px;font-size:11px;color:var(--text3);text-align:center;line-height:1.7}
-
+.admin-hint{background:var(--purple-bg);border:1px solid #AFA9EC;border-radius:var(--r);padding:8px 12px;font-size:11px;color:var(--purple-t);margin-bottom:16px;text-align:center}
 /* APP SHELL */
 .topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:20}
 .top-logo{display:flex;align-items:center;gap:10px}
@@ -44,11 +43,12 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .top-logo-name{font-size:15px;font-weight:600}
 .top-right{display:flex;align-items:center;gap:12px}
 .avatar{width:32px;height:32px;border-radius:50%;background:var(--green-l);border:1px solid var(--green-m);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--green-d)}
+.avatar.admin-av{background:var(--purple-bg);border-color:#AFA9EC;color:var(--purple-t)}
+.admin-pill{background:var(--purple-bg);color:var(--purple-t);border:1px solid #AFA9EC;border-radius:10px;font-size:10px;font-weight:700;padding:2px 8px}
 .top-name{font-size:13px;font-weight:500}
 .btn-signout{font-size:12px;color:var(--red-t);background:none;border:1px solid var(--red-b);border-radius:6px;padding:4px 10px}
 .btn-signout:hover{background:var(--red-bg)}
 .app-body{flex:1;display:flex;overflow:hidden}
-
 /* SIDEBAR */
 .sidebar{width:200px;background:var(--surface);border-right:1px solid var(--border);padding:16px 10px;display:flex;flex-direction:column;gap:4px;flex-shrink:0}
 .nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r);border:none;background:transparent;font-size:13px;color:var(--text2);cursor:pointer;width:100%;text-align:left;font-family:inherit;position:relative;transition:all .12s}
@@ -56,18 +56,19 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .nav-item:hover{background:var(--bg);color:var(--text)}
 .nav-item.active{background:var(--green-l);color:var(--green-d);font-weight:500}
 .nav-item.active svg{stroke:var(--green)}
+.nav-item.admin-nav{color:var(--purple-t)}
+.nav-item.admin-nav.active{background:var(--purple-bg);color:var(--purple-t)}
+.nav-item.admin-nav svg{stroke:var(--purple-t)}
 .cart-badge{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:var(--green);color:#fff;border-radius:10px;font-size:10px;font-weight:700;padding:1px 6px;min-width:18px;text-align:center}
 .sync-bar{margin-top:auto;padding:10px 4px 0;font-size:11px;color:var(--text3);text-align:center;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:5px}
 .sync-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
 .sync-dot.stale{background:var(--amber-t)}
-
 /* MAIN */
 .main{flex:1;overflow-y:auto;padding:20px}
 .page{display:none}.page.active{display:block}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:16px 18px;margin-bottom:14px}
 .card-title{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:14px}
-
-/* TYPE SELECTOR */
+/* TYPE GRID */
 .type-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}
 .type-btn{padding:10px 4px;border-radius:var(--r);border:1px solid var(--border2);background:#fff;cursor:pointer;text-align:center;font-size:11px;color:var(--text2);font-family:inherit;transition:all .12s;display:flex;flex-direction:column;align-items:center;gap:5px}
 .type-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -78,7 +79,18 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .date-row input{height:38px;flex:1}
 .btn-see{height:38px;padding:0 18px;background:var(--green);color:#fff;border:none;border-radius:var(--r);font-size:13px;font-weight:600;white-space:nowrap}
 .btn-see:hover{background:#0F6E56}
-
+/* ALL DAY */
+.allday-notice{display:flex;align-items:center;gap:8px;background:var(--amber-bg);border:1px solid #FAC775;border-radius:var(--r);padding:10px 14px;font-size:12px;color:var(--amber-t);font-weight:500;margin-bottom:12px}
+.allday-notice svg{width:15px;height:15px;stroke:var(--amber-t);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+/* AMENITIES */
+.amenities-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.amenity-opt{display:flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--r);cursor:pointer;font-size:13px;color:var(--text);transition:all .12s;user-select:none}
+.amenity-opt:hover{border-color:var(--green-b);background:var(--green-l)}
+.amenity-opt.on{border-color:var(--green);background:var(--green-l);color:var(--green-d);font-weight:500}
+.a-box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--border2);flex-shrink:0;margin-left:auto;display:flex;align-items:center;justify-content:center}
+.amenity-opt.on .a-box{background:var(--green);border-color:var(--green)}
+.a-check{display:none;width:10px;height:10px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.amenity-opt.on .a-check{display:block}
 /* FLOOR MAP */
 .map-wrap{overflow-x:auto;padding-bottom:8px}
 .section-label{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
@@ -90,26 +102,15 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .cell svg{width:13px;height:13px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:#888;fill:none}
 .cell-lbl{font-size:9px;font-weight:600;text-align:center;line-height:1.2;padding:0 2px;color:var(--text2);margin-top:2px}
 .cell-sub{font-size:8px;color:var(--text3);text-align:center}
-.cell.av{background:var(--green-l);border-color:var(--green-b)}
-.cell.av svg{stroke:var(--green-d)}
-.cell.av .cell-lbl{color:var(--green-d)}
-.cell.av:hover{background:var(--green-m);transform:scale(1.05)}
-.cell.bk{background:var(--red-bg);border-color:var(--red-b);cursor:not-allowed;opacity:.8}
-.cell.bk svg{stroke:var(--red-t);opacity:.6}
-.cell.bk .cell-lbl{color:var(--red-t)}
-.cell.sl{background:var(--green);border-color:#0F6E56;transform:scale(1.07)}
-.cell.sl svg{stroke:#fff}
-.cell.sl .cell-lbl{color:#fff}
-.cell.sl .cell-sub{color:rgba(255,255,255,0.75)}
+.cell.av{background:var(--green-l);border-color:var(--green-b)}.cell.av svg{stroke:var(--green-d)}.cell.av .cell-lbl{color:var(--green-d)}.cell.av:hover{background:var(--green-m);transform:scale(1.05)}
+.cell.bk{background:var(--red-bg);border-color:var(--red-b);cursor:not-allowed;opacity:.8}.cell.bk svg{stroke:var(--red-t);opacity:.6}.cell.bk .cell-lbl{color:var(--red-t)}
+.cell.sl{background:var(--green);border-color:#0F6E56;transform:scale(1.07)}.cell.sl svg{stroke:#fff}.cell.sl .cell-lbl{color:#fff}.cell.sl .cell-sub{color:rgba(255,255,255,.75)}
 .ergo{position:absolute;top:3px;right:3px;width:11px;height:11px;border-radius:3px;background:var(--green-m);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;color:var(--green-d)}
-.cell.sl .ergo{background:rgba(255,255,255,0.25);color:#fff}
-.cell.bk .ergo{background:var(--red-b);color:var(--red-t)}
-.pb-row{display:flex;gap:10px}
-.pl-row-cells{display:flex;gap:6px}
+.cell.sl .ergo{background:rgba(255,255,255,.25);color:#fff}.cell.bk .ergo{background:var(--red-b);color:var(--red-t)}
+.pb-row{display:flex;gap:10px}.pl-row-cells{display:flex;gap:6px}
 .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
 .leg{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2)}
 .leg-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
-
 /* CART */
 .cart-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:16px 18px;margin-bottom:14px}
 .cart-panel-title{font-size:13px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}
@@ -128,16 +129,13 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .btn-add-more:hover{background:var(--green-l)}
 .btn-confirm{width:100%;height:44px;background:var(--green);color:#fff;border:none;border-radius:var(--r);font-size:14px;font-weight:600;cursor:pointer;transition:background .15s}
 .btn-confirm:hover{background:#0F6E56}
-.btn-confirm:disabled{background:var(--border);color:var(--text3);cursor:not-allowed}
 .btn-ghost{height:36px;padding:0 16px;background:#fff;border:1px solid var(--border2);border-radius:var(--r);font-size:13px;color:var(--text)}
 .btn-ghost:hover{background:var(--bg)}
-
 /* SUCCESS */
 .success-wrap{text-align:center;padding:32px 20px}
 .success-ring{width:64px;height:64px;border-radius:50%;background:var(--green-l);border:2px solid var(--green-b);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
 .success-ring svg{width:28px;height:28px;stroke:var(--green);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-
-/* MY BOOKINGS */
+/* BOOKINGS */
 .booking-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:14px 16px;margin-bottom:10px}
 .booking-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px}
 .booking-spaces{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
@@ -148,17 +146,16 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .pill-mr{background:#FBEAF0;color:#72243E}.pill-mr svg{stroke:#72243E}
 .pill-pl{background:var(--amber-bg);color:var(--amber-t)}.pill-pl svg{stroke:var(--amber-t)}
 .pill-meeting{background:var(--purple-bg);color:var(--purple-t)}.pill-meeting svg{stroke:var(--purple-t)}
-.booking-meta{font-size:12px;color:var(--text2);display:flex;gap:12px;flex-wrap:wrap}
 .dot-green{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:4px;vertical-align:middle}
 .dot-red{display:inline-block;width:6px;height:6px;border-radius:50%;background:#E24B4A;margin-right:4px;vertical-align:middle}
 .btn-cancel-booking{font-size:11px;color:var(--red-t);background:none;border:1px solid var(--red-b);border-radius:4px;padding:3px 10px;cursor:pointer;margin-top:8px;font-family:inherit}
 .btn-cancel-booking:hover{background:var(--red-bg)}
-
+.amenity-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.amenity-pill-sm{background:var(--amber-bg);color:var(--amber-t);border-radius:10px;font-size:10px;padding:2px 8px;font-weight:500}
 /* DASHBOARD */
 .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
 .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:14px}
-.stat-n{font-size:26px;font-weight:700;margin-bottom:2px}
-.stat-l{font-size:11px;color:var(--text2)}
+.stat-n{font-size:26px;font-weight:700;margin-bottom:2px}.stat-l{font-size:11px;color:var(--text2)}
 .stat.green .stat-n{color:var(--green)}
 .filter-row{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
 .filter-row select,.filter-row input{height:34px;font-size:12px;flex:1;min-width:100px}
@@ -172,124 +169,84 @@ tr:hover td{background:var(--bg)}
 .alert{padding:10px 14px;border-radius:var(--r);font-size:12px;margin-bottom:10px}
 .alert-err{background:var(--red-bg);border:1px solid var(--red-b);color:var(--red-t)}
 .alert-info{background:var(--blue-bg);border:1px solid #B5D4F4;color:var(--blue-t);margin-bottom:14px;font-size:12px;padding:10px 14px;border-radius:var(--r)}
+/* ADMIN */
+.admin-action-btn{font-size:11px;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:inherit;border:1px solid}
+.admin-action-btn.del{color:var(--red-t);border-color:var(--red-b);background:none}
+.admin-action-btn.del:hover{background:var(--red-bg)}
 </style>
 </head>
 <body>
-
+ 
 <!-- LOGIN -->
 <div id="scr-login" class="screen active">
   <div class="login-bg">
     <div class="login-card">
       <div class="login-logo">
-        <div class="logo-mark">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <div style="font-size:20px;font-weight:700">WorkPlace</div>
-          <div style="font-size:12px;color:var(--text2);margin-top:1px">Space reservation system</div>
-        </div>
+        <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div><div style="font-size:20px;font-weight:700">WorkPlace</div><div style="font-size:12px;color:var(--text2);margin-top:1px">Space reservation system</div></div>
       </div>
       <h2>Welcome</h2>
-      <p class="login-desc">Enter your details to reserve your workspace.</p>
-      <div class="field">
-        <label>First name</label>
-        <input type="text" id="i-first" placeholder="e.g. Ana"/>
-        <div class="err" id="e-first"></div>
-      </div>
-      <div class="field">
-        <label>Last name</label>
-        <input type="text" id="i-last" placeholder="e.g. Castro"/>
-        <div class="err" id="e-last"></div>
-      </div>
-      <div class="field">
-        <label>Team</label>
-        <select id="i-team">
-          <option value="">Select your team...</option>
-          <option>Finance / AR</option><option>Legal</option><option>Operations</option>
-          <option>Technology</option><option>HR</option><option>Management</option>
-        </select>
-        <div class="err" id="e-team"></div>
-      </div>
-      <div class="field">
-        <label>Manager <span style="font-weight:400;color:var(--text3)">(optional)</span></label>
-        <input type="text" id="i-mgr" placeholder="e.g. Roberto Salas"/>
-      </div>
+      <p class="login-desc">Enter your name to access and reserve your workspace.</p>
+      <div class="admin-hint">Admin access: type <strong>admin2024</strong> in the Manager field</div>
+      <div class="field"><label>First name</label><input type="text" id="i-first" placeholder="e.g. Ana"/><div class="err" id="e-first"></div></div>
+      <div class="field"><label>Last name</label><input type="text" id="i-last" placeholder="e.g. Castro"/><div class="err" id="e-last"></div></div>
+      <div class="field"><label>Manager <span style="font-weight:400;color:var(--text3)">(optional)</span></label><input type="text" id="i-mgr" placeholder="e.g. Roberto Salas"/></div>
       <button class="btn-primary" onclick="doLogin()">Enter WorkPlace →</button>
       <p class="login-footer">By entering, you agree to the workspace use policy.<br>Contact Facilities for support.</p>
     </div>
   </div>
 </div>
-
+ 
 <!-- APP -->
 <div id="scr-app" class="screen">
   <div class="topbar">
     <div class="top-logo">
-      <div class="logo-mark" style="width:30px;height:30px;border-radius:8px">
-        <svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
+      <div class="logo-mark" style="width:30px;height:30px;border-radius:8px"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
       <span class="top-logo-name">WorkPlace</span>
     </div>
     <div class="top-right">
       <div class="avatar" id="top-avatar">AC</div>
       <span class="top-name" id="top-name">Ana Castro</span>
+      <span class="admin-pill" id="admin-pill" style="display:none">Admin</span>
       <button class="btn-signout" onclick="doLogout()">Sign out</button>
     </div>
   </div>
-
   <div class="app-body">
     <nav class="sidebar">
       <button class="nav-item active" onclick="goPage('book',this)">
-        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Book a space
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book a space
         <span class="cart-badge" id="cart-badge" style="display:none">0</span>
       </button>
       <button class="nav-item" onclick="goPage('cart',this)">
-        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.98-1.67l1.62-9.33H6"/></svg>
-        My reservation
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.98-1.67l1.62-9.33H6"/></svg>My reservation
         <span class="cart-badge" id="cart-badge2" style="display:none">0</span>
       </button>
       <button class="nav-item" onclick="goPage('mine',this)">
-        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        My bookings
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My bookings
       </button>
       <button class="nav-item" onclick="goPage('dash',this)">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-        Dashboard
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Dashboard
       </button>
-      <div class="sync-bar">
-        <div class="sync-dot" id="sync-dot"></div>
-        <span id="sync-label">Live</span>
-      </div>
+      <button class="nav-item admin-nav" id="admin-nav-btn" style="display:none" onclick="goPage('admin',this)">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Admin panel
+      </button>
+      <div class="sync-bar"><div class="sync-dot" id="sync-dot"></div><span id="sync-label">Live</span></div>
     </nav>
-
+ 
     <div class="main">
-
-      <!-- BOOK PAGE -->
+ 
+      <!-- BOOK -->
       <div id="pg-book" class="page active">
         <div class="card">
           <div class="card-title">What do you need?</div>
           <div class="type-grid">
-            <button class="type-btn active" onclick="setType('workstation',this)">
-              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Workstation
-            </button>
-            <button class="type-btn" onclick="setType('meeting_room',this)">
-              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Meeting room
-            </button>
-            <button class="type-btn" onclick="setType('maternity_room',this)">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/></svg>Maternity
-            </button>
-            <button class="type-btn" onclick="setType('parking_slot',this)">
-              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Parking
-            </button>
-            <button class="type-btn" onclick="setType('phone_booth',this)">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Phone booth
-            </button>
+            <button class="type-btn active" onclick="setType('workstation',this)"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Workstation</button>
+            <button class="type-btn" onclick="setType('meeting_room',this)"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Meeting room</button>
+            <button class="type-btn" onclick="setType('maternity_room',this)"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/></svg>Maternity</button>
+            <button class="type-btn" onclick="setType('parking_slot',this)"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Parking</button>
+            <button class="type-btn" onclick="setType('phone_booth',this)"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Phone booth</button>
           </div>
-          <div class="date-row">
-            <label>Date</label>
-            <input type="date" id="bk-date"/>
-            <button class="btn-see" onclick="showMap()">View floor map</button>
-          </div>
+          <div class="date-row"><label>Date</label><input type="date" id="bk-date"/><button class="btn-see" onclick="showMap()">View floor map</button></div>
         </div>
         <div class="card" id="map-card" style="display:none">
           <div class="card-title" id="map-title">Floor map</div>
@@ -303,21 +260,16 @@ tr:hover td{background:var(--bg)}
         </div>
         <div id="book-cart-preview" style="display:none">
           <div class="cart-panel">
-            <div class="cart-panel-title">
-              Your reservation so far
-              <button class="btn-ghost" style="font-size:12px" onclick="goPage('cart',document.querySelector('.nav-item:nth-child(2)'))">View full cart →</button>
-            </div>
+            <div class="cart-panel-title">Your reservation so far<button class="btn-ghost" style="font-size:12px" onclick="goPage('cart',document.querySelector('.nav-item:nth-child(2)'))">View full cart →</button></div>
             <div id="book-cart-items"></div>
             <button class="btn-add-more" onclick="scrollToMap()">+ Add another space type</button>
           </div>
         </div>
       </div>
-
-      <!-- CART PAGE -->
+ 
+      <!-- CART -->
       <div id="pg-cart" class="page">
-        <div id="cart-empty-state" class="card">
-          <div class="empty">Your reservation cart is empty.<br><span style="font-size:11px;display:block;margin-top:4px">Go to "Book a space" to add spaces.</span></div>
-        </div>
+        <div id="cart-empty-state" class="card"><div class="empty">Your reservation cart is empty.<br><span style="font-size:11px;display:block;margin-top:4px">Go to "Book a space" to add spaces.</span></div></div>
         <div id="cart-full" style="display:none">
           <div class="card" style="background:var(--green-l);border-color:var(--green-b)">
             <div style="font-size:15px;font-weight:600;color:var(--green-d);margin-bottom:4px" id="cart-summary-title">Reservation summary</div>
@@ -327,41 +279,39 @@ tr:hover td{background:var(--bg)}
             <div class="card-title">Employee details</div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px">
               <div><div style="font-size:11px;color:var(--text2);margin-bottom:2px">Full name</div><div style="font-weight:500" id="cf-name"></div></div>
-              <div><div style="font-size:11px;color:var(--text2);margin-bottom:2px">Team</div><div style="font-weight:500" id="cf-team"></div></div>
               <div><div style="font-size:11px;color:var(--text2);margin-bottom:2px">Manager</div><div style="font-weight:500" id="cf-mgr"></div></div>
               <div><div style="font-size:11px;color:var(--text2);margin-bottom:2px">Date</div><div style="font-weight:500" id="cf-date"></div></div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-title">Spaces selected</div>
-            <div id="cart-items-full"></div>
+          <div class="card"><div class="card-title">Spaces selected</div><div id="cart-items-full"></div></div>
+          <!-- All-day notice -->
+          <div class="card" id="allday-card" style="display:none">
+            <div class="card-title">Booking duration</div>
+            <div class="allday-notice"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Workstations and parking slots are reserved for the full day (07:00 – 20:00)</div>
           </div>
-          <div class="card">
-            <div class="card-title">Time slot (applies to all spaces)</div>
+          <!-- Time slot — only for meeting / phone booth / maternity -->
+          <div class="card" id="time-card" style="display:none">
+            <div class="card-title">Time slot</div>
             <div class="time-inputs">
               <div><label>Start time</label>
                 <select id="c-start">
-                  <option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option>
-                  <option selected>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option>
-                  <option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option>
-                  <option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option>
-                  <option>15:00</option><option>15:30</option><option>16:00</option><option>16:30</option>
-                  <option>17:00</option><option>17:30</option><option>18:00</option>
+                  <option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option><option selected>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option><option>18:00</option>
                 </select>
               </div>
               <div><label>End time</label>
                 <select id="c-end">
-                  <option>09:30</option><option selected>10:00</option><option>10:30</option><option>11:00</option>
-                  <option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option>
-                  <option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option>
-                  <option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option>
-                  <option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option>
-                  <option>19:30</option><option>20:00</option>
+                  <option>09:30</option><option selected>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option>
                 </select>
               </div>
             </div>
-            <div id="cart-err" class="alert alert-err" style="display:none"></div>
           </div>
+          <!-- Meeting room amenities -->
+          <div class="card" id="amenities-card" style="display:none">
+            <div class="card-title">Meeting room amenities</div>
+            <div style="font-size:12px;color:var(--text2);margin-bottom:2px">Select what you need for your meeting:</div>
+            <div class="amenities-grid" id="amenities-grid"></div>
+          </div>
+          <div id="cart-err" class="alert alert-err" style="display:none"></div>
           <div style="display:flex;gap:10px;margin-bottom:14px">
             <button class="btn-ghost" style="flex:1" onclick="goPage('book',document.querySelector('.nav-item:first-child'))">← Add more spaces</button>
             <button class="btn-confirm" style="flex:2" onclick="doConfirm()">Confirm reservation</button>
@@ -382,38 +332,56 @@ tr:hover td{background:var(--bg)}
           </div>
         </div>
       </div>
-
-      <!-- MY BOOKINGS PAGE -->
-      <div id="pg-mine" class="page">
-        <div id="mine-content"></div>
-      </div>
-
-      <!-- DASHBOARD PAGE -->
+ 
+      <!-- MY BOOKINGS -->
+      <div id="pg-mine" class="page"><div id="mine-content"></div></div>
+ 
+      <!-- DASHBOARD -->
       <div id="pg-dash" class="page">
         <div class="alert-info">Showing all reservations across all employees in real time.</div>
         <div class="stat-row" id="dash-stats"></div>
         <div class="card">
           <div class="card-title">All reservations</div>
           <div class="filter-row">
-            <select id="df-type" onchange="renderDash()">
-              <option value="">All types</option>
-              <option value="workstation">Workstation</option><option value="meeting_room">Meeting room</option>
-              <option value="maternity_room">Maternity</option><option value="parking_slot">Parking</option>
-              <option value="phone_booth">Phone booth</option>
-            </select>
+            <select id="df-type" onchange="renderDash()"><option value="">All types</option><option value="workstation">Workstation</option><option value="meeting_room">Meeting room</option><option value="maternity_room">Maternity</option><option value="parking_slot">Parking</option><option value="phone_booth">Phone booth</option></select>
             <input type="date" id="df-date" onchange="renderDash()"/>
           </div>
           <div style="overflow-x:auto"><table id="dash-table"></table></div>
         </div>
       </div>
-
+ 
+      <!-- ADMIN -->
+      <div id="pg-admin" class="page">
+        <div class="card" style="background:var(--purple-bg);border-color:#AFA9EC">
+          <div style="font-size:15px;font-weight:600;color:var(--purple-t);margin-bottom:4px">Admin panel</div>
+          <div style="font-size:12px;color:#534AB7">Full control over all reservations. All changes are live immediately.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">All reservations</div>
+          <div class="filter-row">
+            <select id="af-type" onchange="renderAdmin()"><option value="">All types</option><option value="workstation">Workstation</option><option value="meeting_room">Meeting room</option><option value="maternity_room">Maternity</option><option value="parking_slot">Parking</option><option value="phone_booth">Phone booth</option></select>
+            <select id="af-status" onchange="renderAdmin()"><option value="">All statuses</option><option value="confirmed">Confirmed</option><option value="cancelled">Cancelled</option></select>
+            <input type="date" id="af-date" onchange="renderAdmin()"/>
+          </div>
+          <div style="overflow-x:auto" id="admin-table-wrap"></div>
+        </div>
+      </div>
+ 
     </div>
   </div>
 </div>
-
+ 
 <script>
-const STORAGE_KEY = 'workplace_bookings_v1';
-
+const STORAGE_KEY='workplace_bookings_v1';
+const ADMIN_PASS='admin2024';
+const ALLDAY_TYPES=['workstation','parking_slot'];
+const TIMED_TYPES=['meeting_room','phone_booth','maternity_room'];
+const AMENITY_OPTS=[
+  {id:'tea',label:'Tea',icon:'🍵'},{id:'coffee',label:'Coffee',icon:'☕'},
+  {id:'water',label:'Water',icon:'💧'},{id:'snacks',label:'Snacks',icon:'🍪'},
+  {id:'projector',label:'Projector',icon:'📽️'},{id:'whiteboard',label:'Whiteboard',icon:'📋'},
+  {id:'video',label:'Video call setup',icon:'📹'},{id:'catering',label:'Catering',icon:'🍽️'},
+];
 const RES=[
   {id:'WS_1',n:'WS - 1',type:'workstation',erg:false,col:0,row:0},{id:'WS_2',n:'WS - 2',type:'workstation',erg:false,col:0,row:1},
   {id:'WS_3',n:'WS - 3',type:'workstation',erg:false,col:0,row:2},{id:'WS_4',n:'WS - 4',type:'workstation',erg:false,col:1,row:1},
@@ -433,16 +401,11 @@ const RES=[
   {id:'PB_1',n:'PB - 1',type:'phone_booth',erg:false},{id:'PB_2',n:'PB - 2',type:'phone_booth',erg:false},{id:'PB_3',n:'PB - 3',type:'phone_booth',erg:false},
   {id:'MR_1',n:'MR - 1',type:'maternity_room',erg:false},
   {id:'Fundadores',n:'Fundadores',type:'meeting_room',erg:false},
-  {id:'PL_1',n:'PL-1',type:'parking_slot',erg:false,pr:0},{id:'PL_2',n:'PL-2',type:'parking_slot',erg:false,pr:0},
-  {id:'PL_3',n:'PL-3',type:'parking_slot',erg:false,pr:0},{id:'PL_4',n:'PL-4',type:'parking_slot',erg:false,pr:0},
-  {id:'PL_5',n:'PL-5',type:'parking_slot',erg:false,pr:0},{id:'PL_6',n:'PL-6',type:'parking_slot',erg:false,pr:0},
-  {id:'PL_7',n:'PL-7',type:'parking_slot',erg:false,pr:0},{id:'PL_8',n:'PL-8',type:'parking_slot',erg:false,pr:0},
-  {id:'PL_9',n:'PL-9',type:'parking_slot',erg:false,pr:1},{id:'PL_10',n:'PL-10',type:'parking_slot',erg:false,pr:1},
-  {id:'PL_11',n:'PL-11',type:'parking_slot',erg:false,pr:1},{id:'PL_12',n:'PL-12',type:'parking_slot',erg:false,pr:1},
-  {id:'PL_13',n:'PL-13',type:'parking_slot',erg:false,pr:1},{id:'PL_14',n:'PL-14',type:'parking_slot',erg:false,pr:1},
-  {id:'PL_15',n:'PL-15',type:'parking_slot',erg:false,pr:1},{id:'PL_16',n:'PL-16',type:'parking_slot',erg:false,pr:1},
+  {id:'PL_1',n:'PL-1',type:'parking_slot',erg:false,pr:0},{id:'PL_2',n:'PL-2',type:'parking_slot',erg:false,pr:0},{id:'PL_3',n:'PL-3',type:'parking_slot',erg:false,pr:0},{id:'PL_4',n:'PL-4',type:'parking_slot',erg:false,pr:0},
+  {id:'PL_5',n:'PL-5',type:'parking_slot',erg:false,pr:0},{id:'PL_6',n:'PL-6',type:'parking_slot',erg:false,pr:0},{id:'PL_7',n:'PL-7',type:'parking_slot',erg:false,pr:0},{id:'PL_8',n:'PL-8',type:'parking_slot',erg:false,pr:0},
+  {id:'PL_9',n:'PL-9',type:'parking_slot',erg:false,pr:1},{id:'PL_10',n:'PL-10',type:'parking_slot',erg:false,pr:1},{id:'PL_11',n:'PL-11',type:'parking_slot',erg:false,pr:1},{id:'PL_12',n:'PL-12',type:'parking_slot',erg:false,pr:1},
+  {id:'PL_13',n:'PL-13',type:'parking_slot',erg:false,pr:1},{id:'PL_14',n:'PL-14',type:'parking_slot',erg:false,pr:1},{id:'PL_15',n:'PL-15',type:'parking_slot',erg:false,pr:1},{id:'PL_16',n:'PL-16',type:'parking_slot',erg:false,pr:1},
 ];
-
 const TL={workstation:'Workstation',meeting_room:'Meeting room',maternity_room:'Maternity room',parking_slot:'Parking slot',phone_booth:'Phone booth'};
 const PILL={workstation:'pill-ws',meeting_room:'pill-meeting',maternity_room:'pill-mr',parking_slot:'pill-pl',phone_booth:'pill-pb'};
 const ICONS={
@@ -452,95 +415,75 @@ const ICONS={
   maternity_room:'<svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none"><circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/></svg>',
   parking_slot:'<svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>',
 };
-
-let user={first:'',last:'',team:'',mgr:''};
-let cart=[];
-let bookings=[];
-let activeType='workstation';
-let activeDate='';
-let pollTimer=null;
-
-/* ── STORAGE (shared, persistent across all users) ── */
-async function loadBookings(){
-  try{
-    const r=await window.storage.get(STORAGE_KEY,true);
-    bookings=r?JSON.parse(r.value):[];
-  }catch(e){bookings=[];}
-  setSyncStatus(true);
-}
-
-async function saveBookings(){
-  try{
-    await window.storage.set(STORAGE_KEY,JSON.stringify(bookings),true);
-    setSyncStatus(true);
-  }catch(e){setSyncStatus(false);}
-}
-
+ 
+let user={first:'',last:'',mgr:'',isAdmin:false};
+let cart=[],bookings=[],selectedAmenities=[];
+let activeType='workstation',activeDate='',pollTimer=null;
+ 
+async function loadBookings(){try{const r=await window.storage.get(STORAGE_KEY,true);bookings=r?JSON.parse(r.value):[];}catch(e){bookings=[];}setSyncStatus(true);}
+async function saveBookings(){try{await window.storage.set(STORAGE_KEY,JSON.stringify(bookings),true);setSyncStatus(true);}catch(e){setSyncStatus(false);}}
 async function pollBookings(){
   try{
     const r=await window.storage.get(STORAGE_KEY,true);
     const fresh=r?JSON.parse(r.value):[];
     const changed=JSON.stringify(fresh)!==JSON.stringify(bookings);
-    bookings=fresh;
-    setSyncStatus(true);
+    bookings=fresh;setSyncStatus(true);
     if(changed){
-      if(document.getElementById('pg-book').classList.contains('active')&&document.getElementById('map-card').style.display!=='none') renderMap();
-      if(document.getElementById('pg-dash').classList.contains('active')) renderDash();
-      if(document.getElementById('pg-mine').classList.contains('active')) renderMine();
+      if(document.getElementById('pg-book').classList.contains('active')&&document.getElementById('map-card').style.display!=='none')renderMap();
+      if(document.getElementById('pg-dash').classList.contains('active'))renderDash();
+      if(document.getElementById('pg-mine').classList.contains('active'))renderMine();
+      if(document.getElementById('pg-admin').classList.contains('active'))renderAdmin();
     }
   }catch(e){setSyncStatus(false);}
 }
-
-function setSyncStatus(ok){
-  document.getElementById('sync-dot').className='sync-dot'+(ok?'':' stale');
-  document.getElementById('sync-label').textContent=ok?'Live':'Reconnecting…';
-}
-
+function setSyncStatus(ok){document.getElementById('sync-dot').className='sync-dot'+(ok?'':' stale');document.getElementById('sync-label').textContent=ok?'Live':'Reconnecting…';}
 function startPolling(){pollTimer=setInterval(pollBookings,15000);}
 function stopPolling(){if(pollTimer){clearInterval(pollTimer);pollTimer=null;}}
-
-/* ── HELPERS ── */
+ 
 function today(){return new Date().toISOString().split('T')[0];}
 function fullName(){return user.first+' '+user.last;}
 function initials(){return((user.first||'?')[0]+(user.last||'?')[0]).toUpperCase();}
+function isAlldayType(t){return ALLDAY_TYPES.includes(t);}
+function cartNeedsTime(){return cart.some(c=>TIMED_TYPES.includes(c.type));}
+function cartHasMeeting(){return cart.some(c=>c.type==='meeting_room');}
+function cartHasAllday(){return cart.some(c=>isAlldayType(c.type));}
 function isBooked(rid,date){return bookings.some(b=>b.spaces.some(s=>s.id===rid)&&b.date===date&&b.status==='confirmed');}
 function getBooking(rid,date){return bookings.find(b=>b.spaces.some(s=>s.id===rid)&&b.date===date&&b.status==='confirmed')||null;}
 function inCart(rid){return cart.some(c=>c.id===rid);}
-
-/* ── AUTH ── */
+ 
 async function doLogin(){
   const f=document.getElementById('i-first').value.trim();
   const l=document.getElementById('i-last').value.trim();
-  const t=document.getElementById('i-team').value;
   const m=document.getElementById('i-mgr').value.trim();
   document.getElementById('e-first').textContent=f?'':'First name is required.';
   document.getElementById('e-last').textContent=l?'':'Last name is required.';
-  document.getElementById('e-team').textContent=t?'':'Please select your team.';
-  if(!f||!l||!t)return;
-  user={first:f,last:l,team:t,mgr:m||'N/A'};
+  if(!f||!l)return;
+  const isAdmin=m===ADMIN_PASS;
+  user={first:f,last:l,mgr:isAdmin?'Administrator':m||'N/A',isAdmin};
   document.getElementById('top-avatar').textContent=initials();
+  document.getElementById('top-avatar').className='avatar'+(isAdmin?' admin-av':'');
   document.getElementById('top-name').textContent=fullName();
-  await loadBookings();
-  startPolling();
+  document.getElementById('admin-pill').style.display=isAdmin?'':'none';
+  document.getElementById('admin-nav-btn').style.display=isAdmin?'':'none';
+  await loadBookings();startPolling();
   document.getElementById('scr-login').classList.remove('active');
   document.getElementById('scr-app').classList.add('active');
   const bd=document.getElementById('bk-date');
   bd.min=today();bd.value=today();activeDate=today();
 }
-
+ 
 function doLogout(){
-  stopPolling();cart=[];
+  stopPolling();cart=[];user={first:'',last:'',mgr:'',isAdmin:false};
   document.getElementById('scr-app').classList.remove('active');
   document.getElementById('scr-login').classList.add('active');
+  document.getElementById('top-avatar').className='avatar';
   ['i-first','i-last','i-mgr'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('i-team').value='';
-  ['e-first','e-last','e-team'].forEach(id=>document.getElementById(id).textContent='');
+  ['e-first','e-last'].forEach(id=>document.getElementById(id).textContent='');
   document.getElementById('map-card').style.display='none';
   document.getElementById('book-cart-preview').style.display='none';
   updateCartBadge();
 }
-
-/* ── NAVIGATION ── */
+ 
 function goPage(pg,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
@@ -549,210 +492,169 @@ function goPage(pg,btn){
   if(pg==='mine')renderMine();
   if(pg==='dash')renderDash();
   if(pg==='cart')renderCartPage();
+  if(pg==='admin')renderAdmin();
 }
-
-/* ── BOOKING FLOW ── */
+ 
 function setType(t,btn){activeType=t;document.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
 function showMap(){activeDate=document.getElementById('bk-date').value||today();document.getElementById('map-card').style.display='block';renderMap();document.getElementById('map-card').scrollIntoView({behavior:'smooth',block:'nearest'});}
 function scrollToMap(){goPage('book',document.querySelector('.nav-item:first-child'));setTimeout(()=>document.getElementById('map-card').scrollIntoView({behavior:'smooth'}),100);}
-
+ 
 function cellSVG(type){
-  const d={
-    workstation:'<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
-    phone_booth:'<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-8.63-8.63A2 2 0 012 2h3a2 2 0 012 1.72 13 13 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 13 13 0 002.81.7A2 2 0 0122 16.92z"/>',
-    meeting_room:'<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>',
-    maternity_room:'<circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/>',
-    parking_slot:'<rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>',
-  };
+  const d={workstation:'<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',phone_booth:'<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-8.63-8.63A2 2 0 012 2h3a2 2 0 012 1.72 13 13 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 13 13 0 002.81.7A2 2 0 0122 16.92z"/>',meeting_room:'<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>',maternity_room:'<circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/>',parking_slot:'<rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>'};
   return`<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none">${d[type]||''}</svg>`;
 }
-
+ 
 function makeCell(r){
-  const bk=isBooked(r.id,activeDate);
-  const ic=inCart(r.id);
+  const bk=isBooked(r.id,activeDate),ic=inCart(r.id);
   const bi=bk?getBooking(r.id,activeDate):null;
   const cls='cell '+(ic?'sl':bk?'bk':'av');
-  return`<div class="${cls}" onclick="toggleCart('${r.id}')">
-    ${r.erg?'<div class="ergo">E</div>':''}
-    ${cellSVG(r.type)}
-    <div class="cell-lbl">${r.n}</div>
-    ${bk&&bi?`<div class="cell-sub">${bi.st}-${bi.en}</div>`:ic?'<div class="cell-sub">In cart</div>':''}
-  </div>`;
+  const sub=bk&&bi?(isAlldayType(r.type)?'All day':`${bi.st}-${bi.en}`):ic?'In cart':'';
+  return`<div class="${cls}" onclick="toggleCart('${r.id}')">${r.erg?'<div class="ergo">E</div>':''}${cellSVG(r.type)}<div class="cell-lbl">${r.n}</div>${sub?`<div class="cell-sub">${sub}</div>`:''}</div>`;
 }
-
+ 
 function toggleCart(rid){
-  const r=RES.find(x=>x.id===rid);
-  if(!r||isBooked(rid,activeDate))return;
-  if(inCart(rid)){cart=cart.filter(c=>c.id!==rid);}
-  else{cart.push({id:r.id,n:r.n,type:r.type});}
+  const r=RES.find(x=>x.id===rid);if(!r||isBooked(rid,activeDate))return;
+  if(inCart(rid)){cart=cart.filter(c=>c.id!==rid);}else{cart.push({id:r.id,n:r.n,type:r.type});}
   updateCartBadge();renderMap();renderBookCartPreview();
 }
-
-function updateCartBadge(){
-  const n=cart.length;
-  ['cart-badge','cart-badge2'].forEach(id=>{const el=document.getElementById(id);el.style.display=n>0?'':'none';el.textContent=n;});
-}
-
+function updateCartBadge(){const n=cart.length;['cart-badge','cart-badge2'].forEach(id=>{const el=document.getElementById(id);el.style.display=n>0?'':'none';el.textContent=n;});}
+ 
 function renderMap(){
-  const list=RES.filter(r=>r.type===activeType);
-  const mc=document.getElementById('map-content');
+  const list=RES.filter(r=>r.type===activeType),mc=document.getElementById('map-content');
   const titles={workstation:'Work stations — 30 spots',phone_booth:'Phone booths — 3 booths',meeting_room:'Meeting room — Fundadores',maternity_room:'Maternity room — MR-1',parking_slot:'Parking lots — 16 spaces'};
   document.getElementById('map-title').textContent=titles[activeType]||'Floor map';
   if(activeType==='workstation'){
-    const mp={};list.forEach(r=>{mp[r.col+','+r.row]=r;});
-    const maxRow=Math.max(...list.map(r=>r.row));
+    const mp={};list.forEach(r=>{mp[r.col+','+r.row]=r;});const maxRow=Math.max(...list.map(r=>r.row));
     let h='<div class="ws-groups">';
-    [[0,1],[2,3],[4,5],[6,7],[8,9]].forEach(([ca,cb])=>{
-      h+='<div class="ws-group">';
-      for(let row=0;row<=maxRow;row++){
-        h+='<div class="ws-pair">';
-        [ca,cb].forEach(col=>{const r=mp[col+','+row];h+=r?makeCell(r):`<div style="width:60px;height:54px;flex-shrink:0"></div>`;});
-        h+='</div>';
-      }
-      h+='</div>';
-    });
+    [[0,1],[2,3],[4,5],[6,7],[8,9]].forEach(([ca,cb])=>{h+='<div class="ws-group">';for(let row=0;row<=maxRow;row++){h+='<div class="ws-pair">';[ca,cb].forEach(col=>{const r=mp[col+','+row];h+=r?makeCell(r):`<div style="width:60px;height:54px;flex-shrink:0"></div>`;});h+='</div>';}h+='</div>';});
     mc.innerHTML=h+'</div>';
   }else if(activeType==='phone_booth'){
     mc.innerHTML='<div class="section-label">Phone booths <span>3 booths</span></div><div class="pb-row">'+list.map(r=>makeCell(r)).join('')+'</div>';
   }else if(activeType==='meeting_room'){
-    const r=list[0];const bk=isBooked(r.id,activeDate);const ic=inCart(r.id);
-    const bi=bk?getBooking(r.id,activeDate):null;
+    const r=list[0],bk=isBooked(r.id,activeDate),ic=inCart(r.id),bi=bk?getBooking(r.id,activeDate):null;
     const cls='cell '+(ic?'sl':bk?'bk':'av');
-    mc.innerHTML=`<div class="section-label">Meeting room</div>
-      <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
-        <div class="${cls}" style="width:120px;height:84px" onclick="toggleCart('${r.id}')">
-          ${cellSVG(r.type)}<div class="cell-lbl" style="font-size:10px">${r.n}</div>
-          <div class="cell-sub">25 pax</div>${bk&&bi?`<div class="cell-sub">${bi.st}-${bi.en}</div>`:ic?'<div class="cell-sub">In cart</div>':''}
-        </div>
-        <div style="font-size:12px;color:var(--text2);line-height:1.8;max-width:260px">
-          <div style="font-weight:600;color:var(--text);margin-bottom:4px">Fundadores meeting room</div>
-          Theater (25 pax) · Classroom (15 pax)<br>U-shape (15 pax) · Boardroom (15 pax)<br>
-          <span style="color:var(--green);font-size:11px">Tea · Coffee · Water · Snacks available</span>
-        </div>
-      </div>`;
+    mc.innerHTML=`<div class="section-label">Meeting room</div><div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
+      <div class="${cls}" style="width:120px;height:84px" onclick="toggleCart('${r.id}')">${cellSVG(r.type)}<div class="cell-lbl" style="font-size:10px">${r.n}</div><div class="cell-sub">25 pax</div>${bk&&bi?`<div class="cell-sub">${bi.st}-${bi.en}</div>`:ic?'<div class="cell-sub">In cart</div>':''}</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.8;max-width:260px"><div style="font-weight:600;color:var(--text);margin-bottom:4px">Fundadores meeting room</div>Theater (25 pax) · Classroom (15 pax)<br>U-shape (15 pax) · Boardroom (15 pax)<br><span style="font-size:11px;color:var(--text3)">Select amenities at checkout</span></div>
+    </div>`;
   }else if(activeType==='maternity_room'){
     mc.innerHTML='<div class="section-label">Maternity room <span>1 room</span></div><div style="display:flex;gap:8px">'+list.map(r=>makeCell(r)).join('')+'</div>';
   }else if(activeType==='parking_slot'){
     const r0=list.filter(r=>r.pr===0),r1=list.filter(r=>r.pr===1);
-    mc.innerHTML=`<div class="section-label">Row A — PL-1 to PL-8</div><div class="pl-row-cells" style="margin-bottom:12px">${r0.map(r=>makeCell(r)).join('')}</div>
-      <div class="section-label">Row B — PL-9 to PL-16</div><div class="pl-row-cells">${r1.map(r=>makeCell(r)).join('')}</div>`;
+    mc.innerHTML=`<div class="section-label">Row A — PL-1 to PL-8 <span>All day</span></div><div class="pl-row-cells" style="margin-bottom:12px">${r0.map(r=>makeCell(r)).join('')}</div><div class="section-label">Row B — PL-9 to PL-16 <span>All day</span></div><div class="pl-row-cells">${r1.map(r=>makeCell(r)).join('')}</div>`;
   }
 }
-
+ 
 function renderBookCartPreview(){
   const preview=document.getElementById('book-cart-preview');
   if(cart.length===0){preview.style.display='none';return;}
   preview.style.display='block';
-  document.getElementById('book-cart-items').innerHTML=cart.map(c=>`
-    <div class="cart-item">
-      <div class="cart-item-icon">${ICONS[c.type]}</div>
-      <div class="cart-item-info"><div class="cart-item-name">${c.n}</div><div class="cart-item-type">${TL[c.type]}</div></div>
-      <button class="cart-item-rm" onclick="toggleCart('${c.id}')">×</button>
-    </div>`).join('');
+  document.getElementById('book-cart-items').innerHTML=cart.map(c=>`<div class="cart-item"><div class="cart-item-icon">${ICONS[c.type]}</div><div class="cart-item-info"><div class="cart-item-name">${c.n}</div><div class="cart-item-type">${TL[c.type]}${isAlldayType(c.type)?' · All day':''}</div></div><button class="cart-item-rm" onclick="toggleCart('${c.id}')">×</button></div>`).join('');
 }
-
+ 
 function renderCartPage(){
-  const empty=document.getElementById('cart-empty-state');
-  const full=document.getElementById('cart-full');
-  const success=document.getElementById('cart-success');
+  const empty=document.getElementById('cart-empty-state'),full=document.getElementById('cart-full'),success=document.getElementById('cart-success');
   success.style.display='none';
   if(cart.length===0){empty.style.display='block';full.style.display='none';return;}
   empty.style.display='none';full.style.display='block';
   document.getElementById('cf-name').textContent=fullName();
-  document.getElementById('cf-team').textContent=user.team;
   document.getElementById('cf-mgr').textContent=user.mgr;
   const d=new Date(activeDate+'T00:00:00');
   document.getElementById('cf-date').textContent=d.toLocaleDateString('en-CR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
   document.getElementById('cart-summary-title').textContent=`${cart.length} space${cart.length>1?'s':''} in your reservation`;
-  document.getElementById('cart-summary-sub').textContent='Review your selections, set your time, and confirm.';
-  document.getElementById('cart-items-full').innerHTML=cart.map(c=>`
-    <div class="cart-item" style="margin-bottom:8px">
-      <div class="cart-item-icon">${ICONS[c.type]}</div>
-      <div class="cart-item-info"><div class="cart-item-name">${c.n}</div><div class="cart-item-type">${TL[c.type]}</div></div>
-      <button class="cart-item-rm" onclick="removeFromCartPage('${c.id}')">×</button>
-    </div>`).join('');
+  document.getElementById('cart-summary-sub').textContent='Review your selections and confirm.';
+  document.getElementById('cart-items-full').innerHTML=cart.map(c=>`<div class="cart-item" style="margin-bottom:8px"><div class="cart-item-icon">${ICONS[c.type]}</div><div class="cart-item-info"><div class="cart-item-name">${c.n}</div><div class="cart-item-type">${TL[c.type]}${isAlldayType(c.type)?' · All day':''}</div></div><button class="cart-item-rm" onclick="removeFromCartPage('${c.id}')">×</button></div>`).join('');
+  // Show/hide appropriate cards
+  document.getElementById('allday-card').style.display=cartHasAllday()?'block':'none';
+  document.getElementById('time-card').style.display=cartNeedsTime()?'block':'none';
+  const ac=document.getElementById('amenities-card');
+  if(cartHasMeeting()){
+    ac.style.display='block';selectedAmenities=[];
+    document.getElementById('amenities-grid').innerHTML=AMENITY_OPTS.map(a=>`<div class="amenity-opt" id="ao-${a.id}" onclick="toggleAmenity('${a.id}')"><span style="font-size:15px">${a.icon}</span><span>${a.label}</span><div class="a-box"><svg class="a-check" viewBox="0 0 10 8"><polyline points="1 4 3.5 7 9 1"/></svg></div></div>`).join('');
+  }else{ac.style.display='none';}
   document.getElementById('cart-err').style.display='none';
 }
-
-function removeFromCartPage(rid){
-  cart=cart.filter(c=>c.id!==rid);updateCartBadge();renderBookCartPreview();renderCartPage();
-  if(document.getElementById('pg-book').classList.contains('active'))renderMap();
+ 
+function toggleAmenity(id){
+  const el=document.getElementById('ao-'+id);
+  if(selectedAmenities.includes(id)){selectedAmenities=selectedAmenities.filter(a=>a!==id);el.classList.remove('on');}
+  else{selectedAmenities.push(id);el.classList.add('on');}
 }
-
+ 
+function removeFromCartPage(rid){cart=cart.filter(c=>c.id!==rid);updateCartBadge();renderBookCartPreview();renderCartPage();if(document.getElementById('pg-book').classList.contains('active'))renderMap();}
+ 
 async function doConfirm(){
-  const st=document.getElementById('c-start').value;
-  const en=document.getElementById('c-end').value;
   const errEl=document.getElementById('cart-err');
-  if(st>=en){errEl.style.display='block';errEl.textContent='End time must be after start time.';return;}
+  let st='07:00',en='20:00';
+  if(cartNeedsTime()){
+    st=document.getElementById('c-start').value;en=document.getElementById('c-end').value;
+    if(st>=en){errEl.style.display='block';errEl.textContent='End time must be after start time.';return;}
+  }
   await loadBookings();
   let conflict=null;
-  cart.forEach(c=>{
-    if(bookings.some(b=>b.spaces.some(s=>s.id===c.id)&&b.date===activeDate&&b.status==='confirmed'&&!(en<=b.st||st>=b.en)))conflict=c.n;
-  });
+  cart.forEach(c=>{if(bookings.some(b=>b.spaces.some(s=>s.id===c.id)&&b.date===activeDate&&b.status==='confirmed'&&!(en<=b.st||st>=b.en)))conflict=c.n;});
   if(conflict){errEl.style.display='block';errEl.textContent=`"${conflict}" is already booked at that time. Please adjust.`;return;}
   errEl.style.display='none';
-  bookings.push({id:'bk'+Date.now(),spaces:cart.map(c=>({id:c.id,n:c.n,type:c.type})),user:fullName(),team:user.team,date:activeDate,st,en,status:'confirmed'});
+  const amenityLabels=AMENITY_OPTS.filter(a=>selectedAmenities.includes(a.id)).map(a=>a.icon+' '+a.label);
+  const allday=!cartNeedsTime();
+  bookings.push({id:'bk'+Date.now(),spaces:cart.map(c=>({id:c.id,n:c.n,type:c.type})),user:fullName(),mgr:user.mgr,date:activeDate,st,en,status:'confirmed',amenities:amenityLabels,allday});
   await saveBookings();
-  document.getElementById('suc-msg').textContent=`Booked for ${st} – ${en} on ${activeDate}`;
+  const timeStr=allday?'All day':`${st} – ${en}`;
+  document.getElementById('suc-msg').textContent=`Booked for ${timeStr} on ${activeDate}`;
   document.getElementById('suc-spaces').innerHTML=cart.map(c=>`<span class="booking-space-pill ${PILL[c.type]}">${ICONS[c.type]} ${c.n}</span>`).join('');
-  cart=[];updateCartBadge();renderBookCartPreview();
-  document.getElementById('cart-full').style.display='none';
-  document.getElementById('cart-empty-state').style.display='none';
-  document.getElementById('cart-success').style.display='block';
+  cart=[];selectedAmenities=[];updateCartBadge();renderBookCartPreview();
+  document.getElementById('cart-full').style.display='none';document.getElementById('cart-empty-state').style.display='none';document.getElementById('cart-success').style.display='block';
 }
-
-function newBooking(){
-  document.getElementById('cart-success').style.display='none';
-  document.getElementById('cart-empty-state').style.display='block';
-  document.getElementById('map-card').style.display='none';
-  goPage('book',document.querySelector('.nav-item:first-child'));
-}
-
+ 
+function newBooking(){document.getElementById('cart-success').style.display='none';document.getElementById('cart-empty-state').style.display='block';document.getElementById('map-card').style.display='none';goPage('book',document.querySelector('.nav-item:first-child'));}
+ 
 function renderMine(){
-  const mine=bookings.filter(b=>b.user===fullName());
-  const el=document.getElementById('mine-content');
+  const mine=bookings.filter(b=>b.user===fullName()),el=document.getElementById('mine-content');
   if(!mine.length){el.innerHTML='<div class="card"><div class="empty">No bookings yet. Go to "Book a space" to make a reservation.</div></div>';return;}
-  el.innerHTML=mine.map(b=>`
-    <div class="booking-card">
-      <div class="booking-header">
-        <div><div style="font-size:15px;font-weight:600;margin-bottom:3px">${b.spaces.length} space${b.spaces.length>1?'s':''} reserved</div>
-        <div style="font-size:12px;color:var(--text2)">${b.date} · ${b.st} – ${b.en}</div></div>
-        <div style="font-size:12px;font-weight:500;color:${b.status==='confirmed'?'var(--green)':'var(--red-t)'}">
-          <span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}
-        </div>
-      </div>
-      <div class="booking-spaces">${b.spaces.map(s=>`<span class="booking-space-pill ${PILL[s.type]}">${ICONS[s.type]} ${s.n}</span>`).join('')}</div>
-      ${b.status==='confirmed'?`<button class="btn-cancel-booking" onclick="cancelBk('${b.id}')">Cancel reservation</button>`:''}
-    </div>`).join('');
+  el.innerHTML=mine.map(b=>`<div class="booking-card">
+    <div class="booking-header">
+      <div><div style="font-size:15px;font-weight:600;margin-bottom:3px">${b.spaces.length} space${b.spaces.length>1?'s':''} reserved</div><div style="font-size:12px;color:var(--text2)">${b.date} · ${b.allday?'All day':b.st+' – '+b.en}</div></div>
+      <div style="font-size:12px;font-weight:500;color:${b.status==='confirmed'?'var(--green)':'var(--red-t)'}"><span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}</div>
+    </div>
+    <div class="booking-spaces">${b.spaces.map(s=>`<span class="booking-space-pill ${PILL[s.type]}">${ICONS[s.type]} ${s.n}</span>`).join('')}</div>
+    ${b.amenities&&b.amenities.length?`<div class="amenity-pills">${b.amenities.map(a=>`<span class="amenity-pill-sm">${a}</span>`).join('')}</div>`:''}
+    ${b.status==='confirmed'&&b.user===fullName()?`<button class="btn-cancel-booking" onclick="cancelMine('${b.id}')">Cancel reservation</button>`:''}
+  </div>`).join('');
 }
-
-async function cancelBk(id){
-  const b=bookings.find(x=>x.id===id);if(b)b.status='cancelled';
-  await saveBookings();renderMine();
+ 
+async function cancelMine(id){
+  const b=bookings.find(x=>x.id===id);
+  if(b&&b.user===fullName()){b.status='cancelled';await saveBookings();}
+  renderMine();
 }
-
+ 
 function renderDash(){
-  const conf=bookings.filter(b=>b.status==='confirmed');
-  const td=today();
+  const conf=bookings.filter(b=>b.status==='confirmed'),td=today();
   document.getElementById('dash-stats').innerHTML=[
-    {n:conf.length,l:'Total confirmed',cls:'green'},
-    {n:conf.filter(b=>b.date===td).length,l:'Today',cls:''},
-    {n:conf.reduce((a,b)=>a+b.spaces.length,0),l:'Spaces booked',cls:''},
-    {n:new Set(conf.map(b=>b.user)).size,l:'Active employees',cls:''}
+    {n:conf.length,l:'Total confirmed',cls:'green'},{n:conf.filter(b=>b.date===td).length,l:'Today',cls:''},
+    {n:conf.reduce((a,b)=>a+b.spaces.length,0),l:'Spaces booked',cls:''},{n:new Set(conf.map(b=>b.user)).size,l:'Active employees',cls:''}
   ].map(s=>`<div class="stat ${s.cls}"><div class="stat-n">${s.n}</div><div class="stat-l">${s.l}</div></div>`).join('');
-  const tf=document.getElementById('df-type').value;
-  const df=document.getElementById('df-date').value;
+  const tf=document.getElementById('df-type').value,df=document.getElementById('df-date').value;
   let list=bookings.filter(b=>{if(df&&b.date!==df)return false;if(tf)return b.spaces.some(s=>s.type===tf);return true;});
   const tbl=document.getElementById('dash-table');
   if(!list.length){tbl.innerHTML='<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--text3)">No reservations match.</td></tr>';return;}
-  tbl.innerHTML=`<thead><tr><th style="width:15%">Employee</th><th style="width:12%">Team</th><th style="width:30%">Spaces</th><th style="width:12%">Date</th><th style="width:12%">Time</th><th style="width:10%">Status</th></tr></thead><tbody>`+
-    list.map(b=>`<tr><td>${b.user}</td><td>${b.team}</td>
-      <td style="overflow:visible;white-space:normal"><div style="display:flex;flex-wrap:wrap;gap:4px">${b.spaces.map(s=>`<span class="badge ${PILL[s.type]}" style="gap:3px">${ICONS[s.type]} ${s.n}</span>`).join('')}</div></td>
-      <td>${b.date}</td><td>${b.st}–${b.en}</td>
-      <td><span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}</td>
-    </tr>`).join('')+'</tbody>';
+  tbl.innerHTML=`<thead><tr><th style="width:14%">Employee</th><th style="width:30%">Spaces</th><th style="width:11%">Date</th><th style="width:13%">Time</th><th style="width:22%">Amenities</th><th style="width:10%">Status</th></tr></thead><tbody>`+
+  list.map(b=>`<tr><td>${b.user}</td><td style="overflow:visible;white-space:normal"><div style="display:flex;flex-wrap:wrap;gap:3px">${b.spaces.map(s=>`<span class="badge ${PILL[s.type]}" style="gap:3px">${ICONS[s.type]} ${s.n}</span>`).join('')}</div></td><td>${b.date}</td><td>${b.allday?'All day':b.st+'–'+b.en}</td><td style="white-space:normal;font-size:11px;color:var(--text2)">${b.amenities&&b.amenities.length?b.amenities.join(', '):'—'}</td><td><span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}</td></tr>`).join('')+'</tbody>';
 }
-
+ 
+function renderAdmin(){
+  const tf=document.getElementById('af-type').value,df=document.getElementById('af-date').value,sf=document.getElementById('af-status').value;
+  let list=bookings.filter(b=>{if(sf&&b.status!==sf)return false;if(df&&b.date!==df)return false;if(tf)return b.spaces.some(s=>s.type===tf);return true;});
+  const wrap=document.getElementById('admin-table-wrap');
+  if(!list.length){wrap.innerHTML='<div class="empty">No reservations match this filter.</div>';return;}
+  wrap.innerHTML=`<table><thead><tr><th style="width:13%">Employee</th><th style="width:27%">Spaces</th><th style="width:10%">Date</th><th style="width:12%">Time</th><th style="width:18%">Amenities</th><th style="width:9%">Status</th><th style="width:11%">Action</th></tr></thead><tbody>`+
+  list.map(b=>`<tr><td>${b.user}</td><td style="overflow:visible;white-space:normal"><div style="display:flex;flex-wrap:wrap;gap:3px">${b.spaces.map(s=>`<span class="badge ${PILL[s.type]}" style="gap:3px;font-size:9px">${ICONS[s.type]} ${s.n}</span>`).join('')}</div></td><td>${b.date}</td><td>${b.allday?'All day':b.st+'–'+b.en}</td><td style="white-space:normal;font-size:11px;color:var(--text2)">${b.amenities&&b.amenities.length?b.amenities.join(' '):' — '}</td><td><span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}</td>
+  <td>${b.status==='confirmed'?`<button class="admin-action-btn del" onclick="adminCancel('${b.id}')">Cancel</button>`:`<button class="admin-action-btn del" onclick="adminDelete('${b.id}')">Delete</button>`}</td></tr>`).join('')+'</tbody></table>';
+}
+ 
+async function adminCancel(id){if(!confirm('Cancel this reservation?'))return;const b=bookings.find(x=>x.id===id);if(b)b.status='cancelled';await saveBookings();renderAdmin();renderDash();}
+async function adminDelete(id){if(!confirm('Permanently delete this entry?'))return;bookings=bookings.filter(x=>x.id!==id);await saveBookings();renderAdmin();renderDash();}
+ 
 document.getElementById('bk-date').min=today();
 document.getElementById('bk-date').value=today();
 </script>
