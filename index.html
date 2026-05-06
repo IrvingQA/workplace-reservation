@@ -21,7 +21,6 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 input[type=text],input[type=date],select{width:100%;height:40px;border:1px solid var(--border2);border-radius:var(--r);background:#fff;color:var(--text);font-family:inherit;font-size:14px;padding:0 12px;outline:none}
 input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(29,158,117,0.12)}
 button{font-family:inherit;cursor:pointer}
-/* LOGIN */
 .login-bg{flex:1;display:flex;align-items:center;justify-content:center;padding:24px;background:var(--bg)}
 .login-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rxl);padding:36px 32px;width:100%;max-width:400px}
 .login-logo{display:flex;align-items:center;gap:12px;margin-bottom:32px}
@@ -36,7 +35,6 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .btn-primary:hover{background:#0F6E56}
 .login-footer{margin-top:20px;font-size:11px;color:var(--text3);text-align:center;line-height:1.7}
 .admin-hint{background:var(--purple-bg);border:1px solid #AFA9EC;border-radius:var(--r);padding:8px 12px;font-size:11px;color:var(--purple-t);margin-bottom:16px;text-align:center}
-/* APP SHELL */
 .topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:20}
 .top-logo{display:flex;align-items:center;gap:10px}
 .top-logo .logo-mark{width:30px;height:30px;border-radius:8px}
@@ -49,7 +47,6 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .btn-signout{font-size:12px;color:var(--red-t);background:none;border:1px solid var(--red-b);border-radius:6px;padding:4px 10px}
 .btn-signout:hover{background:var(--red-bg)}
 .app-body{flex:1;display:flex;overflow:hidden}
-/* SIDEBAR */
 .sidebar{width:200px;background:var(--surface);border-right:1px solid var(--border);padding:16px 10px;display:flex;flex-direction:column;gap:4px;flex-shrink:0}
 .nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r);border:none;background:transparent;font-size:13px;color:var(--text2);cursor:pointer;width:100%;text-align:left;font-family:inherit;position:relative;transition:all .12s}
 .nav-item svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
@@ -63,12 +60,10 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .sync-bar{margin-top:auto;padding:10px 4px 0;font-size:11px;color:var(--text3);text-align:center;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:5px}
 .sync-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
 .sync-dot.stale{background:var(--amber-t)}
-/* MAIN */
 .main{flex:1;overflow-y:auto;padding:20px}
 .page{display:none}.page.active{display:block}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:16px 18px;margin-bottom:14px}
 .card-title{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:14px}
-/* TYPE GRID */
 .type-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}
 .type-btn{padding:10px 4px;border-radius:var(--r);border:1px solid var(--border2);background:#fff;cursor:pointer;text-align:center;font-size:11px;color:var(--text2);font-family:inherit;transition:all .12s;display:flex;flex-direction:column;align-items:center;gap:5px}
 .type-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -79,10 +74,8 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .date-row input{height:38px;flex:1}
 .btn-see{height:38px;padding:0 18px;background:var(--green);color:#fff;border:none;border-radius:var(--r);font-size:13px;font-weight:600;white-space:nowrap}
 .btn-see:hover{background:#0F6E56}
-/* ALL DAY */
 .allday-notice{display:flex;align-items:center;gap:8px;background:var(--amber-bg);border:1px solid #FAC775;border-radius:var(--r);padding:10px 14px;font-size:12px;color:var(--amber-t);font-weight:500;margin-bottom:12px}
 .allday-notice svg{width:15px;height:15px;stroke:var(--amber-t);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-/* AMENITIES */
 .amenities-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .amenity-opt{display:flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--r);cursor:pointer;font-size:13px;color:var(--text);transition:all .12s;user-select:none}
 .amenity-opt:hover{border-color:var(--green-b);background:var(--green-l)}
@@ -91,7 +84,6 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .amenity-opt.on .a-box{background:var(--green);border-color:var(--green)}
 .a-check{display:none;width:10px;height:10px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .amenity-opt.on .a-check{display:block}
-/* FLOOR MAP */
 .map-wrap{overflow-x:auto;padding-bottom:8px}
 .section-label{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .section-label span{background:var(--bg);border-radius:4px;padding:2px 7px;font-size:10px;border:1px solid var(--border)}
@@ -111,7 +103,6 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
 .leg{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2)}
 .leg-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
-/* CART */
 .cart-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:16px 18px;margin-bottom:14px}
 .cart-panel-title{font-size:13px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}
 .cart-item{display:flex;align-items:center;gap:10px;padding:9px 10px;background:var(--green-l);border:1px solid var(--green-b);border-radius:var(--r);margin-bottom:7px}
@@ -131,11 +122,9 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .btn-confirm:hover{background:#0F6E56}
 .btn-ghost{height:36px;padding:0 16px;background:#fff;border:1px solid var(--border2);border-radius:var(--r);font-size:13px;color:var(--text)}
 .btn-ghost:hover{background:var(--bg)}
-/* SUCCESS */
 .success-wrap{text-align:center;padding:32px 20px}
 .success-ring{width:64px;height:64px;border-radius:50%;background:var(--green-l);border:2px solid var(--green-b);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
 .success-ring svg{width:28px;height:28px;stroke:var(--green);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-/* BOOKINGS */
 .booking-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:14px 16px;margin-bottom:10px}
 .booking-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px}
 .booking-spaces{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
@@ -150,9 +139,7 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .dot-red{display:inline-block;width:6px;height:6px;border-radius:50%;background:#E24B4A;margin-right:4px;vertical-align:middle}
 .btn-cancel-booking{font-size:11px;color:var(--red-t);background:none;border:1px solid var(--red-b);border-radius:4px;padding:3px 10px;cursor:pointer;margin-top:8px;font-family:inherit}
 .btn-cancel-booking:hover{background:var(--red-bg)}
-.amenity-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
-.amenity-pill-sm{background:var(--amber-bg);color:var(--amber-t);border-radius:10px;font-size:10px;padding:2px 8px;font-weight:500}
-/* DASHBOARD */
+.amenity-pill-sm{background:var(--amber-bg);color:var(--amber-t);border-radius:10px;font-size:10px;padding:2px 8px;font-weight:500;display:inline-block;margin:2px}
 .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
 .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:14px}
 .stat-n{font-size:26px;font-weight:700;margin-bottom:2px}.stat-l{font-size:11px;color:var(--text2)}
@@ -169,14 +156,16 @@ tr:hover td{background:var(--bg)}
 .alert{padding:10px 14px;border-radius:var(--r);font-size:12px;margin-bottom:10px}
 .alert-err{background:var(--red-bg);border:1px solid var(--red-b);color:var(--red-t)}
 .alert-info{background:var(--blue-bg);border:1px solid #B5D4F4;color:var(--blue-t);margin-bottom:14px;font-size:12px;padding:10px 14px;border-radius:var(--r)}
-/* ADMIN */
 .admin-action-btn{font-size:11px;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:inherit;border:1px solid}
 .admin-action-btn.del{color:var(--red-t);border-color:var(--red-b);background:none}
 .admin-action-btn.del:hover{background:var(--red-bg)}
+.loading-screen{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--text2);font-size:13px}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
- 
+
 <!-- LOGIN -->
 <div id="scr-login" class="screen active">
   <div class="login-bg">
@@ -196,7 +185,7 @@ tr:hover td{background:var(--bg)}
     </div>
   </div>
 </div>
- 
+
 <!-- APP -->
 <div id="scr-app" class="screen">
   <div class="topbar">
@@ -230,11 +219,10 @@ tr:hover td{background:var(--bg)}
       <button class="nav-item admin-nav" id="admin-nav-btn" style="display:none" onclick="goPage('admin',this)">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Admin panel
       </button>
-      <div class="sync-bar"><div class="sync-dot" id="sync-dot"></div><span id="sync-label">Live</span></div>
+      <div class="sync-bar"><div class="sync-dot" id="sync-dot"></div><span id="sync-label">Connecting...</span></div>
     </nav>
- 
     <div class="main">
- 
+
       <!-- BOOK -->
       <div id="pg-book" class="page active">
         <div class="card">
@@ -266,7 +254,7 @@ tr:hover td{background:var(--bg)}
           </div>
         </div>
       </div>
- 
+
       <!-- CART -->
       <div id="pg-cart" class="page">
         <div id="cart-empty-state" class="card"><div class="empty">Your reservation cart is empty.<br><span style="font-size:11px;display:block;margin-top:4px">Go to "Book a space" to add spaces.</span></div></div>
@@ -284,12 +272,10 @@ tr:hover td{background:var(--bg)}
             </div>
           </div>
           <div class="card"><div class="card-title">Spaces selected</div><div id="cart-items-full"></div></div>
-          <!-- All-day notice -->
           <div class="card" id="allday-card" style="display:none">
             <div class="card-title">Booking duration</div>
             <div class="allday-notice"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Workstations and parking slots are reserved for the full day (07:00 – 20:00)</div>
           </div>
-          <!-- Time slot — only for meeting / phone booth / maternity -->
           <div class="card" id="time-card" style="display:none">
             <div class="card-title">Time slot</div>
             <div class="time-inputs">
@@ -305,7 +291,6 @@ tr:hover td{background:var(--bg)}
               </div>
             </div>
           </div>
-          <!-- Meeting room amenities -->
           <div class="card" id="amenities-card" style="display:none">
             <div class="card-title">Meeting room amenities</div>
             <div style="font-size:12px;color:var(--text2);margin-bottom:2px">Select what you need for your meeting:</div>
@@ -332,10 +317,10 @@ tr:hover td{background:var(--bg)}
           </div>
         </div>
       </div>
- 
+
       <!-- MY BOOKINGS -->
       <div id="pg-mine" class="page"><div id="mine-content"></div></div>
- 
+
       <!-- DASHBOARD -->
       <div id="pg-dash" class="page">
         <div class="alert-info">Showing all reservations across all employees in real time.</div>
@@ -349,7 +334,7 @@ tr:hover td{background:var(--bg)}
           <div style="overflow-x:auto"><table id="dash-table"></table></div>
         </div>
       </div>
- 
+
       <!-- ADMIN -->
       <div id="pg-admin" class="page">
         <div class="card" style="background:var(--purple-bg);border-color:#AFA9EC">
@@ -366,14 +351,37 @@ tr:hover td{background:var(--bg)}
           <div style="overflow-x:auto" id="admin-table-wrap"></div>
         </div>
       </div>
- 
+
     </div>
   </div>
 </div>
- 
+
 <script>
-const STORAGE_KEY='workplace_bookings_v1';
-const ADMIN_PASS='admin2024';
+// ── SUPABASE CONFIG ──────────────────────────────────────────
+const SUPA_URL = 'https://hnkdzyovhkrzngatfzcb.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhua2R6eW92aGtyem5nYXRmemNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMDU1MjUsImV4cCI6MjA5MzU4MTUyNX0.dM9mfp8NNEcp-HHMpRGfjToAGlvU6yedhpOF587cDeI';
+const HEADERS = { 'apikey': SUPA_KEY, 'Authorization': `Bearer ${SUPA_KEY}`, 'Content-Type': 'application/json', 'Prefer': 'resolution=merge-duplicates,return=minimal' };
+
+async function dbGet() {
+  try {
+    const r = await fetch(`${SUPA_URL}/rest/v1/workplace_bookings?key=eq.bookings&select=value`, { headers: HEADERS });
+    if (!r.ok) return [];
+    const d = await r.json();
+    return d?.[0]?.value ?? [];
+  } catch(e) { return []; }
+}
+
+async function dbSet(data) {
+  try {
+    await fetch(`${SUPA_URL}/rest/v1/workplace_bookings`, {
+      method: 'POST',
+      headers: HEADERS,
+      body: JSON.stringify({ key: 'bookings', value: data })
+    });
+  } catch(e) { console.warn('Save error', e); }
+}
+
+// ── RESOURCES ────────────────────────────────────────────────
 const ALLDAY_TYPES=['workstation','parking_slot'];
 const TIMED_TYPES=['meeting_room','phone_booth','maternity_room'];
 const AMENITY_OPTS=[
@@ -415,65 +423,83 @@ const ICONS={
   maternity_room:'<svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none"><circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/></svg>',
   parking_slot:'<svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>',
 };
- 
+
+// ── STATE ────────────────────────────────────────────────────
 let user={first:'',last:'',mgr:'',isAdmin:false};
 let cart=[],bookings=[],selectedAmenities=[];
 let activeType='workstation',activeDate='',pollTimer=null;
- 
-async function loadBookings(){try{const r=await window.storage.get(STORAGE_KEY,true);bookings=r?JSON.parse(r.value):[];}catch(e){bookings=[];}setSyncStatus(true);}
-async function saveBookings(){try{await window.storage.set(STORAGE_KEY,JSON.stringify(bookings),true);setSyncStatus(true);}catch(e){setSyncStatus(false);}}
+
+// ── DB HELPERS ───────────────────────────────────────────────
+async function loadBookings(){
+  bookings = await dbGet();
+  setSyncStatus(true);
+}
+
+async function saveBookings(){
+  await dbSet(bookings);
+  setSyncStatus(true);
+}
+
 async function pollBookings(){
   try{
-    const r=await window.storage.get(STORAGE_KEY,true);
-    const fresh=r?JSON.parse(r.value):[];
-    const changed=JSON.stringify(fresh)!==JSON.stringify(bookings);
-    bookings=fresh;setSyncStatus(true);
+    const fresh = await dbGet();
+    const changed = JSON.stringify(fresh) !== JSON.stringify(bookings);
+    bookings = fresh;
+    setSyncStatus(true);
     if(changed){
-      if(document.getElementById('pg-book').classList.contains('active')&&document.getElementById('map-card').style.display!=='none')renderMap();
-      if(document.getElementById('pg-dash').classList.contains('active'))renderDash();
-      if(document.getElementById('pg-mine').classList.contains('active'))renderMine();
-      if(document.getElementById('pg-admin').classList.contains('active'))renderAdmin();
+      if(document.getElementById('pg-book').classList.contains('active') && document.getElementById('map-card').style.display!=='none') renderMap();
+      if(document.getElementById('pg-dash').classList.contains('active')) renderDash();
+      if(document.getElementById('pg-mine').classList.contains('active')) renderMine();
+      if(document.getElementById('pg-admin').classList.contains('active')) renderAdmin();
     }
-  }catch(e){setSyncStatus(false);}
+  }catch(e){ setSyncStatus(false); }
 }
-function setSyncStatus(ok){document.getElementById('sync-dot').className='sync-dot'+(ok?'':' stale');document.getElementById('sync-label').textContent=ok?'Live':'Reconnecting…';}
-function startPolling(){pollTimer=setInterval(pollBookings,15000);}
-function stopPolling(){if(pollTimer){clearInterval(pollTimer);pollTimer=null;}}
- 
-function today(){return new Date().toISOString().split('T')[0];}
-function fullName(){return user.first+' '+user.last;}
-function initials(){return((user.first||'?')[0]+(user.last||'?')[0]).toUpperCase();}
-function isAlldayType(t){return ALLDAY_TYPES.includes(t);}
-function cartNeedsTime(){return cart.some(c=>TIMED_TYPES.includes(c.type));}
-function cartHasMeeting(){return cart.some(c=>c.type==='meeting_room');}
-function cartHasAllday(){return cart.some(c=>isAlldayType(c.type));}
-function isBooked(rid,date){return bookings.some(b=>b.spaces.some(s=>s.id===rid)&&b.date===date&&b.status==='confirmed');}
-function getBooking(rid,date){return bookings.find(b=>b.spaces.some(s=>s.id===rid)&&b.date===date&&b.status==='confirmed')||null;}
-function inCart(rid){return cart.some(c=>c.id===rid);}
- 
+
+function setSyncStatus(ok){
+  document.getElementById('sync-dot').className='sync-dot'+(ok?'':' stale');
+  document.getElementById('sync-label').textContent=ok?'Live':'Reconnecting…';
+}
+function startPolling(){ pollTimer=setInterval(pollBookings,15000); }
+function stopPolling(){ if(pollTimer){clearInterval(pollTimer);pollTimer=null;} }
+
+// ── HELPERS ──────────────────────────────────────────────────
+function today(){ return new Date().toISOString().split('T')[0]; }
+function fullName(){ return user.first+' '+user.last; }
+function initials(){ return((user.first||'?')[0]+(user.last||'?')[0]).toUpperCase(); }
+function isAlldayType(t){ return ALLDAY_TYPES.includes(t); }
+function cartNeedsTime(){ return cart.some(c=>TIMED_TYPES.includes(c.type)); }
+function cartHasMeeting(){ return cart.some(c=>c.type==='meeting_room'); }
+function cartHasAllday(){ return cart.some(c=>isAlldayType(c.type)); }
+function isBooked(rid,date){ return bookings.some(b=>b.spaces.some(s=>s.id===rid)&&b.date===date&&b.status==='confirmed'); }
+function getBooking(rid,date){ return bookings.find(b=>b.spaces.some(s=>s.id===rid)&&b.date===date&&b.status==='confirmed')||null; }
+function inCart(rid){ return cart.some(c=>c.id===rid); }
+
+// ── AUTH ─────────────────────────────────────────────────────
 async function doLogin(){
   const f=document.getElementById('i-first').value.trim();
   const l=document.getElementById('i-last').value.trim();
   const m=document.getElementById('i-mgr').value.trim();
   document.getElementById('e-first').textContent=f?'':'First name is required.';
   document.getElementById('e-last').textContent=l?'':'Last name is required.';
-  if(!f||!l)return;
-  const isAdmin=m===ADMIN_PASS;
+  if(!f||!l) return;
+  const isAdmin=m==='admin2024';
   user={first:f,last:l,mgr:isAdmin?'Administrator':m||'N/A',isAdmin};
   document.getElementById('top-avatar').textContent=initials();
   document.getElementById('top-avatar').className='avatar'+(isAdmin?' admin-av':'');
   document.getElementById('top-name').textContent=fullName();
   document.getElementById('admin-pill').style.display=isAdmin?'':'none';
   document.getElementById('admin-nav-btn').style.display=isAdmin?'':'none';
-  await loadBookings();startPolling();
   document.getElementById('scr-login').classList.remove('active');
   document.getElementById('scr-app').classList.add('active');
+  setSyncStatus(false);
+  await loadBookings();
+  startPolling();
   const bd=document.getElementById('bk-date');
-  bd.min=today();bd.value=today();activeDate=today();
+  bd.min=today(); bd.value=today(); activeDate=today();
 }
- 
+
 function doLogout(){
-  stopPolling();cart=[];user={first:'',last:'',mgr:'',isAdmin:false};
+  stopPolling(); cart=[]; user={first:'',last:'',mgr:'',isAdmin:false};
   document.getElementById('scr-app').classList.remove('active');
   document.getElementById('scr-login').classList.add('active');
   document.getElementById('top-avatar').className='avatar';
@@ -483,27 +509,29 @@ function doLogout(){
   document.getElementById('book-cart-preview').style.display='none';
   updateCartBadge();
 }
- 
+
+// ── NAVIGATION ───────────────────────────────────────────────
 function goPage(pg,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
   document.getElementById('pg-'+pg).classList.add('active');
-  if(btn)btn.classList.add('active');
-  if(pg==='mine')renderMine();
-  if(pg==='dash')renderDash();
-  if(pg==='cart')renderCartPage();
-  if(pg==='admin')renderAdmin();
+  if(btn) btn.classList.add('active');
+  if(pg==='mine') renderMine();
+  if(pg==='dash') renderDash();
+  if(pg==='cart') renderCartPage();
+  if(pg==='admin') renderAdmin();
 }
- 
-function setType(t,btn){activeType=t;document.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
-function showMap(){activeDate=document.getElementById('bk-date').value||today();document.getElementById('map-card').style.display='block';renderMap();document.getElementById('map-card').scrollIntoView({behavior:'smooth',block:'nearest'});}
-function scrollToMap(){goPage('book',document.querySelector('.nav-item:first-child'));setTimeout(()=>document.getElementById('map-card').scrollIntoView({behavior:'smooth'}),100);}
- 
+
+// ── BOOKING FLOW ─────────────────────────────────────────────
+function setType(t,btn){ activeType=t; document.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
+function showMap(){ activeDate=document.getElementById('bk-date').value||today(); document.getElementById('map-card').style.display='block'; renderMap(); document.getElementById('map-card').scrollIntoView({behavior:'smooth',block:'nearest'}); }
+function scrollToMap(){ goPage('book',document.querySelector('.nav-item:first-child')); setTimeout(()=>document.getElementById('map-card').scrollIntoView({behavior:'smooth'}),100); }
+
 function cellSVG(type){
   const d={workstation:'<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',phone_booth:'<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-8.63-8.63A2 2 0 012 2h3a2 2 0 012 1.72 13 13 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 13 13 0 002.81.7A2 2 0 0122 16.92z"/>',meeting_room:'<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>',maternity_room:'<circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/>',parking_slot:'<rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>'};
   return`<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none">${d[type]||''}</svg>`;
 }
- 
+
 function makeCell(r){
   const bk=isBooked(r.id,activeDate),ic=inCart(r.id);
   const bi=bk?getBooking(r.id,activeDate):null;
@@ -511,20 +539,21 @@ function makeCell(r){
   const sub=bk&&bi?(isAlldayType(r.type)?'All day':`${bi.st}-${bi.en}`):ic?'In cart':'';
   return`<div class="${cls}" onclick="toggleCart('${r.id}')">${r.erg?'<div class="ergo">E</div>':''}${cellSVG(r.type)}<div class="cell-lbl">${r.n}</div>${sub?`<div class="cell-sub">${sub}</div>`:''}</div>`;
 }
- 
+
 function toggleCart(rid){
-  const r=RES.find(x=>x.id===rid);if(!r||isBooked(rid,activeDate))return;
+  const r=RES.find(x=>x.id===rid); if(!r||isBooked(rid,activeDate)) return;
   if(inCart(rid)){cart=cart.filter(c=>c.id!==rid);}else{cart.push({id:r.id,n:r.n,type:r.type});}
-  updateCartBadge();renderMap();renderBookCartPreview();
+  updateCartBadge(); renderMap(); renderBookCartPreview();
 }
-function updateCartBadge(){const n=cart.length;['cart-badge','cart-badge2'].forEach(id=>{const el=document.getElementById(id);el.style.display=n>0?'':'none';el.textContent=n;});}
- 
+function updateCartBadge(){ const n=cart.length; ['cart-badge','cart-badge2'].forEach(id=>{const el=document.getElementById(id);el.style.display=n>0?'':'none';el.textContent=n;}); }
+
 function renderMap(){
   const list=RES.filter(r=>r.type===activeType),mc=document.getElementById('map-content');
   const titles={workstation:'Work stations — 30 spots',phone_booth:'Phone booths — 3 booths',meeting_room:'Meeting room — Fundadores',maternity_room:'Maternity room — MR-1',parking_slot:'Parking lots — 16 spaces'};
   document.getElementById('map-title').textContent=titles[activeType]||'Floor map';
   if(activeType==='workstation'){
-    const mp={};list.forEach(r=>{mp[r.col+','+r.row]=r;});const maxRow=Math.max(...list.map(r=>r.row));
+    const mp={};list.forEach(r=>{mp[r.col+','+r.row]=r;});
+    const maxRow=Math.max(...list.map(r=>r.row));
     let h='<div class="ws-groups">';
     [[0,1],[2,3],[4,5],[6,7],[8,9]].forEach(([ca,cb])=>{h+='<div class="ws-group">';for(let row=0;row<=maxRow;row++){h+='<div class="ws-pair">';[ca,cb].forEach(col=>{const r=mp[col+','+row];h+=r?makeCell(r):`<div style="width:60px;height:54px;flex-shrink:0"></div>`;});h+='</div>';}h+='</div>';});
     mc.innerHTML=h+'</div>';
@@ -544,14 +573,14 @@ function renderMap(){
     mc.innerHTML=`<div class="section-label">Row A — PL-1 to PL-8 <span>All day</span></div><div class="pl-row-cells" style="margin-bottom:12px">${r0.map(r=>makeCell(r)).join('')}</div><div class="section-label">Row B — PL-9 to PL-16 <span>All day</span></div><div class="pl-row-cells">${r1.map(r=>makeCell(r)).join('')}</div>`;
   }
 }
- 
+
 function renderBookCartPreview(){
   const preview=document.getElementById('book-cart-preview');
   if(cart.length===0){preview.style.display='none';return;}
   preview.style.display='block';
   document.getElementById('book-cart-items').innerHTML=cart.map(c=>`<div class="cart-item"><div class="cart-item-icon">${ICONS[c.type]}</div><div class="cart-item-info"><div class="cart-item-name">${c.n}</div><div class="cart-item-type">${TL[c.type]}${isAlldayType(c.type)?' · All day':''}</div></div><button class="cart-item-rm" onclick="toggleCart('${c.id}')">×</button></div>`).join('');
 }
- 
+
 function renderCartPage(){
   const empty=document.getElementById('cart-empty-state'),full=document.getElementById('cart-full'),success=document.getElementById('cart-success');
   success.style.display='none';
@@ -564,35 +593,34 @@ function renderCartPage(){
   document.getElementById('cart-summary-title').textContent=`${cart.length} space${cart.length>1?'s':''} in your reservation`;
   document.getElementById('cart-summary-sub').textContent='Review your selections and confirm.';
   document.getElementById('cart-items-full').innerHTML=cart.map(c=>`<div class="cart-item" style="margin-bottom:8px"><div class="cart-item-icon">${ICONS[c.type]}</div><div class="cart-item-info"><div class="cart-item-name">${c.n}</div><div class="cart-item-type">${TL[c.type]}${isAlldayType(c.type)?' · All day':''}</div></div><button class="cart-item-rm" onclick="removeFromCartPage('${c.id}')">×</button></div>`).join('');
-  // Show/hide appropriate cards
   document.getElementById('allday-card').style.display=cartHasAllday()?'block':'none';
   document.getElementById('time-card').style.display=cartNeedsTime()?'block':'none';
   const ac=document.getElementById('amenities-card');
   if(cartHasMeeting()){
-    ac.style.display='block';selectedAmenities=[];
+    ac.style.display='block'; selectedAmenities=[];
     document.getElementById('amenities-grid').innerHTML=AMENITY_OPTS.map(a=>`<div class="amenity-opt" id="ao-${a.id}" onclick="toggleAmenity('${a.id}')"><span style="font-size:15px">${a.icon}</span><span>${a.label}</span><div class="a-box"><svg class="a-check" viewBox="0 0 10 8"><polyline points="1 4 3.5 7 9 1"/></svg></div></div>`).join('');
-  }else{ac.style.display='none';}
+  }else{ ac.style.display='none'; }
   document.getElementById('cart-err').style.display='none';
 }
- 
+
 function toggleAmenity(id){
   const el=document.getElementById('ao-'+id);
   if(selectedAmenities.includes(id)){selectedAmenities=selectedAmenities.filter(a=>a!==id);el.classList.remove('on');}
   else{selectedAmenities.push(id);el.classList.add('on');}
 }
- 
-function removeFromCartPage(rid){cart=cart.filter(c=>c.id!==rid);updateCartBadge();renderBookCartPreview();renderCartPage();if(document.getElementById('pg-book').classList.contains('active'))renderMap();}
- 
+function removeFromCartPage(rid){ cart=cart.filter(c=>c.id!==rid); updateCartBadge(); renderBookCartPreview(); renderCartPage(); if(document.getElementById('pg-book').classList.contains('active')) renderMap(); }
+
 async function doConfirm(){
   const errEl=document.getElementById('cart-err');
   let st='07:00',en='20:00';
   if(cartNeedsTime()){
-    st=document.getElementById('c-start').value;en=document.getElementById('c-end').value;
+    st=document.getElementById('c-start').value; en=document.getElementById('c-end').value;
     if(st>=en){errEl.style.display='block';errEl.textContent='End time must be after start time.';return;}
   }
+  // Reload fresh data before checking conflicts
   await loadBookings();
   let conflict=null;
-  cart.forEach(c=>{if(bookings.some(b=>b.spaces.some(s=>s.id===c.id)&&b.date===activeDate&&b.status==='confirmed'&&!(en<=b.st||st>=b.en)))conflict=c.n;});
+  cart.forEach(c=>{ if(bookings.some(b=>b.spaces.some(s=>s.id===c.id)&&b.date===activeDate&&b.status==='confirmed'&&!(en<=b.st||st>=b.en))) conflict=c.n; });
   if(conflict){errEl.style.display='block';errEl.textContent=`"${conflict}" is already booked at that time. Please adjust.`;return;}
   errEl.style.display='none';
   const amenityLabels=AMENITY_OPTS.filter(a=>selectedAmenities.includes(a.id)).map(a=>a.icon+' '+a.label);
@@ -602,12 +630,14 @@ async function doConfirm(){
   const timeStr=allday?'All day':`${st} – ${en}`;
   document.getElementById('suc-msg').textContent=`Booked for ${timeStr} on ${activeDate}`;
   document.getElementById('suc-spaces').innerHTML=cart.map(c=>`<span class="booking-space-pill ${PILL[c.type]}">${ICONS[c.type]} ${c.n}</span>`).join('');
-  cart=[];selectedAmenities=[];updateCartBadge();renderBookCartPreview();
-  document.getElementById('cart-full').style.display='none';document.getElementById('cart-empty-state').style.display='none';document.getElementById('cart-success').style.display='block';
+  cart=[]; selectedAmenities=[]; updateCartBadge(); renderBookCartPreview();
+  document.getElementById('cart-full').style.display='none';
+  document.getElementById('cart-empty-state').style.display='none';
+  document.getElementById('cart-success').style.display='block';
 }
- 
-function newBooking(){document.getElementById('cart-success').style.display='none';document.getElementById('cart-empty-state').style.display='block';document.getElementById('map-card').style.display='none';goPage('book',document.querySelector('.nav-item:first-child'));}
- 
+
+function newBooking(){ document.getElementById('cart-success').style.display='none'; document.getElementById('cart-empty-state').style.display='block'; document.getElementById('map-card').style.display='none'; goPage('book',document.querySelector('.nav-item:first-child')); }
+
 function renderMine(){
   const mine=bookings.filter(b=>b.user===fullName()),el=document.getElementById('mine-content');
   if(!mine.length){el.innerHTML='<div class="card"><div class="empty">No bookings yet. Go to "Book a space" to make a reservation.</div></div>';return;}
@@ -617,17 +647,17 @@ function renderMine(){
       <div style="font-size:12px;font-weight:500;color:${b.status==='confirmed'?'var(--green)':'var(--red-t)'}"><span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}</div>
     </div>
     <div class="booking-spaces">${b.spaces.map(s=>`<span class="booking-space-pill ${PILL[s.type]}">${ICONS[s.type]} ${s.n}</span>`).join('')}</div>
-    ${b.amenities&&b.amenities.length?`<div class="amenity-pills">${b.amenities.map(a=>`<span class="amenity-pill-sm">${a}</span>`).join('')}</div>`:''}
+    ${b.amenities&&b.amenities.length?`<div style="margin-top:4px">${b.amenities.map(a=>`<span class="amenity-pill-sm">${a}</span>`).join('')}</div>`:''}
     ${b.status==='confirmed'&&b.user===fullName()?`<button class="btn-cancel-booking" onclick="cancelMine('${b.id}')">Cancel reservation</button>`:''}
   </div>`).join('');
 }
- 
+
 async function cancelMine(id){
   const b=bookings.find(x=>x.id===id);
-  if(b&&b.user===fullName()){b.status='cancelled';await saveBookings();}
+  if(b&&b.user===fullName()){ b.status='cancelled'; await saveBookings(); }
   renderMine();
 }
- 
+
 function renderDash(){
   const conf=bookings.filter(b=>b.status==='confirmed'),td=today();
   document.getElementById('dash-stats').innerHTML=[
@@ -638,23 +668,24 @@ function renderDash(){
   let list=bookings.filter(b=>{if(df&&b.date!==df)return false;if(tf)return b.spaces.some(s=>s.type===tf);return true;});
   const tbl=document.getElementById('dash-table');
   if(!list.length){tbl.innerHTML='<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--text3)">No reservations match.</td></tr>';return;}
-  tbl.innerHTML=`<thead><tr><th style="width:14%">Employee</th><th style="width:30%">Spaces</th><th style="width:11%">Date</th><th style="width:13%">Time</th><th style="width:22%">Amenities</th><th style="width:10%">Status</th></tr></thead><tbody>`+
-  list.map(b=>`<tr><td>${b.user}</td><td style="overflow:visible;white-space:normal"><div style="display:flex;flex-wrap:wrap;gap:3px">${b.spaces.map(s=>`<span class="badge ${PILL[s.type]}" style="gap:3px">${ICONS[s.type]} ${s.n}</span>`).join('')}</div></td><td>${b.date}</td><td>${b.allday?'All day':b.st+'–'+b.en}</td><td style="white-space:normal;font-size:11px;color:var(--text2)">${b.amenities&&b.amenities.length?b.amenities.join(', '):'—'}</td><td><span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}</td></tr>`).join('')+'</tbody>';
+  tbl.innerHTML=`<thead><tr><th style="width:14%">Employee</th><th style="width:30%">Spaces</th><th style="width:11%">Date</th><th style="width:12%">Time</th><th style="width:22%">Amenities</th><th style="width:11%">Status</th></tr></thead><tbody>`+
+  list.map(b=>`<tr><td>${b.user}</td><td style="overflow:visible;white-space:normal"><div style="display:flex;flex-wrap:wrap;gap:3px">${b.spaces.map(s=>`<span class="badge ${PILL[s.type]}" style="gap:3px">${ICONS[s.type]} ${s.n}</span>`).join('')}</div></td><td>${b.date}</td><td>${b.allday?'All day':b.st+'–'+b.en}</td><td style="white-space:normal;font-size:11px;color:var(--text2)">${b.amenities&&b.amenities.length?b.amenities.join(' '):'—'}</td><td><span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}</td></tr>`).join('')+'</tbody>';
 }
- 
+
 function renderAdmin(){
   const tf=document.getElementById('af-type').value,df=document.getElementById('af-date').value,sf=document.getElementById('af-status').value;
   let list=bookings.filter(b=>{if(sf&&b.status!==sf)return false;if(df&&b.date!==df)return false;if(tf)return b.spaces.some(s=>s.type===tf);return true;});
   const wrap=document.getElementById('admin-table-wrap');
   if(!list.length){wrap.innerHTML='<div class="empty">No reservations match this filter.</div>';return;}
   wrap.innerHTML=`<table><thead><tr><th style="width:13%">Employee</th><th style="width:27%">Spaces</th><th style="width:10%">Date</th><th style="width:12%">Time</th><th style="width:18%">Amenities</th><th style="width:9%">Status</th><th style="width:11%">Action</th></tr></thead><tbody>`+
-  list.map(b=>`<tr><td>${b.user}</td><td style="overflow:visible;white-space:normal"><div style="display:flex;flex-wrap:wrap;gap:3px">${b.spaces.map(s=>`<span class="badge ${PILL[s.type]}" style="gap:3px;font-size:9px">${ICONS[s.type]} ${s.n}</span>`).join('')}</div></td><td>${b.date}</td><td>${b.allday?'All day':b.st+'–'+b.en}</td><td style="white-space:normal;font-size:11px;color:var(--text2)">${b.amenities&&b.amenities.length?b.amenities.join(' '):' — '}</td><td><span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}</td>
+  list.map(b=>`<tr><td>${b.user}</td><td style="overflow:visible;white-space:normal"><div style="display:flex;flex-wrap:wrap;gap:3px">${b.spaces.map(s=>`<span class="badge ${PILL[s.type]}" style="gap:3px;font-size:9px">${ICONS[s.type]} ${s.n}</span>`).join('')}</div></td><td>${b.date}</td><td>${b.allday?'All day':b.st+'–'+b.en}</td><td style="white-space:normal;font-size:11px;color:var(--text2)">${b.amenities&&b.amenities.length?b.amenities.join(' '):'—'}</td><td><span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}</td>
   <td>${b.status==='confirmed'?`<button class="admin-action-btn del" onclick="adminCancel('${b.id}')">Cancel</button>`:`<button class="admin-action-btn del" onclick="adminDelete('${b.id}')">Delete</button>`}</td></tr>`).join('')+'</tbody></table>';
 }
- 
-async function adminCancel(id){if(!confirm('Cancel this reservation?'))return;const b=bookings.find(x=>x.id===id);if(b)b.status='cancelled';await saveBookings();renderAdmin();renderDash();}
-async function adminDelete(id){if(!confirm('Permanently delete this entry?'))return;bookings=bookings.filter(x=>x.id!==id);await saveBookings();renderAdmin();renderDash();}
- 
+
+async function adminCancel(id){ if(!confirm('Cancel this reservation?'))return; const b=bookings.find(x=>x.id===id);if(b)b.status='cancelled'; await saveBookings(); renderAdmin(); renderDash(); }
+async function adminDelete(id){ if(!confirm('Permanently delete this entry?'))return; bookings=bookings.filter(x=>x.id!==id); await saveBookings(); renderAdmin(); renderDash(); }
+
+// ── INIT ─────────────────────────────────────────────────────
 document.getElementById('bk-date').min=today();
 document.getElementById('bk-date').value=today();
 </script>
