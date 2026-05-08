@@ -390,21 +390,40 @@ const AMENITY_OPTS=[
   {id:'video',label:'Video call setup',icon:'📹'},{id:'catering',label:'Catering',icon:'🍽️'},
 ];
 const RES=[
-  {id:'WS_1',n:'WS - 1',type:'workstation',erg:false,col:0,row:0},{id:'WS_2',n:'WS - 2',type:'workstation',erg:false,col:0,row:1},
-  {id:'WS_3',n:'WS - 3',type:'workstation',erg:false,col:0,row:2},{id:'WS_4',n:'WS - 4',type:'workstation',erg:false,col:1,row:1},
-  {id:'WS_5',n:'WS - 5',type:'workstation',erg:false,col:1,row:2},{id:'WS_6',n:'WS - 6',type:'workstation',erg:false,col:2,row:0},
-  {id:'WS_7',n:'WS - 7',type:'workstation',erg:false,col:2,row:1},{id:'WS_8',n:'WS - 8',type:'workstation',erg:true,col:2,row:2},
-  {id:'WS_9',n:'WS - 9',type:'workstation',erg:false,col:3,row:0},{id:'WS_10',n:'WS - 10',type:'workstation',erg:false,col:3,row:1},
-  {id:'WS_11',n:'WS - 11',type:'workstation',erg:true,col:3,row:2},{id:'WS_12',n:'WS - 12',type:'workstation',erg:false,col:4,row:0},
-  {id:'WS_13',n:'WS - 13',type:'workstation',erg:false,col:4,row:1},{id:'WS_14',n:'WS - 14',type:'workstation',erg:true,col:4,row:2},
-  {id:'WS_15',n:'WS - 15',type:'workstation',erg:false,col:5,row:0},{id:'WS_16',n:'WS - 16',type:'workstation',erg:false,col:5,row:1},
-  {id:'WS_17',n:'WS - 17',type:'workstation',erg:false,col:5,row:2},{id:'WS_18',n:'WS - 18',type:'workstation',erg:false,col:6,row:0},
-  {id:'WS_19',n:'WS - 19',type:'workstation',erg:false,col:6,row:1},{id:'WS_20',n:'WS - 20',type:'workstation',erg:false,col:6,row:2},
-  {id:'WS_21',n:'WS - 21',type:'workstation',erg:false,col:7,row:1},{id:'WS_22',n:'WS - 22',type:'workstation',erg:false,col:7,row:2},
-  {id:'WS_23',n:'WS - 23',type:'workstation',erg:true,col:8,row:0},{id:'WS_24',n:'WS - 24',type:'workstation',erg:false,col:8,row:1},
-  {id:'WS_25',n:'WS - 25',type:'workstation',erg:false,col:8,row:2},{id:'WS_26',n:'WS - 26',type:'workstation',erg:false,col:8,row:3},
-  {id:'WS_27',n:'WS - 27',type:'workstation',erg:false,col:9,row:1},{id:'WS_28',n:'WS - 28',type:'workstation',erg:false,col:9,row:2},
-  {id:'WS_29',n:'WS - 29',type:'workstation',erg:false,col:9,row:3},{id:'WS_30',n:'WS - 30',type:'workstation',erg:true,col:9,row:4},
+  // Group 1: WS-1 (wide/solo top), WS-2/WS-4, WS-3/WS-5
+  {id:'WS_1',n:'WS-1',type:'workstation',erg:false,grp:0,col:0,row:0,wide:true},
+  {id:'WS_2',n:'WS-2',type:'workstation',erg:false,grp:0,col:0,row:1},
+  {id:'WS_4',n:'WS-4',type:'workstation',erg:false,grp:0,col:1,row:1},
+  {id:'WS_3',n:'WS-3',type:'workstation',erg:false,grp:0,col:0,row:2},
+  {id:'WS_5',n:'WS-5',type:'workstation',erg:false,grp:0,col:1,row:2},
+  // Group 2: WS-6/WS-9, WS-7/WS-10, WS-8(erg)/WS-11(erg)
+  {id:'WS_6',n:'WS-6',type:'workstation',erg:false,grp:1,col:0,row:0},
+  {id:'WS_9',n:'WS-9',type:'workstation',erg:false,grp:1,col:1,row:0},
+  {id:'WS_7',n:'WS-7',type:'workstation',erg:false,grp:1,col:0,row:1},
+  {id:'WS_10',n:'WS-10',type:'workstation',erg:false,grp:1,col:1,row:1},
+  {id:'WS_8',n:'WS-8',type:'workstation',erg:true,grp:1,col:0,row:2},
+  {id:'WS_11',n:'WS-11',type:'workstation',erg:true,grp:1,col:1,row:2},
+  // Group 3: WS-12/WS-15, WS-13/WS-16, WS-14(erg)/WS-17(erg)
+  {id:'WS_12',n:'WS-12',type:'workstation',erg:false,grp:2,col:0,row:0},
+  {id:'WS_15',n:'WS-15',type:'workstation',erg:false,grp:2,col:1,row:0},
+  {id:'WS_13',n:'WS-13',type:'workstation',erg:false,grp:2,col:0,row:1},
+  {id:'WS_16',n:'WS-16',type:'workstation',erg:false,grp:2,col:1,row:1},
+  {id:'WS_14',n:'WS-14',type:'workstation',erg:true,grp:2,col:0,row:2},
+  {id:'WS_17',n:'WS-17',type:'workstation',erg:true,grp:2,col:1,row:2},
+  // Group 4: WS-18/WS-21, WS-19/WS-22, WS-20(erg)/WS-23(erg)
+  {id:'WS_18',n:'WS-18',type:'workstation',erg:false,grp:3,col:0,row:0},
+  {id:'WS_21',n:'WS-21',type:'workstation',erg:false,grp:3,col:1,row:0},
+  {id:'WS_19',n:'WS-19',type:'workstation',erg:false,grp:3,col:0,row:1},
+  {id:'WS_22',n:'WS-22',type:'workstation',erg:false,grp:3,col:1,row:1},
+  {id:'WS_20',n:'WS-20',type:'workstation',erg:true,grp:3,col:0,row:2},
+  {id:'WS_23',n:'WS-23',type:'workstation',erg:true,grp:3,col:1,row:2},
+  // Group 5: WS-24/WS-27, WS-25/WS-28, WS-26/WS-29
+  {id:'WS_24',n:'WS-24',type:'workstation',erg:false,grp:4,col:0,row:0},
+  {id:'WS_27',n:'WS-27',type:'workstation',erg:false,grp:4,col:1,row:0},
+  {id:'WS_25',n:'WS-25',type:'workstation',erg:false,grp:4,col:0,row:1},
+  {id:'WS_28',n:'WS-28',type:'workstation',erg:false,grp:4,col:1,row:1},
+  {id:'WS_26',n:'WS-26',type:'workstation',erg:false,grp:4,col:0,row:2},
+  {id:'WS_29',n:'WS-29',type:'workstation',erg:false,grp:4,col:1,row:2},
   {id:'PB_1',n:'PB - 1',type:'phone_booth',erg:false},{id:'PB_2',n:'PB - 2',type:'phone_booth',erg:false},{id:'PB_3',n:'PB - 3',type:'phone_booth',erg:false},
   {id:'MR_1',n:'MR - 1',type:'maternity_room',erg:false},
   {id:'Fundadores',n:'Fundadores',type:'meeting_room',erg:false},
@@ -548,13 +567,43 @@ function updateCartBadge(){ const n=cart.length; ['cart-badge','cart-badge2'].fo
 
 function renderMap(){
   const list=RES.filter(r=>r.type===activeType),mc=document.getElementById('map-content');
-  const titles={workstation:'Work stations — 30 spots',phone_booth:'Phone booths — 3 booths',meeting_room:'Meeting room — Fundadores',maternity_room:'Maternity room — MR-1',parking_slot:'Parking lots — 16 spaces'};
+  const titles={workstation:'Work stations — 29 spots',phone_booth:'Phone booths — 3 booths',meeting_room:'Meeting room — Fundadores',maternity_room:'Maternity room — MR-1',parking_slot:'Parking lots — 16 spaces'};
   document.getElementById('map-title').textContent=titles[activeType]||'Floor map';
   if(activeType==='workstation'){
-    const mp={};list.forEach(r=>{mp[r.col+','+r.row]=r;});
-    const maxRow=Math.max(...list.map(r=>r.row));
+    // Build 5 groups from the grp property
+    const groups=[0,1,2,3,4].map(g=>list.filter(r=>r.grp===g));
     let h='<div class="ws-groups">';
-    [[0,1],[2,3],[4,5],[6,7],[8,9]].forEach(([ca,cb])=>{h+='<div class="ws-group">';for(let row=0;row<=maxRow;row++){h+='<div class="ws-pair">';[ca,cb].forEach(col=>{const r=mp[col+','+row];h+=r?makeCell(r):`<div style="width:60px;height:54px;flex-shrink:0"></div>`;});h+='</div>';}h+='</div>';});
+    groups.forEach((grpItems,gi)=>{
+      h+='<div class="ws-group">';
+      if(gi===0){
+        // Group 1: WS-1 spans full width on top row
+        const ws1=grpItems.find(r=>r.wide);
+        const rest=grpItems.filter(r=>!r.wide);
+        const mp={};rest.forEach(r=>{mp[r.col+','+r.row]=r;});
+        // Wide cell for WS-1
+        if(ws1){
+          const bk=isBooked(ws1.id,activeDate),ic=inCart(ws1.id),bi=bk?getBooking(ws1.id,activeDate):null;
+          const cls='cell '+(ic?'sl':bk?'bk':'av');
+          const sub=bk&&bi?'All day':ic?'In cart':'';
+          h+=`<div class="ws-pair"><div class="${cls}" style="width:126px;height:54px;" onclick="toggleCart('${ws1.id}')">${cellSVG(ws1.type)}<div class="cell-lbl">${ws1.n}</div>${sub?`<div class="cell-sub">${sub}</div>`:''}</div></div>`;
+        }
+        // Rows 1 and 2: pairs
+        [1,2].forEach(row=>{
+          h+='<div class="ws-pair">';
+          [0,1].forEach(col=>{const r=mp[col+','+row];h+=r?makeCell(r):`<div style="width:60px;height:54px;flex-shrink:0"></div>`;});
+          h+='</div>';
+        });
+      } else {
+        // Groups 2-5: standard 3-row, 2-col grid
+        const mp={};grpItems.forEach(r=>{mp[r.col+','+r.row]=r;});
+        [0,1,2].forEach(row=>{
+          h+='<div class="ws-pair">';
+          [0,1].forEach(col=>{const r=mp[col+','+row];h+=r?makeCell(r):`<div style="width:60px;height:54px;flex-shrink:0"></div>`;});
+          h+='</div>';
+        });
+      }
+      h+='</div>';
+    });
     mc.innerHTML=h+'</div>';
   }else if(activeType==='phone_booth'){
     mc.innerHTML='<div class="section-label">Phone booths <span>3 booths</span></div><div class="pb-row">'+list.map(r=>makeCell(r)).join('')+'</div>';
