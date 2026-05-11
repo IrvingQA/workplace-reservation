@@ -502,6 +502,7 @@ const RES=[
   {id:'PL_5',n:'PL-5',type:'parking_slot',erg:false,pr:0},{id:'PL_6',n:'PL-6',type:'parking_slot',erg:false,pr:0},{id:'PL_7',n:'PL-7',type:'parking_slot',erg:false,pr:0},{id:'PL_8',n:'PL-8',type:'parking_slot',erg:false,pr:0},
   {id:'PL_9',n:'PL-9',type:'parking_slot',erg:false,pr:1},{id:'PL_10',n:'PL-10',type:'parking_slot',erg:false,pr:1},{id:'PL_11',n:'PL-11',type:'parking_slot',erg:false,pr:1},{id:'PL_12',n:'PL-12',type:'parking_slot',erg:false,pr:1},
   {id:'PL_13',n:'PL-13',type:'parking_slot',erg:false,pr:1},{id:'PL_14',n:'PL-14',type:'parking_slot',erg:false,pr:1},{id:'PL_15',n:'PL-15',type:'parking_slot',erg:false,pr:1},{id:'PL_16',n:'PL-16',type:'parking_slot',erg:false,pr:1},
+  {id:'PL_17',n:'PL-17',type:'parking_slot',erg:false,pr:2},{id:'PL_18',n:'PL-18',type:'parking_slot',erg:false,pr:2},{id:'PL_19',n:'PL-19',type:'parking_slot',erg:false,pr:2},
 ];
 const TL={workstation:'Workstation',meeting_room:'Meeting room',maternity_room:'Maternity room',parking_slot:'Parking slot',phone_booth:'Phone booth'};
 const PILL={workstation:'pill-ws',meeting_room:'pill-meeting',maternity_room:'pill-mr',parking_slot:'pill-pl',phone_booth:'pill-pb'};
@@ -638,7 +639,7 @@ function updateCartBadge(){ const n=cart.length; ['cart-badge','cart-badge2'].fo
 
 function renderMap(){
   const list=RES.filter(r=>r.type===activeType),mc=document.getElementById('map-content');
-  const titles={workstation:'Work stations — 29 spots',phone_booth:'Phone booths — 3 booths',meeting_room:'Meeting room — Fundadores',maternity_room:'Maternity room — MR-1',parking_slot:'Parking lots — 16 spaces'};
+  const titles={workstation:'Work stations — 29 spots',phone_booth:'Phone booths — 3 booths',meeting_room:'Meeting room — Fundadores',maternity_room:'Maternity room — MR-1',parking_slot:'Parking lots — 19 spaces'};
   document.getElementById('map-title').textContent=titles[activeType]||'Floor map';
   if(activeType==='workstation'){
     // Build 5 groups from the grp property
@@ -688,8 +689,8 @@ function renderMap(){
   }else if(activeType==='maternity_room'){
     mc.innerHTML='<div class="section-label">Maternity room <span>1 room</span></div><div style="display:flex;gap:8px">'+list.map(r=>makeCell(r)).join('')+'</div>';
   }else if(activeType==='parking_slot'){
-    const r0=list.filter(r=>r.pr===0),r1=list.filter(r=>r.pr===1);
-    mc.innerHTML=`<div class="section-label">Row A — PL-1 to PL-8 <span>All day</span></div><div class="pl-row-cells" style="margin-bottom:12px">${r0.map(r=>makeCell(r)).join('')}</div><div class="section-label">Row B — PL-9 to PL-16 <span>All day</span></div><div class="pl-row-cells">${r1.map(r=>makeCell(r)).join('')}</div>`;
+    const r0=list.filter(r=>r.pr===0),r1=list.filter(r=>r.pr===1),r2=list.filter(r=>r.pr===2);
+    mc.innerHTML=`<div class="section-label">Row A — PL-1 to PL-8 <span>All day</span></div><div class="pl-row-cells" style="margin-bottom:12px">${r0.map(r=>makeCell(r)).join('')}</div><div class="section-label">Row B — PL-9 to PL-16 <span>All day</span></div><div class="pl-row-cells" style="margin-bottom:12px">${r1.map(r=>makeCell(r)).join('')}</div><div class="section-label">Row C — PL-17 to PL-19 <span>All day</span></div><div class="pl-row-cells">${r2.map(r=>makeCell(r)).join('')}</div>`;
   }
 }
 
