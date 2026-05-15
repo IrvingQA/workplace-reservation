@@ -84,6 +84,13 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .amenity-opt.on .a-box{background:var(--green);border-color:var(--green)}
 .a-check{display:none;width:10px;height:10px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .amenity-opt.on .a-check{display:block}
+.layout-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;margin-bottom:4px}
+.layout-opt{padding:10px 12px;border:1px solid var(--border2);border-radius:var(--r);cursor:pointer;font-size:13px;color:var(--text);transition:all .12s;user-select:none}
+.layout-opt:hover{border-color:var(--green-b);background:var(--green-l)}
+.layout-opt.on{border-color:var(--green);background:var(--green-l);color:var(--green-d);font-weight:600}
+.layout-opt-name{font-weight:500;margin-bottom:2px}
+.layout-opt-cap{font-size:11px;color:var(--text3)}
+.layout-opt.on .layout-opt-cap{color:#0F6E56}
 .map-wrap{overflow-x:auto;padding-bottom:8px}
 .section-label{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .section-label span{background:var(--bg);border-radius:4px;padding:2px 7px;font-size:10px;border:1px solid var(--border)}
@@ -303,8 +310,12 @@ tr:hover td{background:var(--bg)}
             </div>
           </div>
           <div class="card" id="amenities-card" style="display:none">
-            <div class="card-title">Meeting room amenities</div>
-            <div style="font-size:12px;color:var(--text2);margin-bottom:2px">Select what you need for your meeting:</div>
+            <div class="card-title">Meeting room setup</div>
+            <div style="font-size:12px;color:var(--text2);margin-bottom:2px;font-weight:500">Room layout <span style="color:var(--red-t)">*</span></div>
+            <div style="font-size:11px;color:var(--text3);margin-bottom:6px">Select the layout required for your meeting</div>
+            <div class="layout-grid" id="layout-grid"></div>
+            <div style="font-size:12px;color:var(--text2);margin-top:14px;margin-bottom:2px;font-weight:500">Amenities <span style="font-size:11px;font-weight:400;color:var(--text3)">(optional)</span></div>
+            <div style="font-size:11px;color:var(--text3);margin-bottom:6px">Select what you need for your meeting</div>
             <div class="amenities-grid" id="amenities-grid"></div>
           </div>
           <div id="cart-err" class="alert alert-err" style="display:none"></div>
@@ -411,8 +422,11 @@ tr:hover td{background:var(--bg)}
 
     <!-- Amenities — only for meeting room -->
     <div id="edit-amenities-section" style="display:none">
-      <div class="modal-section">Meeting room amenities</div>
-      <div style="font-size:12px;color:var(--text2);margin-bottom:6px">Select what you need:</div>
+      <div class="modal-section">Room layout <span style="color:var(--red-t)">*</span></div>
+      <div style="font-size:11px;color:var(--text3);margin-bottom:6px">Select the layout required</div>
+      <div class="layout-grid" id="edit-layout-grid"></div>
+      <div class="modal-section" style="margin-top:14px">Amenities <span style="font-size:11px;font-weight:400;color:var(--text3)">(optional)</span></div>
+      <div style="font-size:11px;color:var(--text3);margin-bottom:6px">Select what you need</div>
       <div class="amenities-grid" id="edit-amenities-grid"></div>
     </div>
 
@@ -460,9 +474,15 @@ const AMENITY_OPTS=[
   {id:'projector',label:'Projector',icon:'📽️'},{id:'whiteboard',label:'Whiteboard',icon:'📋'},
   {id:'video',label:'Video call setup',icon:'📹'},{id:'catering',label:'Catering',icon:'🍽️'},
 ];
+const LAYOUT_OPTS=[
+  {id:'theater',name:'Theater',cap:'Up to 25 people',icon:'🎭'},
+  {id:'classroom',name:'Classroom',cap:'Up to 15 people',icon:'🏫'},
+  {id:'ushape',name:'U-Shape',cap:'Up to 15 people',icon:'🔷'},
+  {id:'boardroom',name:'Boardroom',cap:'Up to 15 people',icon:'💼'},
+];
 const RES=[
   // Group 1: WS-1 (wide/solo top), WS-2/WS-4, WS-3/WS-5
-  {id:'WS_1',n:'WS-1',type:'workstation',erg:false,grp:0,col:0,row:0,wide:true},
+  {id:'WS_1',n:'WS-1',type:'workstation',erg:false,grp:0,col:0,row:0,wide:true,permanent:true},
   {id:'WS_2',n:'WS-2',type:'workstation',erg:false,grp:0,col:0,row:1},
   {id:'WS_4',n:'WS-4',type:'workstation',erg:false,grp:0,col:1,row:1},
   {id:'WS_3',n:'WS-3',type:'workstation',erg:false,grp:0,col:0,row:2},
@@ -516,7 +536,7 @@ const ICONS={
 
 // ── STATE ────────────────────────────────────────────────────
 let user={first:'',last:'',mgr:'',isAdmin:false};
-let cart=[],bookings=[],selectedAmenities=[];
+let cart=[],bookings=[],selectedAmenities=[],selectedLayout='';
 let activeType='workstation',activeDate='',pollTimer=null;
 
 // ── DB HELPERS ───────────────────────────────────────────────
@@ -652,12 +672,9 @@ function renderMap(){
         const ws1=grpItems.find(r=>r.wide);
         const rest=grpItems.filter(r=>!r.wide);
         const mp={};rest.forEach(r=>{mp[r.col+','+r.row]=r;});
-        // Wide cell for WS-1
+        // Wide cell for WS-1 — permanently booked (IT desk)
         if(ws1){
-          const bk=isBooked(ws1.id,activeDate),ic=inCart(ws1.id),bi=bk?getBooking(ws1.id,activeDate):null;
-          const cls='cell '+(ic?'sl':bk?'bk':'av');
-          const sub=bk&&bi?'All day':ic?'In cart':'';
-          h+=`<div class="ws-pair"><div class="${cls}" style="width:126px;height:54px;" onclick="toggleCart('${ws1.id}')">${cellSVG(ws1.type)}<div class="cell-lbl">${ws1.n}</div>${sub?`<div class="cell-sub">${sub}</div>`:''}</div></div>`;
+          h+=`<div class="ws-pair"><div class="cell bk" style="width:126px;height:54px;cursor:not-allowed;">${cellSVG(ws1.type)}<div class="cell-lbl">${ws1.n}</div><div class="cell-sub">IT — Always booked</div></div></div>`;
         }
         // Rows 1 and 2: pairs
         [1,2].forEach(row=>{
@@ -684,7 +701,7 @@ function renderMap(){
     const cls='cell '+(ic?'sl':bk?'bk':'av');
     mc.innerHTML=`<div class="section-label">Meeting room</div><div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
       <div class="${cls}" style="width:120px;height:84px" onclick="toggleCart('${r.id}')">${cellSVG(r.type)}<div class="cell-lbl" style="font-size:10px">${r.n}</div><div class="cell-sub">25 pax</div>${bk&&bi?`<div class="cell-sub">${bi.st}-${bi.en}</div>`:ic?'<div class="cell-sub">In cart</div>':''}</div>
-      <div style="font-size:12px;color:var(--text2);line-height:1.8;max-width:260px"><div style="font-weight:600;color:var(--text);margin-bottom:4px">Fundadores meeting room</div>Theater (25 pax) · Classroom (15 pax)<br>U-shape (15 pax) · Boardroom (15 pax)<br><span style="font-size:11px;color:var(--text3)">Select amenities at checkout</span></div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.8;max-width:260px"><div style="font-weight:600;color:var(--text);margin-bottom:4px">Fundadores meeting room</div>Theater (25 pax) · Classroom (15 pax)<br>U-shape (15 pax) · Boardroom (15 pax)<br><span style="font-size:11px;color:var(--text3)">Select your layout and amenities at checkout</span></div>
     </div>`;
   }else if(activeType==='maternity_room'){
     mc.innerHTML='<div class="section-label">Maternity room <span>1 room</span></div><div style="display:flex;gap:8px">'+list.map(r=>makeCell(r)).join('')+'</div>';
@@ -717,7 +734,14 @@ function renderCartPage(){
   document.getElementById('time-card').style.display=cartNeedsTime()?'block':'none';
   const ac=document.getElementById('amenities-card');
   if(cartHasMeeting()){
-    ac.style.display='block'; selectedAmenities=[];
+    ac.style.display='block'; selectedAmenities=[]; selectedLayout='';
+    // Render layout selector
+    document.getElementById('layout-grid').innerHTML=LAYOUT_OPTS.map(l=>`
+      <div class="layout-opt" id="lo-${l.id}" onclick="selectLayout('${l.id}')">
+        <div style="font-size:18px;margin-bottom:4px">${l.icon}</div>
+        <div class="layout-opt-name">${l.name}</div>
+        <div class="layout-opt-cap">${l.cap}</div>
+      </div>`).join('');
     document.getElementById('amenities-grid').innerHTML=AMENITY_OPTS.map(a=>`<div class="amenity-opt" id="ao-${a.id}" onclick="toggleAmenity('${a.id}')"><span style="font-size:15px">${a.icon}</span><span>${a.label}</span><div class="a-box"><svg class="a-check" viewBox="0 0 10 8"><polyline points="1 4 3.5 7 9 1"/></svg></div></div>`).join('');
   }else{ ac.style.display='none'; }
   document.getElementById('cart-err').style.display='none';
@@ -727,6 +751,12 @@ function toggleAmenity(id){
   const el=document.getElementById('ao-'+id);
   if(selectedAmenities.includes(id)){selectedAmenities=selectedAmenities.filter(a=>a!==id);el.classList.remove('on');}
   else{selectedAmenities.push(id);el.classList.add('on');}
+}
+function selectLayout(id){
+  selectedLayout=id;
+  document.querySelectorAll('.layout-opt').forEach(el=>el.classList.remove('on'));
+  const el=document.getElementById('lo-'+id);
+  if(el) el.classList.add('on');
 }
 function removeFromCartPage(rid){ cart=cart.filter(c=>c.id!==rid); updateCartBadge(); renderBookCartPreview(); renderCartPage(); if(document.getElementById('pg-book').classList.contains('active')) renderMap(); }
 
@@ -742,10 +772,15 @@ async function doConfirm(){
   let conflict=null;
   cart.forEach(c=>{ if(bookings.some(b=>b.spaces.some(s=>s.id===c.id)&&b.date===activeDate&&b.status==='confirmed'&&!(en<=b.st||st>=b.en))) conflict=c.n; });
   if(conflict){errEl.style.display='block';errEl.textContent=`"${conflict}" is already booked at that time. Please adjust.`;return;}
+  // Validate layout if meeting room in cart
+  if(cartHasMeeting()&&!selectedLayout){
+    errEl.style.display='block';errEl.textContent='Please select a room layout for the meeting room.';return;
+  }
   errEl.style.display='none';
   const amenityLabels=AMENITY_OPTS.filter(a=>selectedAmenities.includes(a.id)).map(a=>a.icon+' '+a.label);
+  const layoutLabel=LAYOUT_OPTS.find(l=>l.id===selectedLayout);
   const allday=!cartNeedsTime();
-  bookings.push({id:'bk'+Date.now(),spaces:cart.map(c=>({id:c.id,n:c.n,type:c.type})),user:fullName(),mgr:user.mgr,date:activeDate,st,en,status:'confirmed',amenities:amenityLabels,allday});
+  bookings.push({id:'bk'+Date.now(),spaces:cart.map(c=>({id:c.id,n:c.n,type:c.type})),user:fullName(),mgr:user.mgr,date:activeDate,st,en,status:'confirmed',amenities:amenityLabels,layout:layoutLabel?layoutLabel.name:'',allday});
   await saveBookings();
   const timeStr=allday?'All day':`${st} – ${en}`;
   document.getElementById('suc-msg').textContent=`Booked for ${timeStr} on ${activeDate}`;
@@ -768,7 +803,7 @@ function renderMine(){
     </div>
     <div class="booking-spaces">${b.spaces.map(s=>`<span class="booking-space-pill ${PILL[s.type]}">${ICONS[s.type]} ${s.n}</span>`).join('')}</div>
     ${b.amenities&&b.amenities.length?`<div style="margin-top:4px">${b.amenities.map(a=>`<span class="amenity-pill-sm">${a}</span>`).join('')}</div>`:''}
-    ${b.status==='confirmed'&&b.user===fullName()?`
+    ${b.layout?`<div style="margin-top:4px"><span style="background:var(--purple-bg);color:var(--purple-t);border-radius:10px;font-size:10px;padding:2px 8px;font-weight:500">🪑 ${b.layout} layout</span></div>`:''}
       <div style="display:flex;gap:6px;margin-top:8px">
         <button class="btn-edit-booking" onclick="openEditModal('${b.id}')">✏️ Edit</button>
         <button class="btn-cancel-booking" onclick="cancelMine('${b.id}')">Cancel reservation</button>
@@ -785,6 +820,14 @@ async function cancelMine(id){
 // ── EDIT MODAL ───────────────────────────────────────────────
 let editingId=null;
 let editSelectedAmenities=[];
+let editSelectedLayout='';
+
+function selectEditLayout(id,name){
+  editSelectedLayout=name;
+  document.querySelectorAll('[id^="elo-"]').forEach(el=>el.classList.remove('on'));
+  const el=document.getElementById('elo-'+id);
+  if(el) el.classList.add('on');
+}
 
 function openEditModal(id){
   const b=bookings.find(x=>x.id===id);
@@ -819,6 +862,14 @@ function openEditModal(id){
   const amenitiesSection=document.getElementById('edit-amenities-section');
   if(hasMeeting){
     amenitiesSection.style.display='block';
+    // Pre-select layout
+    editSelectedLayout=b.layout||'';
+    document.getElementById('edit-layout-grid').innerHTML=LAYOUT_OPTS.map(l=>`
+      <div class="layout-opt${editSelectedLayout===l.name?' on':''}" id="elo-${l.id}" onclick="selectEditLayout('${l.id}','${l.name}')">
+        <div style="font-size:18px;margin-bottom:4px">${l.icon}</div>
+        <div class="layout-opt-name">${l.name}</div>
+        <div class="layout-opt-cap">${l.cap}</div>
+      </div>`).join('');
     // Pre-select existing amenities
     const existing=b.amenities||[];
     editSelectedAmenities=AMENITY_OPTS.filter(a=>existing.some(e=>e.includes(a.label))).map(a=>a.id);
@@ -884,6 +935,10 @@ async function saveEdit(){
   );
   if(conflict){errEl.style.display='block';errEl.textContent='One of your spaces is already booked at that time. Please choose a different time or date.';return;}
 
+  // Validate layout if meeting room
+  const hasMeetingEdit=b.spaces.some(s=>s.type==='meeting_room');
+  if(hasMeetingEdit&&!editSelectedLayout){errEl.style.display='block';errEl.textContent='Please select a room layout.';return;}
+
   // Apply changes
   const idx=bookings.findIndex(x=>x.id===editingId);
   const amenityLabels=AMENITY_OPTS.filter(a=>editSelectedAmenities.includes(a.id)).map(a=>a.icon+' '+a.label);
@@ -892,7 +947,8 @@ async function saveEdit(){
     date:newDate,
     st:newSt,
     en:newEn,
-    amenities:b.spaces.some(s=>s.type==='meeting_room')?amenityLabels:b.amenities,
+    amenities:hasMeetingEdit?amenityLabels:b.amenities,
+    layout:hasMeetingEdit?editSelectedLayout:b.layout,
   };
 
   await saveBookings();
