@@ -34,7 +34,6 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .btn-primary{width:100%;height:44px;background:var(--green);color:#fff;border:none;border-radius:var(--r);font-size:14px;font-weight:600;cursor:pointer;transition:background .15s}
 .btn-primary:hover{background:#0F6E56}
 .login-footer{margin-top:20px;font-size:11px;color:var(--text3);text-align:center;line-height:1.7}
-.admin-hint{background:var(--purple-bg);border:1px solid #AFA9EC;border-radius:var(--r);padding:8px 12px;font-size:11px;color:var(--purple-t);margin-bottom:16px;text-align:center}
 .topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:20}
 .top-logo{display:flex;align-items:center;gap:10px}
 .top-logo .logo-mark{width:30px;height:30px;border-radius:8px}
@@ -84,11 +83,11 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .amenity-opt.on .a-box{background:var(--green);border-color:var(--green)}
 .a-check{display:none;width:10px;height:10px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .amenity-opt.on .a-check{display:block}
-.layout-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;margin-bottom:4px}
-.layout-opt{padding:10px 12px;border:1px solid var(--border2);border-radius:var(--r);cursor:pointer;font-size:13px;color:var(--text);transition:all .12s;user-select:none}
+.layout-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;margin-bottom:4px}
+.layout-opt{padding:10px 12px;border:1px solid var(--border2);border-radius:var(--r);cursor:pointer;font-size:13px;color:var(--text);transition:all .12s;user-select:none;text-align:center}
 .layout-opt:hover{border-color:var(--green-b);background:var(--green-l)}
 .layout-opt.on{border-color:var(--green);background:var(--green-l);color:var(--green-d);font-weight:600}
-.layout-opt-name{font-weight:500;margin-bottom:2px}
+.layout-opt-name{font-weight:500;margin-bottom:2px;font-size:13px}
 .layout-opt-cap{font-size:11px;color:var(--text3)}
 .layout-opt.on .layout-opt-cap{color:#0F6E56}
 .map-wrap{overflow-x:auto;padding-bottom:8px}
@@ -98,12 +97,11 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .ws-group{display:flex;flex-direction:column;gap:5px}
 .ws-pair{display:flex;gap:5px}
 .cell{width:60px;height:54px;border-radius:var(--r);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .12s;background:#fff;position:relative;flex-shrink:0;user-select:none}
-.cell svg{width:13px;height:13px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:#888;fill:none}
 .cell-lbl{font-size:9px;font-weight:600;text-align:center;line-height:1.2;padding:0 2px;color:var(--text2);margin-top:2px}
 .cell-sub{font-size:8px;color:var(--text3);text-align:center}
-.cell.av{background:var(--green-l);border-color:var(--green-b)}.cell.av svg{stroke:var(--green-d)}.cell.av .cell-lbl{color:var(--green-d)}.cell.av:hover{background:var(--green-m);transform:scale(1.05)}
-.cell.bk{background:var(--red-bg);border-color:var(--red-b);cursor:not-allowed;opacity:.8}.cell.bk svg{stroke:var(--red-t);opacity:.6}.cell.bk .cell-lbl{color:var(--red-t)}
-.cell.sl{background:var(--green);border-color:#0F6E56;transform:scale(1.07)}.cell.sl svg{stroke:#fff}.cell.sl .cell-lbl{color:#fff}.cell.sl .cell-sub{color:rgba(255,255,255,.75)}
+.cell.av{background:var(--green-l);border-color:var(--green-b)}.cell.av .cell-lbl{color:var(--green-d)}.cell.av:hover{background:var(--green-m);transform:scale(1.05)}
+.cell.bk{background:var(--red-bg);border-color:var(--red-b);cursor:not-allowed;opacity:.8}.cell.bk .cell-lbl{color:var(--red-t)}
+.cell.sl{background:var(--green);border-color:#0F6E56;transform:scale(1.07)}.cell.sl .cell-lbl{color:#fff}.cell.sl .cell-sub{color:rgba(255,255,255,.75)}
 .ergo{position:absolute;top:3px;right:3px;width:11px;height:11px;border-radius:3px;background:var(--green-m);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;color:var(--green-d)}
 .cell.sl .ergo{background:rgba(255,255,255,.25);color:#fff}.cell.bk .ergo{background:var(--red-b);color:var(--red-t)}
 .pb-row{display:flex;gap:10px}.pl-row-cells{display:flex;gap:6px}
@@ -114,7 +112,6 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .cart-panel-title{font-size:13px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}
 .cart-item{display:flex;align-items:center;gap:10px;padding:9px 10px;background:var(--green-l);border:1px solid var(--green-b);border-radius:var(--r);margin-bottom:7px}
 .cart-item-icon{width:32px;height:32px;border-radius:6px;background:var(--green-m);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.cart-item-icon svg{width:15px;height:15px;stroke:var(--green-d);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .cart-item-info{flex:1;min-width:0}
 .cart-item-name{font-size:13px;font-weight:600;color:var(--green-d)}
 .cart-item-type{font-size:11px;color:#0F6E56}
@@ -136,29 +133,19 @@ h2{font-size:22px;font-weight:600;margin-bottom:6px}
 .booking-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px}
 .booking-spaces{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 .booking-space-pill{display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500}
-.booking-space-pill svg{width:11px;height:11px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.pill-ws{background:var(--green-l);color:var(--green-d)}.pill-ws svg{stroke:var(--green-d)}
-.pill-pb{background:var(--blue-bg);color:var(--blue-t)}.pill-pb svg{stroke:var(--blue-t)}
-.pill-mr{background:#FBEAF0;color:#72243E}.pill-mr svg{stroke:#72243E}
-.pill-pl{background:var(--amber-bg);color:var(--amber-t)}.pill-pl svg{stroke:var(--amber-t)}
-.pill-meeting{background:var(--purple-bg);color:var(--purple-t)}.pill-meeting svg{stroke:var(--purple-t)}
+.pill-ws{background:var(--green-l);color:var(--green-d)}
+.pill-pb{background:var(--blue-bg);color:var(--blue-t)}
+.pill-mr{background:#FBEAF0;color:#72243E}
+.pill-pl{background:var(--amber-bg);color:var(--amber-t)}
+.pill-meeting{background:var(--purple-bg);color:var(--purple-t)}
 .dot-green{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:4px;vertical-align:middle}
 .dot-red{display:inline-block;width:6px;height:6px;border-radius:50%;background:#E24B4A;margin-right:4px;vertical-align:middle}
 .btn-cancel-booking{font-size:11px;color:var(--red-t);background:none;border:1px solid var(--red-b);border-radius:4px;padding:3px 10px;cursor:pointer;margin-top:8px;font-family:inherit}
 .btn-cancel-booking:hover{background:var(--red-bg)}
-.amenity-pill-sm{background:var(--amber-bg);color:var(--amber-t);border-radius:10px;font-size:10px;padding:2px 8px;font-weight:500;display:inline-block;margin:2px}
 .btn-edit-booking{font-size:11px;color:var(--blue-t);background:none;border:1px solid #B5D4F4;border-radius:4px;padding:3px 10px;cursor:pointer;margin-top:8px;margin-right:6px;font-family:inherit}
 .btn-edit-booking:hover{background:var(--blue-bg)}
-/* EDIT MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
-.modal-overlay.hidden{display:none}
-.modal-box{background:var(--surface);border-radius:var(--rxl);padding:24px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
-.modal-title{font-size:16px;font-weight:600;margin-bottom:4px}
-.modal-sub{font-size:12px;color:var(--text2);margin-bottom:20px}
-.modal-section{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;margin-top:16px}
-.modal-footer{display:flex;gap:10px;margin-top:20px}
-.modal-footer .btn-confirm{flex:2;height:40px;font-size:13px}
-.modal-footer .btn-ghost{flex:1;height:40px;font-size:13px}
+.amenity-pill-sm{background:var(--amber-bg);color:var(--amber-t);border-radius:10px;font-size:10px;padding:2px 8px;font-weight:500;display:inline-block;margin:2px}
+.layout-pill{background:var(--purple-bg);color:var(--purple-t);border-radius:10px;font-size:10px;padding:2px 8px;font-weight:500;display:inline-block;margin:2px}
 .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
 .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:14px}
 .stat-n{font-size:26px;font-weight:700;margin-bottom:2px}.stat-l{font-size:11px;color:var(--text2)}
@@ -178,14 +165,19 @@ tr:hover td{background:var(--bg)}
 .admin-action-btn{font-size:11px;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:inherit;border:1px solid}
 .admin-action-btn.del{color:var(--red-t);border-color:var(--red-b);background:none}
 .admin-action-btn.del:hover{background:var(--red-bg)}
-.loading-screen{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--text2);font-size:13px}
-.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.hidden{display:none}
+.modal-box{background:var(--surface);border-radius:var(--rxl);padding:24px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.modal-title{font-size:16px;font-weight:600;margin-bottom:4px}
+.modal-sub{font-size:12px;color:var(--text2);margin-bottom:20px}
+.modal-section{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;margin-top:16px}
+.modal-footer{display:flex;gap:10px;margin-top:20px}
+.modal-footer .btn-confirm{flex:2;height:40px;font-size:13px}
+.modal-footer .btn-ghost{flex:1;height:40px;font-size:13px}
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
 <div id="scr-login" class="screen active">
   <div class="login-bg">
     <div class="login-card">
@@ -198,13 +190,12 @@ tr:hover td{background:var(--bg)}
       <div class="field"><label>First name</label><input type="text" id="i-first" placeholder="e.g. Ana"/><div class="err" id="e-first"></div></div>
       <div class="field"><label>Last name</label><input type="text" id="i-last" placeholder="e.g. Castro"/><div class="err" id="e-last"></div></div>
       <div class="field"><label>Manager <span style="font-weight:400;color:var(--text3)">(optional)</span></label><input type="text" id="i-mgr" placeholder="e.g. Roberto Salas"/></div>
-      <button class="btn-primary" onclick="doLogin()">Enter WorkPlace →</button>
+      <button class="btn-primary" onclick="doLogin()">Enter WorkPlace &#8594;</button>
       <p class="login-footer">By entering, you agree to the workspace use policy.<br>Contact Facilities for support.</p>
     </div>
   </div>
 </div>
 
-<!-- APP -->
 <div id="scr-app" class="screen">
   <div class="topbar">
     <div class="top-logo">
@@ -241,16 +232,25 @@ tr:hover td{background:var(--bg)}
     </nav>
     <div class="main">
 
-      <!-- BOOK -->
       <div id="pg-book" class="page active">
         <div class="card">
           <div class="card-title">What do you need?</div>
           <div class="type-grid">
-            <button class="type-btn active" onclick="setType('workstation',this)"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Workstation</button>
-            <button class="type-btn" onclick="setType('meeting_room',this)"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Meeting room</button>
-            <button class="type-btn" onclick="setType('maternity_room',this)"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/></svg>Maternity</button>
-            <button class="type-btn" onclick="setType('parking_slot',this)"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Parking</button>
-            <button class="type-btn" onclick="setType('phone_booth',this)"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Phone booth</button>
+            <button class="type-btn active" onclick="setType('workstation',this)">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Workstation
+            </button>
+            <button class="type-btn" onclick="setType('meeting_room',this)">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Meeting room
+            </button>
+            <button class="type-btn" onclick="setType('maternity_room',this)">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/></svg>Maternity
+            </button>
+            <button class="type-btn" onclick="setType('parking_slot',this)">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Parking
+            </button>
+            <button class="type-btn" onclick="setType('phone_booth',this)">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Phone booth
+            </button>
           </div>
           <div class="date-row"><label>Date</label><input type="date" id="bk-date"/><button class="btn-see" onclick="showMap()">View floor map</button></div>
         </div>
@@ -266,14 +266,13 @@ tr:hover td{background:var(--bg)}
         </div>
         <div id="book-cart-preview" style="display:none">
           <div class="cart-panel">
-            <div class="cart-panel-title">Your reservation so far<button class="btn-ghost" style="font-size:12px" onclick="goPage('cart',document.querySelector('.nav-item:nth-child(2)'))">View full cart →</button></div>
+            <div class="cart-panel-title">Your reservation so far<button class="btn-ghost" style="font-size:12px" onclick="goPage('cart',document.querySelector('.nav-item:nth-child(2)'))">View full cart &#8594;</button></div>
             <div id="book-cart-items"></div>
             <button class="btn-add-more" onclick="scrollToMap()">+ Add another space type</button>
           </div>
         </div>
       </div>
 
-      <!-- CART -->
       <div id="pg-cart" class="page">
         <div id="cart-empty-state" class="card"><div class="empty">Your reservation cart is empty.<br><span style="font-size:11px;display:block;margin-top:4px">Go to "Book a space" to add spaces.</span></div></div>
         <div id="cart-full" style="display:none">
@@ -311,16 +310,16 @@ tr:hover td{background:var(--bg)}
           </div>
           <div class="card" id="amenities-card" style="display:none">
             <div class="card-title">Meeting room setup</div>
-            <div style="font-size:12px;color:var(--text2);margin-bottom:2px;font-weight:500">Room layout <span style="color:var(--red-t)">*</span></div>
+            <div style="font-size:12px;font-weight:500;color:var(--text2);margin-bottom:2px">Room layout <span style="color:var(--red-t)">*</span></div>
             <div style="font-size:11px;color:var(--text3);margin-bottom:6px">Select the layout required for your meeting</div>
             <div class="layout-grid" id="layout-grid"></div>
-            <div style="font-size:12px;color:var(--text2);margin-top:14px;margin-bottom:2px;font-weight:500">Amenities <span style="font-size:11px;font-weight:400;color:var(--text3)">(optional)</span></div>
+            <div style="font-size:12px;font-weight:500;color:var(--text2);margin-top:14px;margin-bottom:2px">Amenities <span style="font-size:11px;font-weight:400;color:var(--text3)">(optional)</span></div>
             <div style="font-size:11px;color:var(--text3);margin-bottom:6px">Select what you need for your meeting</div>
             <div class="amenities-grid" id="amenities-grid"></div>
           </div>
           <div id="cart-err" class="alert alert-err" style="display:none"></div>
           <div style="display:flex;gap:10px;margin-bottom:14px">
-            <button class="btn-ghost" style="flex:1" onclick="goPage('book',document.querySelector('.nav-item:first-child'))">← Add more spaces</button>
+            <button class="btn-ghost" style="flex:1" onclick="goPage('book',document.querySelector('.nav-item:first-child'))">&#8592; Add more spaces</button>
             <button class="btn-confirm" style="flex:2" onclick="doConfirm()">Confirm reservation</button>
           </div>
         </div>
@@ -340,10 +339,8 @@ tr:hover td{background:var(--bg)}
         </div>
       </div>
 
-      <!-- MY BOOKINGS -->
       <div id="pg-mine" class="page"><div id="mine-content"></div></div>
 
-      <!-- DASHBOARD -->
       <div id="pg-dash" class="page">
         <div class="alert-info">Showing all reservations across all employees in real time.</div>
         <div class="stat-row" id="dash-stats"></div>
@@ -357,7 +354,6 @@ tr:hover td{background:var(--bg)}
         </div>
       </div>
 
-      <!-- ADMIN -->
       <div id="pg-admin" class="page">
         <div class="card" style="background:var(--purple-bg);border-color:#AFA9EC">
           <div style="font-size:15px;font-weight:600;color:var(--purple-t);margin-bottom:4px">Admin panel</div>
@@ -378,49 +374,30 @@ tr:hover td{background:var(--bg)}
   </div>
 </div>
 
-<!-- EDIT RESERVATION MODAL -->
+<!-- EDIT MODAL -->
 <div class="modal-overlay hidden" id="edit-modal">
   <div class="modal-box">
     <div class="modal-title">Edit reservation</div>
-    <div class="modal-sub" id="edit-modal-sub">Updating your booking</div>
-
-    <!-- Spaces (read-only display) -->
+    <div class="modal-sub" id="edit-modal-sub"></div>
     <div class="modal-section">Spaces reserved</div>
     <div id="edit-spaces-display" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px"></div>
-
-    <!-- Date -->
     <div class="modal-section">Date</div>
     <input type="date" id="edit-date" style="margin-bottom:4px"/>
-
-    <!-- Time slot — hidden for all-day types -->
     <div id="edit-time-section">
       <div class="modal-section">Time slot</div>
       <div class="time-inputs">
         <div><label>Start time</label>
           <select id="edit-start">
-            <option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option>
-            <option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option>
-            <option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option>
-            <option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option>
-            <option>15:00</option><option>15:30</option><option>16:00</option><option>16:30</option>
-            <option>17:00</option><option>17:30</option><option>18:00</option>
+            <option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option><option>18:00</option>
           </select>
         </div>
         <div><label>End time</label>
           <select id="edit-end">
-            <option>07:30</option><option>08:00</option><option>08:30</option><option>09:00</option>
-            <option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option>
-            <option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option>
-            <option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option>
-            <option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option>
-            <option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option>
-            <option>19:30</option><option>20:00</option>
+            <option>07:30</option><option>08:00</option><option>08:30</option><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option>
           </select>
         </div>
       </div>
     </div>
-
-    <!-- Amenities — only for meeting room -->
     <div id="edit-amenities-section" style="display:none">
       <div class="modal-section">Room layout <span style="color:var(--red-t)">*</span></div>
       <div style="font-size:11px;color:var(--text3);margin-bottom:6px">Select the layout required</div>
@@ -429,9 +406,7 @@ tr:hover td{background:var(--bg)}
       <div style="font-size:11px;color:var(--text3);margin-bottom:6px">Select what you need</div>
       <div class="amenities-grid" id="edit-amenities-grid"></div>
     </div>
-
     <div id="edit-err" class="alert alert-err" style="display:none;margin-top:12px"></div>
-
     <div class="modal-footer">
       <button class="btn-ghost" onclick="closeEditModal()">Cancel</button>
       <button class="btn-confirm" onclick="saveEdit()">Save changes</button>
@@ -440,24 +415,27 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <script>
-
-// ── SUPABASE CONFIG ──────────────────────────────────────────
-const SUPA_URL = 'https://hnkdzyovhkrzngatfzcb.supabase.co';
-const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhua2R6eW92aGtyem5nYXRmemNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMDU1MjUsImV4cCI6MjA5MzU4MTUyNX0.dM9mfp8NNEcp-HHMpRGfjToAGlvU6yedhpOF587cDeI';
-const HEADERS = { 'apikey': SUPA_KEY, 'Authorization': `Bearer ${SUPA_KEY}`, 'Content-Type': 'application/json', 'Prefer': 'resolution=merge-duplicates,return=minimal' };
+var SUPA_URL = 'https://hnkdzyovhkrzngatfzcb.supabase.co';
+var SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhua2R6eW92aGtyem5nYXRmemNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMDU1MjUsImV4cCI6MjA5MzU4MTUyNX0.dM9mfp8NNEcp-HHMpRGfjToAGlvU6yedhpOF587cDeI';
+var HEADERS = {
+  'apikey': SUPA_KEY,
+  'Authorization': 'Bearer ' + SUPA_KEY,
+  'Content-Type': 'application/json',
+  'Prefer': 'resolution=merge-duplicates,return=minimal'
+};
 
 async function dbGet() {
   try {
-    const r = await fetch(`${SUPA_URL}/rest/v1/workplace_bookings?key=eq.bookings&select=value`, { headers: HEADERS });
+    var r = await fetch(SUPA_URL + '/rest/v1/workplace_bookings?key=eq.bookings&select=value', { headers: HEADERS });
     if (!r.ok) return [];
-    const d = await r.json();
-    return d?.[0]?.value ?? [];
+    var d = await r.json();
+    return (d && d[0] && d[0].value) ? d[0].value : [];
   } catch(e) { return []; }
 }
 
 async function dbSet(data) {
   try {
-    await fetch(`${SUPA_URL}/rest/v1/workplace_bookings`, {
+    await fetch(SUPA_URL + '/rest/v1/workplace_bookings', {
       method: 'POST',
       headers: HEADERS,
       body: JSON.stringify({ key: 'bookings', value: data })
@@ -465,527 +443,676 @@ async function dbSet(data) {
   } catch(e) { console.warn('Save error', e); }
 }
 
-// ── RESOURCES ────────────────────────────────────────────────
-const ALLDAY_TYPES=['workstation','parking_slot'];
-const TIMED_TYPES=['meeting_room','phone_booth','maternity_room'];
-const AMENITY_OPTS=[
-  {id:'tea',label:'Tea',icon:'🍵'},{id:'coffee',label:'Coffee',icon:'☕'},
-  {id:'water',label:'Water',icon:'💧'},{id:'snacks',label:'Snacks',icon:'🍪'},
-  {id:'projector',label:'Projector',icon:'📽️'},{id:'whiteboard',label:'Whiteboard',icon:'📋'},
-  {id:'video',label:'Video call setup',icon:'📹'},{id:'catering',label:'Catering',icon:'🍽️'},
+var ALLDAY_TYPES = ['workstation','parking_slot'];
+var TIMED_TYPES  = ['meeting_room','phone_booth','maternity_room'];
+
+var AMENITY_OPTS = [
+  {id:'tea',      label:'Tea',             icon:'&#9749;'},
+  {id:'coffee',   label:'Coffee',          icon:'&#9749;'},
+  {id:'water',    label:'Water',           icon:'&#128167;'},
+  {id:'snacks',   label:'Snacks',          icon:'&#127850;'},
+  {id:'projector',label:'Projector',       icon:'&#127902;'},
+  {id:'whiteboard',label:'Whiteboard',     icon:'&#128203;'},
+  {id:'video',    label:'Video call setup',icon:'&#128249;'},
+  {id:'catering', label:'Catering',        icon:'&#127859;'}
 ];
-const LAYOUT_OPTS=[
-  {id:'theater',name:'Theater',cap:'Up to 25 people',icon:'🎭'},
-  {id:'classroom',name:'Classroom',cap:'Up to 15 people',icon:'🏫'},
-  {id:'ushape',name:'U-Shape',cap:'Up to 15 people',icon:'🔷'},
-  {id:'boardroom',name:'Boardroom',cap:'Up to 15 people',icon:'💼'},
+
+var LAYOUT_OPTS = [
+  {id:'theater',   name:'Theater',   cap:'Up to 25 people', icon:'&#127914;'},
+  {id:'classroom', name:'Classroom', cap:'Up to 15 people', icon:'&#127979;'},
+  {id:'ushape',    name:'U-Shape',   cap:'Up to 15 people', icon:'&#128311;'},
+  {id:'boardroom', name:'Boardroom', cap:'Up to 15 people', icon:'&#128188;'}
 ];
-const RES=[
-  // Group 1: WS-1 (wide/solo top), WS-2/WS-4, WS-3/WS-5
-  {id:'WS_1',n:'WS-1',type:'workstation',erg:false,grp:0,col:0,row:0,wide:true,permanent:true},
-  {id:'WS_2',n:'WS-2',type:'workstation',erg:false,grp:0,col:0,row:1},
-  {id:'WS_4',n:'WS-4',type:'workstation',erg:false,grp:0,col:1,row:1},
-  {id:'WS_3',n:'WS-3',type:'workstation',erg:false,grp:0,col:0,row:2},
-  {id:'WS_5',n:'WS-5',type:'workstation',erg:false,grp:0,col:1,row:2},
-  // Group 2: WS-6/WS-9, WS-7/WS-10, WS-8(erg)/WS-11(erg)
-  {id:'WS_6',n:'WS-6',type:'workstation',erg:false,grp:1,col:0,row:0},
-  {id:'WS_9',n:'WS-9',type:'workstation',erg:false,grp:1,col:1,row:0},
-  {id:'WS_7',n:'WS-7',type:'workstation',erg:false,grp:1,col:0,row:1},
+
+var RES = [
+  {id:'WS_1', n:'WS-1', type:'workstation',erg:false,grp:0,col:0,row:0,wide:true,permanent:true},
+  {id:'WS_2', n:'WS-2', type:'workstation',erg:false,grp:0,col:0,row:1},
+  {id:'WS_4', n:'WS-4', type:'workstation',erg:false,grp:0,col:1,row:1},
+  {id:'WS_3', n:'WS-3', type:'workstation',erg:false,grp:0,col:0,row:2},
+  {id:'WS_5', n:'WS-5', type:'workstation',erg:false,grp:0,col:1,row:2},
+  {id:'WS_6', n:'WS-6', type:'workstation',erg:false,grp:1,col:0,row:0},
+  {id:'WS_9', n:'WS-9', type:'workstation',erg:false,grp:1,col:1,row:0},
+  {id:'WS_7', n:'WS-7', type:'workstation',erg:false,grp:1,col:0,row:1},
   {id:'WS_10',n:'WS-10',type:'workstation',erg:false,grp:1,col:1,row:1},
-  {id:'WS_8',n:'WS-8',type:'workstation',erg:true,grp:1,col:0,row:2},
-  {id:'WS_11',n:'WS-11',type:'workstation',erg:true,grp:1,col:1,row:2},
-  // Group 3: WS-12/WS-15, WS-13/WS-16, WS-14(erg)/WS-17(erg)
+  {id:'WS_8', n:'WS-8', type:'workstation',erg:true, grp:1,col:0,row:2},
+  {id:'WS_11',n:'WS-11',type:'workstation',erg:true, grp:1,col:1,row:2},
   {id:'WS_12',n:'WS-12',type:'workstation',erg:false,grp:2,col:0,row:0},
   {id:'WS_15',n:'WS-15',type:'workstation',erg:false,grp:2,col:1,row:0},
   {id:'WS_13',n:'WS-13',type:'workstation',erg:false,grp:2,col:0,row:1},
   {id:'WS_16',n:'WS-16',type:'workstation',erg:false,grp:2,col:1,row:1},
-  {id:'WS_14',n:'WS-14',type:'workstation',erg:true,grp:2,col:0,row:2},
-  {id:'WS_17',n:'WS-17',type:'workstation',erg:true,grp:2,col:1,row:2},
-  // Group 4: WS-18/WS-21, WS-19/WS-22, WS-20(erg)/WS-23(erg)
+  {id:'WS_14',n:'WS-14',type:'workstation',erg:true, grp:2,col:0,row:2},
+  {id:'WS_17',n:'WS-17',type:'workstation',erg:true, grp:2,col:1,row:2},
   {id:'WS_18',n:'WS-18',type:'workstation',erg:false,grp:3,col:0,row:0},
   {id:'WS_21',n:'WS-21',type:'workstation',erg:false,grp:3,col:1,row:0},
   {id:'WS_19',n:'WS-19',type:'workstation',erg:false,grp:3,col:0,row:1},
   {id:'WS_22',n:'WS-22',type:'workstation',erg:false,grp:3,col:1,row:1},
-  {id:'WS_20',n:'WS-20',type:'workstation',erg:true,grp:3,col:0,row:2},
-  {id:'WS_23',n:'WS-23',type:'workstation',erg:true,grp:3,col:1,row:2},
-  // Group 5: WS-24/WS-27, WS-25/WS-28, WS-26/WS-29
+  {id:'WS_20',n:'WS-20',type:'workstation',erg:true, grp:3,col:0,row:2},
+  {id:'WS_23',n:'WS-23',type:'workstation',erg:true, grp:3,col:1,row:2},
   {id:'WS_24',n:'WS-24',type:'workstation',erg:false,grp:4,col:0,row:0},
   {id:'WS_27',n:'WS-27',type:'workstation',erg:false,grp:4,col:1,row:0},
   {id:'WS_25',n:'WS-25',type:'workstation',erg:false,grp:4,col:0,row:1},
   {id:'WS_28',n:'WS-28',type:'workstation',erg:false,grp:4,col:1,row:1},
   {id:'WS_26',n:'WS-26',type:'workstation',erg:false,grp:4,col:0,row:2},
   {id:'WS_29',n:'WS-29',type:'workstation',erg:false,grp:4,col:1,row:2},
-  {id:'PB_1',n:'PB - 1',type:'phone_booth',erg:false},{id:'PB_2',n:'PB - 2',type:'phone_booth',erg:false},{id:'PB_3',n:'PB - 3',type:'phone_booth',erg:false},
+  {id:'PB_1',n:'PB - 1',type:'phone_booth',erg:false},
+  {id:'PB_2',n:'PB - 2',type:'phone_booth',erg:false},
+  {id:'PB_3',n:'PB - 3',type:'phone_booth',erg:false},
   {id:'MR_1',n:'MR - 1',type:'maternity_room',erg:false},
   {id:'Fundadores',n:'Fundadores',type:'meeting_room',erg:false},
-  {id:'PL_1',n:'PL-1',type:'parking_slot',erg:false,pr:0},{id:'PL_2',n:'PL-2',type:'parking_slot',erg:false,pr:0},{id:'PL_3',n:'PL-3',type:'parking_slot',erg:false,pr:0},{id:'PL_4',n:'PL-4',type:'parking_slot',erg:false,pr:0},
-  {id:'PL_5',n:'PL-5',type:'parking_slot',erg:false,pr:0},{id:'PL_6',n:'PL-6',type:'parking_slot',erg:false,pr:0},{id:'PL_7',n:'PL-7',type:'parking_slot',erg:false,pr:0},{id:'PL_8',n:'PL-8',type:'parking_slot',erg:false,pr:0},
-  {id:'PL_9',n:'PL-9',type:'parking_slot',erg:false,pr:1},{id:'PL_10',n:'PL-10',type:'parking_slot',erg:false,pr:1},{id:'PL_11',n:'PL-11',type:'parking_slot',erg:false,pr:1},{id:'PL_12',n:'PL-12',type:'parking_slot',erg:false,pr:1},
-  {id:'PL_13',n:'PL-13',type:'parking_slot',erg:false,pr:1},{id:'PL_14',n:'PL-14',type:'parking_slot',erg:false,pr:1},{id:'PL_15',n:'PL-15',type:'parking_slot',erg:false,pr:1},{id:'PL_16',n:'PL-16',type:'parking_slot',erg:false,pr:1},
-  {id:'PL_17',n:'PL-17',type:'parking_slot',erg:false,pr:2},{id:'PL_18',n:'PL-18',type:'parking_slot',erg:false,pr:2},{id:'PL_19',n:'PL-19',type:'parking_slot',erg:false,pr:2},
+  {id:'PL_1', n:'PL-1', type:'parking_slot',erg:false,pr:0},
+  {id:'PL_2', n:'PL-2', type:'parking_slot',erg:false,pr:0},
+  {id:'PL_3', n:'PL-3', type:'parking_slot',erg:false,pr:0},
+  {id:'PL_4', n:'PL-4', type:'parking_slot',erg:false,pr:0},
+  {id:'PL_5', n:'PL-5', type:'parking_slot',erg:false,pr:0},
+  {id:'PL_6', n:'PL-6', type:'parking_slot',erg:false,pr:0},
+  {id:'PL_7', n:'PL-7', type:'parking_slot',erg:false,pr:0},
+  {id:'PL_8', n:'PL-8', type:'parking_slot',erg:false,pr:0},
+  {id:'PL_9', n:'PL-9', type:'parking_slot',erg:false,pr:1},
+  {id:'PL_10',n:'PL-10',type:'parking_slot',erg:false,pr:1},
+  {id:'PL_11',n:'PL-11',type:'parking_slot',erg:false,pr:1},
+  {id:'PL_12',n:'PL-12',type:'parking_slot',erg:false,pr:1},
+  {id:'PL_13',n:'PL-13',type:'parking_slot',erg:false,pr:1},
+  {id:'PL_14',n:'PL-14',type:'parking_slot',erg:false,pr:1},
+  {id:'PL_15',n:'PL-15',type:'parking_slot',erg:false,pr:1},
+  {id:'PL_16',n:'PL-16',type:'parking_slot',erg:false,pr:1},
+  {id:'PL_17',n:'PL-17',type:'parking_slot',erg:false,pr:2},
+  {id:'PL_18',n:'PL-18',type:'parking_slot',erg:false,pr:2},
+  {id:'PL_19',n:'PL-19',type:'parking_slot',erg:false,pr:2}
 ];
-const TL={workstation:'Workstation',meeting_room:'Meeting room',maternity_room:'Maternity room',parking_slot:'Parking slot',phone_booth:'Phone booth'};
-const PILL={workstation:'pill-ws',meeting_room:'pill-meeting',maternity_room:'pill-mr',parking_slot:'pill-pl',phone_booth:'pill-pb'};
-const ICONS={
-  workstation:'<svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
-  phone_booth:'<svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-8.63-8.63A2 2 0 012 2h3a2 2 0 012 1.72 13 13 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 13 13 0 002.81.7A2 2 0 0122 16.92z"/></svg>',
-  meeting_room:'<svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>',
-  maternity_room:'<svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none"><circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/></svg>',
-  parking_slot:'<svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>',
-};
 
-// ── STATE ────────────────────────────────────────────────────
-let user={first:'',last:'',mgr:'',isAdmin:false};
-let cart=[],bookings=[],selectedAmenities=[],selectedLayout='';
-let activeType='workstation',activeDate='',pollTimer=null;
+var TL = {workstation:'Workstation',meeting_room:'Meeting room',maternity_room:'Maternity room',parking_slot:'Parking slot',phone_booth:'Phone booth'};
+var PILL = {workstation:'pill-ws',meeting_room:'pill-meeting',maternity_room:'pill-mr',parking_slot:'pill-pl',phone_booth:'pill-pb'};
 
-// ── DB HELPERS ───────────────────────────────────────────────
-async function loadBookings(){
+function iconHTML(type) {
+  var icons = {
+    workstation:   '<svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:#085041;stroke-width:2;fill:none;vertical-align:middle"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+    phone_booth:   '<svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:#0C447C;stroke-width:2;fill:none;vertical-align:middle"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>',
+    meeting_room:  '<svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:#3C3489;stroke-width:2;fill:none;vertical-align:middle"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>',
+    maternity_room:'<svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:#72243E;stroke-width:2;fill:none;vertical-align:middle"><circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/></svg>',
+    parking_slot:  '<svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:#633806;stroke-width:2;fill:none;vertical-align:middle"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>'
+  };
+  return icons[type] || '';
+}
+
+function cellIconHTML(type) {
+  var icons = {
+    workstation:    '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+    phone_booth:    '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>',
+    meeting_room:   '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>',
+    maternity_room: '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/></svg>',
+    parking_slot:   '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>'
+  };
+  return icons[type] || '';
+}
+
+var user = {first:'',last:'',mgr:'',isAdmin:false};
+var cart = [], bookings = [], selectedAmenities = [], selectedLayout = '';
+var activeType = 'workstation', activeDate = '', pollTimer = null;
+var editingId = null, editSelectedAmenities = [], editSelectedLayout = '';
+
+async function loadBookings() {
   bookings = await dbGet();
   setSyncStatus(true);
 }
-
-async function saveBookings(){
+async function saveBookings() {
   await dbSet(bookings);
   setSyncStatus(true);
 }
-
-async function pollBookings(){
-  try{
-    const fresh = await dbGet();
-    const changed = JSON.stringify(fresh) !== JSON.stringify(bookings);
+async function pollBookings() {
+  try {
+    var fresh = await dbGet();
+    var changed = JSON.stringify(fresh) !== JSON.stringify(bookings);
     bookings = fresh;
     setSyncStatus(true);
-    if(changed){
-      if(document.getElementById('pg-book').classList.contains('active') && document.getElementById('map-card').style.display!=='none') renderMap();
-      if(document.getElementById('pg-dash').classList.contains('active')) renderDash();
-      if(document.getElementById('pg-mine').classList.contains('active')) renderMine();
-      if(document.getElementById('pg-admin').classList.contains('active')) renderAdmin();
+    if (changed) {
+      if (document.getElementById('pg-book').classList.contains('active') && document.getElementById('map-card').style.display !== 'none') renderMap();
+      if (document.getElementById('pg-dash').classList.contains('active')) renderDash();
+      if (document.getElementById('pg-mine').classList.contains('active')) renderMine();
+      if (document.getElementById('pg-admin').classList.contains('active')) renderAdmin();
     }
-  }catch(e){ setSyncStatus(false); }
+  } catch(e) { setSyncStatus(false); }
 }
-
-function setSyncStatus(ok){
-  document.getElementById('sync-dot').className='sync-dot'+(ok?'':' stale');
-  document.getElementById('sync-label').textContent=ok?'Live':'Reconnecting…';
+function setSyncStatus(ok) {
+  document.getElementById('sync-dot').className = 'sync-dot' + (ok ? '' : ' stale');
+  document.getElementById('sync-label').textContent = ok ? 'Live' : 'Reconnecting\u2026';
 }
-function startPolling(){ pollTimer=setInterval(pollBookings,15000); }
-function stopPolling(){ if(pollTimer){clearInterval(pollTimer);pollTimer=null;} }
+function startPolling() { pollTimer = setInterval(pollBookings, 15000); }
+function stopPolling()  { if (pollTimer) { clearInterval(pollTimer); pollTimer = null; } }
 
-// ── HELPERS ──────────────────────────────────────────────────
-function today(){ return new Date().toISOString().split('T')[0]; }
-function fullName(){ return user.first+' '+user.last; }
-function initials(){ return((user.first||'?')[0]+(user.last||'?')[0]).toUpperCase(); }
-function isAlldayType(t){ return ALLDAY_TYPES.includes(t); }
-function cartNeedsTime(){ return cart.some(c=>TIMED_TYPES.includes(c.type)); }
-function cartHasMeeting(){ return cart.some(c=>c.type==='meeting_room'); }
-function cartHasAllday(){ return cart.some(c=>isAlldayType(c.type)); }
-function isBooked(rid,date){ return bookings.some(b=>b.spaces.some(s=>s.id===rid)&&b.date===date&&b.status==='confirmed'); }
-function getBooking(rid,date){ return bookings.find(b=>b.spaces.some(s=>s.id===rid)&&b.date===date&&b.status==='confirmed')||null; }
-function inCart(rid){ return cart.some(c=>c.id===rid); }
+function today() { return new Date().toISOString().split('T')[0]; }
+function fullName() { return user.first + ' ' + user.last; }
+function initials() { return ((user.first||'?')[0] + (user.last||'?')[0]).toUpperCase(); }
+function isAlldayType(t) { return ALLDAY_TYPES.includes(t); }
+function cartNeedsTime() { return cart.some(function(c){ return TIMED_TYPES.includes(c.type); }); }
+function cartHasMeeting() { return cart.some(function(c){ return c.type === 'meeting_room'; }); }
+function cartHasAllday() { return cart.some(function(c){ return isAlldayType(c.type); }); }
+function isBooked(rid, date) { return bookings.some(function(b){ return b.spaces.some(function(s){ return s.id===rid; }) && b.date===date && b.status==='confirmed'; }); }
+function getBooking(rid, date) { return bookings.find(function(b){ return b.spaces.some(function(s){ return s.id===rid; }) && b.date===date && b.status==='confirmed'; }) || null; }
+function inCart(rid) { return cart.some(function(c){ return c.id===rid; }); }
 
-// ── AUTH ─────────────────────────────────────────────────────
-async function doLogin(){
-  const f=document.getElementById('i-first').value.trim();
-  const l=document.getElementById('i-last').value.trim();
-  const m=document.getElementById('i-mgr').value.trim();
-  document.getElementById('e-first').textContent=f?'':'First name is required.';
-  document.getElementById('e-last').textContent=l?'':'Last name is required.';
-  if(!f||!l) return;
-  const isAdmin=m==='admin2024';
-  user={first:f,last:l,mgr:isAdmin?'Administrator':m||'N/A',isAdmin};
-  document.getElementById('top-avatar').textContent=initials();
-  document.getElementById('top-avatar').className='avatar'+(isAdmin?' admin-av':'');
-  document.getElementById('top-name').textContent=fullName();
-  document.getElementById('admin-pill').style.display=isAdmin?'':'none';
-  document.getElementById('admin-nav-btn').style.display=isAdmin?'':'none';
+async function doLogin() {
+  var f = document.getElementById('i-first').value.trim();
+  var l = document.getElementById('i-last').value.trim();
+  var m = document.getElementById('i-mgr').value.trim();
+  document.getElementById('e-first').textContent = f ? '' : 'First name is required.';
+  document.getElementById('e-last').textContent  = l ? '' : 'Last name is required.';
+  if (!f || !l) return;
+  var isAdmin = (m === 'admin2024');
+  user = {first:f, last:l, mgr:isAdmin ? 'Administrator' : (m||'N/A'), isAdmin:isAdmin};
+  document.getElementById('top-avatar').textContent = initials();
+  document.getElementById('top-avatar').className = 'avatar' + (isAdmin ? ' admin-av' : '');
+  document.getElementById('top-name').textContent = fullName();
+  document.getElementById('admin-pill').style.display = isAdmin ? '' : 'none';
+  document.getElementById('admin-nav-btn').style.display = isAdmin ? '' : 'none';
   document.getElementById('scr-login').classList.remove('active');
   document.getElementById('scr-app').classList.add('active');
   setSyncStatus(false);
   await loadBookings();
   startPolling();
-  const bd=document.getElementById('bk-date');
-  bd.min=today(); bd.value=today(); activeDate=today();
+  var bd = document.getElementById('bk-date');
+  bd.min = today(); bd.value = today(); activeDate = today();
 }
 
-function doLogout(){
-  stopPolling(); cart=[]; user={first:'',last:'',mgr:'',isAdmin:false};
+function doLogout() {
+  stopPolling(); cart = []; user = {first:'',last:'',mgr:'',isAdmin:false};
   document.getElementById('scr-app').classList.remove('active');
   document.getElementById('scr-login').classList.add('active');
-  document.getElementById('top-avatar').className='avatar';
-  ['i-first','i-last','i-mgr'].forEach(id=>document.getElementById(id).value='');
-  ['e-first','e-last'].forEach(id=>document.getElementById(id).textContent='');
-  document.getElementById('map-card').style.display='none';
-  document.getElementById('book-cart-preview').style.display='none';
+  document.getElementById('top-avatar').className = 'avatar';
+  ['i-first','i-last','i-mgr'].forEach(function(id){ document.getElementById(id).value=''; });
+  ['e-first','e-last'].forEach(function(id){ document.getElementById(id).textContent=''; });
+  document.getElementById('map-card').style.display = 'none';
+  document.getElementById('book-cart-preview').style.display = 'none';
   updateCartBadge();
 }
 
-// ── NAVIGATION ───────────────────────────────────────────────
-function goPage(pg,btn){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
-  document.getElementById('pg-'+pg).classList.add('active');
-  if(btn) btn.classList.add('active');
-  if(pg==='mine') renderMine();
-  if(pg==='dash') renderDash();
-  if(pg==='cart') renderCartPage();
-  if(pg==='admin') renderAdmin();
+function goPage(pg, btn) {
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.nav-item').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('pg-' + pg).classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (pg==='mine') renderMine();
+  if (pg==='dash') renderDash();
+  if (pg==='cart') renderCartPage();
+  if (pg==='admin') renderAdmin();
 }
 
-// ── BOOKING FLOW ─────────────────────────────────────────────
-function setType(t,btn){ activeType=t; document.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
-function showMap(){ activeDate=document.getElementById('bk-date').value||today(); document.getElementById('map-card').style.display='block'; renderMap(); document.getElementById('map-card').scrollIntoView({behavior:'smooth',block:'nearest'}); }
-function scrollToMap(){ goPage('book',document.querySelector('.nav-item:first-child')); setTimeout(()=>document.getElementById('map-card').scrollIntoView({behavior:'smooth'}),100); }
-
-function cellSVG(type){
-  const d={workstation:'<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',phone_booth:'<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-8.63-8.63A2 2 0 012 2h3a2 2 0 012 1.72 13 13 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 13 13 0 002.81.7A2 2 0 0122 16.92z"/>',meeting_room:'<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>',maternity_room:'<circle cx="12" cy="8" r="4"/><path d="M12 14v8"/><path d="M8 18l4-4 4 4"/>',parking_slot:'<rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>'};
-  return`<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none">${d[type]||''}</svg>`;
+function setType(t, btn) {
+  activeType = t;
+  document.querySelectorAll('.type-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+}
+function showMap() {
+  activeDate = document.getElementById('bk-date').value || today();
+  document.getElementById('map-card').style.display = 'block';
+  renderMap();
+  document.getElementById('map-card').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function scrollToMap() {
+  goPage('book', document.querySelector('.nav-item:first-child'));
+  setTimeout(function(){ document.getElementById('map-card').scrollIntoView({behavior:'smooth'}); }, 100);
 }
 
-function makeCell(r){
-  const bk=isBooked(r.id,activeDate),ic=inCart(r.id);
-  const bi=bk?getBooking(r.id,activeDate):null;
-  const cls='cell '+(ic?'sl':bk?'bk':'av');
-  const sub=bk&&bi?(isAlldayType(r.type)?'All day':`${bi.st}-${bi.en}`):ic?'In cart':'';
-  return`<div class="${cls}" onclick="toggleCart('${r.id}')">${r.erg?'<div class="ergo">E</div>':''}${cellSVG(r.type)}<div class="cell-lbl">${r.n}</div>${sub?`<div class="cell-sub">${sub}</div>`:''}</div>`;
+function makeCell(r) {
+  var bk = isBooked(r.id, activeDate);
+  var ic = inCart(r.id);
+  var bi = bk ? getBooking(r.id, activeDate) : null;
+  var cls = 'cell ' + (ic ? 'sl' : bk ? 'bk' : 'av');
+  var sub = bk && bi ? (isAlldayType(r.type) ? 'All day' : bi.st+'-'+bi.en) : ic ? 'In cart' : '';
+  var ergoTag = r.erg ? '<div class="ergo">E</div>' : '';
+  return '<div class="' + cls + '" onclick="toggleCart(\'' + r.id + '\')">' +
+    ergoTag + cellIconHTML(r.type) +
+    '<div class="cell-lbl">' + r.n + '</div>' +
+    (sub ? '<div class="cell-sub">' + sub + '</div>' : '') +
+    '</div>';
 }
 
-function toggleCart(rid){
-  const r=RES.find(x=>x.id===rid); if(!r||isBooked(rid,activeDate)) return;
-  if(inCart(rid)){cart=cart.filter(c=>c.id!==rid);}else{cart.push({id:r.id,n:r.n,type:r.type});}
+function toggleCart(rid) {
+  var r = RES.find(function(x){ return x.id===rid; });
+  if (!r || r.permanent || isBooked(rid, activeDate)) return;
+  if (inCart(rid)) { cart = cart.filter(function(c){ return c.id!==rid; }); }
+  else { cart.push({id:r.id, n:r.n, type:r.type}); }
   updateCartBadge(); renderMap(); renderBookCartPreview();
 }
-function updateCartBadge(){ const n=cart.length; ['cart-badge','cart-badge2'].forEach(id=>{const el=document.getElementById(id);el.style.display=n>0?'':'none';el.textContent=n;}); }
 
-function renderMap(){
-  const list=RES.filter(r=>r.type===activeType),mc=document.getElementById('map-content');
-  const titles={workstation:'Work stations — 29 spots',phone_booth:'Phone booths — 3 booths',meeting_room:'Meeting room — Fundadores',maternity_room:'Maternity room — MR-1',parking_slot:'Parking lots — 19 spaces'};
-  document.getElementById('map-title').textContent=titles[activeType]||'Floor map';
-  if(activeType==='workstation'){
-    // Build 5 groups from the grp property
-    const groups=[0,1,2,3,4].map(g=>list.filter(r=>r.grp===g));
-    let h='<div class="ws-groups">';
-    groups.forEach((grpItems,gi)=>{
-      h+='<div class="ws-group">';
-      if(gi===0){
-        // Group 1: WS-1 spans full width on top row
-        const ws1=grpItems.find(r=>r.wide);
-        const rest=grpItems.filter(r=>!r.wide);
-        const mp={};rest.forEach(r=>{mp[r.col+','+r.row]=r;});
-        // Wide cell for WS-1 — permanently booked (IT desk)
-        if(ws1){
-          h+=`<div class="ws-pair"><div class="cell bk" style="width:126px;height:54px;cursor:not-allowed;">${cellSVG(ws1.type)}<div class="cell-lbl">${ws1.n}</div><div class="cell-sub">IT — Always booked</div></div></div>`;
+function updateCartBadge() {
+  var n = cart.length;
+  ['cart-badge','cart-badge2'].forEach(function(id){
+    var el = document.getElementById(id);
+    el.style.display = n > 0 ? '' : 'none';
+    el.textContent = n;
+  });
+}
+
+function renderMap() {
+  var list = RES.filter(function(r){ return r.type===activeType; });
+  var mc = document.getElementById('map-content');
+  var titles = {
+    workstation:    'Work stations \u2014 29 spots',
+    phone_booth:    'Phone booths \u2014 3 booths',
+    meeting_room:   'Meeting room \u2014 Fundadores',
+    maternity_room: 'Maternity room \u2014 MR-1',
+    parking_slot:   'Parking lots \u2014 19 spaces'
+  };
+  document.getElementById('map-title').textContent = titles[activeType] || 'Floor map';
+
+  if (activeType === 'workstation') {
+    var groups = [0,1,2,3,4].map(function(g){ return list.filter(function(r){ return r.grp===g; }); });
+    var h = '<div class="ws-groups">';
+    groups.forEach(function(grpItems, gi) {
+      h += '<div class="ws-group">';
+      if (gi === 0) {
+        var ws1  = grpItems.find(function(r){ return r.wide; });
+        var rest = grpItems.filter(function(r){ return !r.wide; });
+        var mp = {};
+        rest.forEach(function(r){ mp[r.col+','+r.row] = r; });
+        if (ws1) {
+          h += '<div class="ws-pair"><div class="cell bk" style="width:126px;height:54px;cursor:not-allowed;">' +
+               cellIconHTML(ws1.type) +
+               '<div class="cell-lbl">' + ws1.n + '</div>' +
+               '<div class="cell-sub">IT \u2014 Always booked</div>' +
+               '</div></div>';
         }
-        // Rows 1 and 2: pairs
-        [1,2].forEach(row=>{
-          h+='<div class="ws-pair">';
-          [0,1].forEach(col=>{const r=mp[col+','+row];h+=r?makeCell(r):`<div style="width:60px;height:54px;flex-shrink:0"></div>`;});
-          h+='</div>';
+        [1,2].forEach(function(row){
+          h += '<div class="ws-pair">';
+          [0,1].forEach(function(col){
+            var r = mp[col+','+row];
+            h += r ? makeCell(r) : '<div style="width:60px;height:54px;flex-shrink:0"></div>';
+          });
+          h += '</div>';
         });
       } else {
-        // Groups 2-5: standard 3-row, 2-col grid
-        const mp={};grpItems.forEach(r=>{mp[r.col+','+r.row]=r;});
-        [0,1,2].forEach(row=>{
-          h+='<div class="ws-pair">';
-          [0,1].forEach(col=>{const r=mp[col+','+row];h+=r?makeCell(r):`<div style="width:60px;height:54px;flex-shrink:0"></div>`;});
-          h+='</div>';
+        var mp2 = {};
+        grpItems.forEach(function(r){ mp2[r.col+','+r.row] = r; });
+        [0,1,2].forEach(function(row){
+          h += '<div class="ws-pair">';
+          [0,1].forEach(function(col){
+            var r = mp2[col+','+row];
+            h += r ? makeCell(r) : '<div style="width:60px;height:54px;flex-shrink:0"></div>';
+          });
+          h += '</div>';
         });
       }
-      h+='</div>';
+      h += '</div>';
     });
-    mc.innerHTML=h+'</div>';
-  }else if(activeType==='phone_booth'){
-    mc.innerHTML='<div class="section-label">Phone booths <span>3 booths</span></div><div class="pb-row">'+list.map(r=>makeCell(r)).join('')+'</div>';
-  }else if(activeType==='meeting_room'){
-    const r=list[0],bk=isBooked(r.id,activeDate),ic=inCart(r.id),bi=bk?getBooking(r.id,activeDate):null;
-    const cls='cell '+(ic?'sl':bk?'bk':'av');
-    mc.innerHTML=`<div class="section-label">Meeting room</div><div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
-      <div class="${cls}" style="width:120px;height:84px" onclick="toggleCart('${r.id}')">${cellSVG(r.type)}<div class="cell-lbl" style="font-size:10px">${r.n}</div><div class="cell-sub">25 pax</div>${bk&&bi?`<div class="cell-sub">${bi.st}-${bi.en}</div>`:ic?'<div class="cell-sub">In cart</div>':''}</div>
-      <div style="font-size:12px;color:var(--text2);line-height:1.8;max-width:260px"><div style="font-weight:600;color:var(--text);margin-bottom:4px">Fundadores meeting room</div>Theater (25 pax) · Classroom (15 pax)<br>U-shape (15 pax) · Boardroom (15 pax)<br><span style="font-size:11px;color:var(--text3)">Select your layout and amenities at checkout</span></div>
-    </div>`;
-  }else if(activeType==='maternity_room'){
-    mc.innerHTML='<div class="section-label">Maternity room <span>1 room</span></div><div style="display:flex;gap:8px">'+list.map(r=>makeCell(r)).join('')+'</div>';
-  }else if(activeType==='parking_slot'){
-    const r0=list.filter(r=>r.pr===0),r1=list.filter(r=>r.pr===1),r2=list.filter(r=>r.pr===2);
-    mc.innerHTML=`<div class="section-label">Row A — PL-1 to PL-8 <span>All day</span></div><div class="pl-row-cells" style="margin-bottom:12px">${r0.map(r=>makeCell(r)).join('')}</div><div class="section-label">Row B — PL-9 to PL-16 <span>All day</span></div><div class="pl-row-cells" style="margin-bottom:12px">${r1.map(r=>makeCell(r)).join('')}</div><div class="section-label">Row C — PL-17 to PL-19 <span>All day</span></div><div class="pl-row-cells">${r2.map(r=>makeCell(r)).join('')}</div>`;
+    mc.innerHTML = h + '</div>';
+
+  } else if (activeType === 'phone_booth') {
+    mc.innerHTML = '<div class="section-label">Phone booths <span>3 booths</span></div><div class="pb-row">' +
+      list.map(makeCell).join('') + '</div>';
+
+  } else if (activeType === 'meeting_room') {
+    var r = list[0];
+    var bk = isBooked(r.id, activeDate);
+    var ic = inCart(r.id);
+    var bi = bk ? getBooking(r.id, activeDate) : null;
+    var cls = 'cell ' + (ic ? 'sl' : bk ? 'bk' : 'av');
+    var timeSub = bk && bi ? ('<div class="cell-sub">' + bi.st + '-' + bi.en + '</div>') : ic ? '<div class="cell-sub">In cart</div>' : '';
+    mc.innerHTML = '<div class="section-label">Meeting room</div>' +
+      '<div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">' +
+      '<div class="' + cls + '" style="width:120px;height:84px" onclick="toggleCart(\'' + r.id + '\')">' +
+      cellIconHTML(r.type) + '<div class="cell-lbl" style="font-size:10px">' + r.n + '</div>' +
+      '<div class="cell-sub">25 pax</div>' + timeSub + '</div>' +
+      '<div style="font-size:12px;color:var(--text2);line-height:1.8;max-width:260px">' +
+      '<div style="font-weight:600;color:var(--text);margin-bottom:4px">Fundadores meeting room</div>' +
+      'Theater (25) \u00b7 Classroom (15)<br>U-shape (15) \u00b7 Boardroom (15)<br>' +
+      '<span style="font-size:11px;color:var(--text3)">Select layout and amenities at checkout</span>' +
+      '</div></div>';
+
+  } else if (activeType === 'maternity_room') {
+    mc.innerHTML = '<div class="section-label">Maternity room <span>1 room</span></div><div style="display:flex;gap:8px">' +
+      list.map(makeCell).join('') + '</div>';
+
+  } else if (activeType === 'parking_slot') {
+    var r0 = list.filter(function(r){ return r.pr===0; });
+    var r1 = list.filter(function(r){ return r.pr===1; });
+    var r2 = list.filter(function(r){ return r.pr===2; });
+    mc.innerHTML =
+      '<div class="section-label">Row A \u2014 PL-1 to PL-8 <span>All day</span></div>' +
+      '<div class="pl-row-cells" style="margin-bottom:12px">' + r0.map(makeCell).join('') + '</div>' +
+      '<div class="section-label">Row B \u2014 PL-9 to PL-16 <span>All day</span></div>' +
+      '<div class="pl-row-cells" style="margin-bottom:12px">' + r1.map(makeCell).join('') + '</div>' +
+      '<div class="section-label">Row C \u2014 PL-17 to PL-19 <span>All day</span></div>' +
+      '<div class="pl-row-cells">' + r2.map(makeCell).join('') + '</div>';
   }
 }
 
-function renderBookCartPreview(){
-  const preview=document.getElementById('book-cart-preview');
-  if(cart.length===0){preview.style.display='none';return;}
-  preview.style.display='block';
-  document.getElementById('book-cart-items').innerHTML=cart.map(c=>`<div class="cart-item"><div class="cart-item-icon">${ICONS[c.type]}</div><div class="cart-item-info"><div class="cart-item-name">${c.n}</div><div class="cart-item-type">${TL[c.type]}${isAlldayType(c.type)?' · All day':''}</div></div><button class="cart-item-rm" onclick="toggleCart('${c.id}')">×</button></div>`).join('');
+function renderBookCartPreview() {
+  var preview = document.getElementById('book-cart-preview');
+  if (cart.length === 0) { preview.style.display = 'none'; return; }
+  preview.style.display = 'block';
+  document.getElementById('book-cart-items').innerHTML = cart.map(function(c) {
+    return '<div class="cart-item"><div class="cart-item-icon">' + iconHTML(c.type) + '</div>' +
+      '<div class="cart-item-info"><div class="cart-item-name">' + c.n + '</div>' +
+      '<div class="cart-item-type">' + TL[c.type] + (isAlldayType(c.type) ? ' \u00b7 All day' : '') + '</div></div>' +
+      '<button class="cart-item-rm" onclick="toggleCart(\'' + c.id + '\')">&#215;</button></div>';
+  }).join('');
 }
 
-function renderCartPage(){
-  const empty=document.getElementById('cart-empty-state'),full=document.getElementById('cart-full'),success=document.getElementById('cart-success');
-  success.style.display='none';
-  if(cart.length===0){empty.style.display='block';full.style.display='none';return;}
-  empty.style.display='none';full.style.display='block';
-  document.getElementById('cf-name').textContent=fullName();
-  document.getElementById('cf-mgr').textContent=user.mgr;
-  const d=new Date(activeDate+'T00:00:00');
-  document.getElementById('cf-date').textContent=d.toLocaleDateString('en-CR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-  document.getElementById('cart-summary-title').textContent=`${cart.length} space${cart.length>1?'s':''} in your reservation`;
-  document.getElementById('cart-summary-sub').textContent='Review your selections and confirm.';
-  document.getElementById('cart-items-full').innerHTML=cart.map(c=>`<div class="cart-item" style="margin-bottom:8px"><div class="cart-item-icon">${ICONS[c.type]}</div><div class="cart-item-info"><div class="cart-item-name">${c.n}</div><div class="cart-item-type">${TL[c.type]}${isAlldayType(c.type)?' · All day':''}</div></div><button class="cart-item-rm" onclick="removeFromCartPage('${c.id}')">×</button></div>`).join('');
-  document.getElementById('allday-card').style.display=cartHasAllday()?'block':'none';
-  document.getElementById('time-card').style.display=cartNeedsTime()?'block':'none';
-  const ac=document.getElementById('amenities-card');
-  if(cartHasMeeting()){
-    ac.style.display='block'; selectedAmenities=[]; selectedLayout='';
-    // Render layout selector
-    document.getElementById('layout-grid').innerHTML=LAYOUT_OPTS.map(l=>`
-      <div class="layout-opt" id="lo-${l.id}" onclick="selectLayout('${l.id}')">
-        <div style="font-size:18px;margin-bottom:4px">${l.icon}</div>
-        <div class="layout-opt-name">${l.name}</div>
-        <div class="layout-opt-cap">${l.cap}</div>
-      </div>`).join('');
-    document.getElementById('amenities-grid').innerHTML=AMENITY_OPTS.map(a=>`<div class="amenity-opt" id="ao-${a.id}" onclick="toggleAmenity('${a.id}')"><span style="font-size:15px">${a.icon}</span><span>${a.label}</span><div class="a-box"><svg class="a-check" viewBox="0 0 10 8"><polyline points="1 4 3.5 7 9 1"/></svg></div></div>`).join('');
-  }else{ ac.style.display='none'; }
-  document.getElementById('cart-err').style.display='none';
+function renderCartPage() {
+  var empty   = document.getElementById('cart-empty-state');
+  var full    = document.getElementById('cart-full');
+  var success = document.getElementById('cart-success');
+  success.style.display = 'none';
+  if (cart.length === 0) { empty.style.display='block'; full.style.display='none'; return; }
+  empty.style.display = 'none'; full.style.display = 'block';
+  document.getElementById('cf-name').textContent = fullName();
+  document.getElementById('cf-mgr').textContent  = user.mgr;
+  var d = new Date(activeDate + 'T00:00:00');
+  document.getElementById('cf-date').textContent = d.toLocaleDateString('en-CR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('cart-summary-title').textContent = cart.length + ' space' + (cart.length>1?'s':'') + ' in your reservation';
+  document.getElementById('cart-summary-sub').textContent   = 'Review your selections and confirm.';
+  document.getElementById('cart-items-full').innerHTML = cart.map(function(c) {
+    return '<div class="cart-item" style="margin-bottom:8px"><div class="cart-item-icon">' + iconHTML(c.type) + '</div>' +
+      '<div class="cart-item-info"><div class="cart-item-name">' + c.n + '</div>' +
+      '<div class="cart-item-type">' + TL[c.type] + (isAlldayType(c.type)?' \u00b7 All day':'') + '</div></div>' +
+      '<button class="cart-item-rm" onclick="removeFromCartPage(\'' + c.id + '\')">&#215;</button></div>';
+  }).join('');
+  document.getElementById('allday-card').style.display = cartHasAllday() ? 'block' : 'none';
+  document.getElementById('time-card').style.display   = cartNeedsTime() ? 'block' : 'none';
+  var ac = document.getElementById('amenities-card');
+  if (cartHasMeeting()) {
+    ac.style.display = 'block';
+    selectedAmenities = []; selectedLayout = '';
+    document.getElementById('layout-grid').innerHTML = LAYOUT_OPTS.map(function(l) {
+      return '<div class="layout-opt" id="lo-' + l.id + '" onclick="selectLayout(\'' + l.id + '\')">' +
+        '<div style="font-size:20px;margin-bottom:4px">' + l.icon + '</div>' +
+        '<div class="layout-opt-name">' + l.name + '</div>' +
+        '<div class="layout-opt-cap">' + l.cap + '</div></div>';
+    }).join('');
+    document.getElementById('amenities-grid').innerHTML = AMENITY_OPTS.map(function(a) {
+      return '<div class="amenity-opt" id="ao-' + a.id + '" onclick="toggleAmenity(\'' + a.id + '\')">' +
+        '<span style="font-size:15px">' + a.icon + '</span><span>' + a.label + '</span>' +
+        '<div class="a-box"><svg class="a-check" viewBox="0 0 10 8"><polyline points="1 4 3.5 7 9 1"/></svg></div></div>';
+    }).join('');
+  } else { ac.style.display = 'none'; }
+  document.getElementById('cart-err').style.display = 'none';
 }
 
-function toggleAmenity(id){
-  const el=document.getElementById('ao-'+id);
-  if(selectedAmenities.includes(id)){selectedAmenities=selectedAmenities.filter(a=>a!==id);el.classList.remove('on');}
-  else{selectedAmenities.push(id);el.classList.add('on');}
+function selectLayout(id) {
+  selectedLayout = id;
+  document.querySelectorAll('#layout-grid .layout-opt').forEach(function(el){ el.classList.remove('on'); });
+  var el = document.getElementById('lo-' + id);
+  if (el) el.classList.add('on');
 }
-function selectLayout(id){
-  selectedLayout=id;
-  document.querySelectorAll('.layout-opt').forEach(el=>el.classList.remove('on'));
-  const el=document.getElementById('lo-'+id);
-  if(el) el.classList.add('on');
+function toggleAmenity(id) {
+  var el = document.getElementById('ao-' + id);
+  if (selectedAmenities.includes(id)) { selectedAmenities = selectedAmenities.filter(function(a){ return a!==id; }); el.classList.remove('on'); }
+  else { selectedAmenities.push(id); el.classList.add('on'); }
 }
-function removeFromCartPage(rid){ cart=cart.filter(c=>c.id!==rid); updateCartBadge(); renderBookCartPreview(); renderCartPage(); if(document.getElementById('pg-book').classList.contains('active')) renderMap(); }
+function removeFromCartPage(rid) {
+  cart = cart.filter(function(c){ return c.id!==rid; });
+  updateCartBadge(); renderBookCartPreview(); renderCartPage();
+  if (document.getElementById('pg-book').classList.contains('active')) renderMap();
+}
 
-async function doConfirm(){
-  const errEl=document.getElementById('cart-err');
-  let st='07:00',en='20:00';
-  if(cartNeedsTime()){
-    st=document.getElementById('c-start').value; en=document.getElementById('c-end').value;
-    if(st>=en){errEl.style.display='block';errEl.textContent='End time must be after start time.';return;}
+async function doConfirm() {
+  var errEl = document.getElementById('cart-err');
+  var st = '07:00', en = '20:00';
+  if (cartNeedsTime()) {
+    st = document.getElementById('c-start').value;
+    en = document.getElementById('c-end').value;
+    if (st >= en) { errEl.style.display='block'; errEl.textContent='End time must be after start time.'; return; }
   }
-  // Reload fresh data before checking conflicts
+  if (cartHasMeeting() && !selectedLayout) {
+    errEl.style.display='block'; errEl.textContent='Please select a room layout for the meeting room.'; return;
+  }
   await loadBookings();
-  let conflict=null;
-  cart.forEach(c=>{ if(bookings.some(b=>b.spaces.some(s=>s.id===c.id)&&b.date===activeDate&&b.status==='confirmed'&&!(en<=b.st||st>=b.en))) conflict=c.n; });
-  if(conflict){errEl.style.display='block';errEl.textContent=`"${conflict}" is already booked at that time. Please adjust.`;return;}
-  // Validate layout if meeting room in cart
-  if(cartHasMeeting()&&!selectedLayout){
-    errEl.style.display='block';errEl.textContent='Please select a room layout for the meeting room.';return;
-  }
-  errEl.style.display='none';
-  const amenityLabels=AMENITY_OPTS.filter(a=>selectedAmenities.includes(a.id)).map(a=>a.icon+' '+a.label);
-  const layoutLabel=LAYOUT_OPTS.find(l=>l.id===selectedLayout);
-  const allday=!cartNeedsTime();
-  bookings.push({id:'bk'+Date.now(),spaces:cart.map(c=>({id:c.id,n:c.n,type:c.type})),user:fullName(),mgr:user.mgr,date:activeDate,st,en,status:'confirmed',amenities:amenityLabels,layout:layoutLabel?layoutLabel.name:'',allday});
+  var conflict = null;
+  cart.forEach(function(c) {
+    if (bookings.some(function(b){
+      return b.spaces.some(function(s){ return s.id===c.id; }) && b.date===activeDate && b.status==='confirmed' && !(en<=b.st || st>=b.en);
+    })) conflict = c.n;
+  });
+  if (conflict) { errEl.style.display='block'; errEl.textContent='"'+conflict+'" is already booked at that time.'; return; }
+  errEl.style.display = 'none';
+  var amenityLabels = AMENITY_OPTS.filter(function(a){ return selectedAmenities.includes(a.id); }).map(function(a){ return a.icon+' '+a.label; });
+  var layoutObj = LAYOUT_OPTS.find(function(l){ return l.id===selectedLayout; });
+  var allday = !cartNeedsTime();
+  bookings.push({
+    id: 'bk' + Date.now(),
+    spaces: cart.map(function(c){ return {id:c.id,n:c.n,type:c.type}; }),
+    user: fullName(), mgr: user.mgr, date: activeDate, st: st, en: en,
+    status: 'confirmed', amenities: amenityLabels,
+    layout: layoutObj ? layoutObj.name : '', allday: allday
+  });
   await saveBookings();
-  const timeStr=allday?'All day':`${st} – ${en}`;
-  document.getElementById('suc-msg').textContent=`Booked for ${timeStr} on ${activeDate}`;
-  document.getElementById('suc-spaces').innerHTML=cart.map(c=>`<span class="booking-space-pill ${PILL[c.type]}">${ICONS[c.type]} ${c.n}</span>`).join('');
-  cart=[]; selectedAmenities=[]; updateCartBadge(); renderBookCartPreview();
-  document.getElementById('cart-full').style.display='none';
-  document.getElementById('cart-empty-state').style.display='none';
-  document.getElementById('cart-success').style.display='block';
+  var timeStr = allday ? 'All day' : st + ' \u2013 ' + en;
+  document.getElementById('suc-msg').textContent = 'Booked for ' + timeStr + ' on ' + activeDate;
+  document.getElementById('suc-spaces').innerHTML = cart.map(function(c){
+    return '<span class="booking-space-pill ' + PILL[c.type] + '">' + iconHTML(c.type) + ' ' + c.n + '</span>';
+  }).join('');
+  cart = []; selectedAmenities = []; selectedLayout = '';
+  updateCartBadge(); renderBookCartPreview();
+  document.getElementById('cart-full').style.display = 'none';
+  document.getElementById('cart-empty-state').style.display = 'none';
+  document.getElementById('cart-success').style.display = 'block';
 }
 
-function newBooking(){ document.getElementById('cart-success').style.display='none'; document.getElementById('cart-empty-state').style.display='block'; document.getElementById('map-card').style.display='none'; goPage('book',document.querySelector('.nav-item:first-child')); }
-
-function renderMine(){
-  const mine=bookings.filter(b=>b.user===fullName()),el=document.getElementById('mine-content');
-  if(!mine.length){el.innerHTML='<div class="card"><div class="empty">No bookings yet. Go to "Book a space" to make a reservation.</div></div>';return;}
-  el.innerHTML=mine.map(b=>`<div class="booking-card">
-    <div class="booking-header">
-      <div><div style="font-size:15px;font-weight:600;margin-bottom:3px">${b.spaces.length} space${b.spaces.length>1?'s':''} reserved</div><div style="font-size:12px;color:var(--text2)">${b.date} · ${b.allday?'All day':b.st+' – '+b.en}</div></div>
-      <div style="font-size:12px;font-weight:500;color:${b.status==='confirmed'?'var(--green)':'var(--red-t)'}"><span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}</div>
-    </div>
-    <div class="booking-spaces">${b.spaces.map(s=>`<span class="booking-space-pill ${PILL[s.type]}">${ICONS[s.type]} ${s.n}</span>`).join('')}</div>
-    ${b.amenities&&b.amenities.length?`<div style="margin-top:4px">${b.amenities.map(a=>`<span class="amenity-pill-sm">${a}</span>`).join('')}</div>`:''}
-    ${b.layout?`<div style="margin-top:4px"><span style="background:var(--purple-bg);color:var(--purple-t);border-radius:10px;font-size:10px;padding:2px 8px;font-weight:500">🪑 ${b.layout} layout</span></div>`:''}
-      <div style="display:flex;gap:6px;margin-top:8px">
-        <button class="btn-edit-booking" onclick="openEditModal('${b.id}')">✏️ Edit</button>
-        <button class="btn-cancel-booking" onclick="cancelMine('${b.id}')">Cancel reservation</button>
-      </div>`:''}
-  </div>`).join('');
+function newBooking() {
+  document.getElementById('cart-success').style.display = 'none';
+  document.getElementById('cart-empty-state').style.display = 'block';
+  document.getElementById('map-card').style.display = 'none';
+  goPage('book', document.querySelector('.nav-item:first-child'));
 }
 
-async function cancelMine(id){
-  const b=bookings.find(x=>x.id===id);
-  if(b&&b.user===fullName()){ b.status='cancelled'; await saveBookings(); }
+function renderMine() {
+  var mine = bookings.filter(function(b){ return b.user===fullName(); });
+  var el = document.getElementById('mine-content');
+  if (!mine.length) {
+    el.innerHTML = '<div class="card"><div class="empty">No bookings yet. Go to "Book a space" to make a reservation.</div></div>';
+    return;
+  }
+  el.innerHTML = mine.map(function(b) {
+    var spacePills = b.spaces.map(function(s){ return '<span class="booking-space-pill '+PILL[s.type]+'">'+iconHTML(s.type)+' '+s.n+'</span>'; }).join('');
+    var amenityTags = (b.amenities && b.amenities.length) ? b.amenities.map(function(a){ return '<span class="amenity-pill-sm">'+a+'</span>'; }).join('') : '';
+    var layoutTag   = b.layout ? '<span class="layout-pill">&#128187; ' + b.layout + ' layout</span>' : '';
+    var statusColor = b.status==='confirmed' ? 'var(--green)' : 'var(--red-t)';
+    var statusDot   = b.status==='confirmed' ? 'dot-green' : 'dot-red';
+    var timeStr     = b.allday ? 'All day' : b.st + ' \u2013 ' + b.en;
+    var actions = (b.status==='confirmed' && b.user===fullName()) ?
+      '<div style="display:flex;gap:6px;margin-top:8px">' +
+      '<button class="btn-edit-booking" onclick="openEditModal(\''+b.id+'\')">&#9999; Edit</button>' +
+      '<button class="btn-cancel-booking" onclick="cancelMine(\''+b.id+'\')">Cancel reservation</button>' +
+      '</div>' : '';
+    return '<div class="booking-card">' +
+      '<div class="booking-header">' +
+      '<div><div style="font-size:15px;font-weight:600;margin-bottom:3px">' + b.spaces.length + ' space' + (b.spaces.length>1?'s':'') + ' reserved</div>' +
+      '<div style="font-size:12px;color:var(--text2)">' + b.date + ' \u00b7 ' + timeStr + '</div></div>' +
+      '<div style="font-size:12px;font-weight:500;color:' + statusColor + '"><span class="' + statusDot + '"></span>' + b.status + '</div>' +
+      '</div>' +
+      '<div class="booking-spaces">' + spacePills + '</div>' +
+      (amenityTags ? '<div style="margin-top:4px">' + amenityTags + '</div>' : '') +
+      (layoutTag   ? '<div style="margin-top:4px">' + layoutTag + '</div>'   : '') +
+      actions + '</div>';
+  }).join('');
+}
+
+async function cancelMine(id) {
+  var b = bookings.find(function(x){ return x.id===id; });
+  if (b && b.user===fullName()) { b.status='cancelled'; await saveBookings(); }
   renderMine();
 }
 
-// ── EDIT MODAL ───────────────────────────────────────────────
-let editingId=null;
-let editSelectedAmenities=[];
-let editSelectedLayout='';
-
-function selectEditLayout(id,name){
-  editSelectedLayout=name;
-  document.querySelectorAll('[id^="elo-"]').forEach(el=>el.classList.remove('on'));
-  const el=document.getElementById('elo-'+id);
-  if(el) el.classList.add('on');
+function setSelectValue(selId, val) {
+  var sel = document.getElementById(selId);
+  for (var i=0; i<sel.options.length; i++) {
+    if (sel.options[i].value===val || sel.options[i].text===val) { sel.selectedIndex=i; return; }
+  }
 }
 
-function openEditModal(id){
-  const b=bookings.find(x=>x.id===id);
-  if(!b) return;
-  editingId=id;
-  editSelectedAmenities=[];
-
-  // Subtitle
-  document.getElementById('edit-modal-sub').textContent=`Booking on ${b.date}`;
-
-  // Spaces display
-  document.getElementById('edit-spaces-display').innerHTML=
-    b.spaces.map(s=>`<span class="booking-space-pill ${PILL[s.type]}">${ICONS[s.type]} ${s.n}</span>`).join('');
-
-  // Date
-  const dateEl=document.getElementById('edit-date');
-  dateEl.min=today();
-  dateEl.value=b.date;
-
-  // Time — hide for all-day bookings
-  const timeSection=document.getElementById('edit-time-section');
-  if(b.allday){
-    timeSection.style.display='none';
+function openEditModal(id) {
+  var b = bookings.find(function(x){ return x.id===id; });
+  if (!b) return;
+  editingId = id; editSelectedAmenities = []; editSelectedLayout = '';
+  document.getElementById('edit-modal-sub').textContent = 'Booking on ' + b.date;
+  document.getElementById('edit-spaces-display').innerHTML = b.spaces.map(function(s){
+    return '<span class="booking-space-pill ' + PILL[s.type] + '">' + iconHTML(s.type) + ' ' + s.n + '</span>';
+  }).join('');
+  var dateEl = document.getElementById('edit-date');
+  dateEl.min = today(); dateEl.value = b.date;
+  var timeSection = document.getElementById('edit-time-section');
+  if (b.allday) {
+    timeSection.style.display = 'none';
   } else {
-    timeSection.style.display='block';
+    timeSection.style.display = 'block';
     setSelectValue('edit-start', b.st);
-    setSelectValue('edit-end', b.en);
+    setSelectValue('edit-end',   b.en);
   }
-
-  // Amenities — only for meeting room bookings
-  const hasMeeting=b.spaces.some(s=>s.type==='meeting_room');
-  const amenitiesSection=document.getElementById('edit-amenities-section');
-  if(hasMeeting){
-    amenitiesSection.style.display='block';
-    // Pre-select layout
-    editSelectedLayout=b.layout||'';
-    document.getElementById('edit-layout-grid').innerHTML=LAYOUT_OPTS.map(l=>`
-      <div class="layout-opt${editSelectedLayout===l.name?' on':''}" id="elo-${l.id}" onclick="selectEditLayout('${l.id}','${l.name}')">
-        <div style="font-size:18px;margin-bottom:4px">${l.icon}</div>
-        <div class="layout-opt-name">${l.name}</div>
-        <div class="layout-opt-cap">${l.cap}</div>
-      </div>`).join('');
-    // Pre-select existing amenities
-    const existing=b.amenities||[];
-    editSelectedAmenities=AMENITY_OPTS.filter(a=>existing.some(e=>e.includes(a.label))).map(a=>a.id);
-    document.getElementById('edit-amenities-grid').innerHTML=AMENITY_OPTS.map(a=>`
-      <div class="amenity-opt${editSelectedAmenities.includes(a.id)?' on':''}" id="eao-${a.id}" onclick="toggleEditAmenity('${a.id}')">
-        <span style="font-size:15px">${a.icon}</span><span>${a.label}</span>
-        <div class="a-box"><svg class="a-check" viewBox="0 0 10 8"><polyline points="1 4 3.5 7 9 1"/></svg></div>
-      </div>`).join('');
-  } else {
-    amenitiesSection.style.display='none';
-  }
-
-  document.getElementById('edit-err').style.display='none';
+  var hasMeeting = b.spaces.some(function(s){ return s.type==='meeting_room'; });
+  var amenSection = document.getElementById('edit-amenities-section');
+  if (hasMeeting) {
+    amenSection.style.display = 'block';
+    editSelectedLayout = b.layout || '';
+    document.getElementById('edit-layout-grid').innerHTML = LAYOUT_OPTS.map(function(l) {
+      var on = (editSelectedLayout === l.name) ? ' on' : '';
+      return '<div class="layout-opt' + on + '" id="elo-' + l.id + '" onclick="selectEditLayout(\'' + l.id + '\',\'' + l.name + '\')">' +
+        '<div style="font-size:20px;margin-bottom:4px">' + l.icon + '</div>' +
+        '<div class="layout-opt-name">' + l.name + '</div>' +
+        '<div class="layout-opt-cap">' + l.cap + '</div></div>';
+    }).join('');
+    var existing = b.amenities || [];
+    editSelectedAmenities = AMENITY_OPTS.filter(function(a){ return existing.some(function(e){ return e.includes(a.label); }); }).map(function(a){ return a.id; });
+    document.getElementById('edit-amenities-grid').innerHTML = AMENITY_OPTS.map(function(a) {
+      var on = editSelectedAmenities.includes(a.id) ? ' on' : '';
+      return '<div class="amenity-opt' + on + '" id="eao-' + a.id + '" onclick="toggleEditAmenity(\'' + a.id + '\')">' +
+        '<span style="font-size:15px">' + a.icon + '</span><span>' + a.label + '</span>' +
+        '<div class="a-box"><svg class="a-check" viewBox="0 0 10 8"><polyline points="1 4 3.5 7 9 1"/></svg></div></div>';
+    }).join('');
+  } else { amenSection.style.display = 'none'; }
+  document.getElementById('edit-err').style.display = 'none';
   document.getElementById('edit-modal').classList.remove('hidden');
 }
 
-function closeEditModal(){
+function closeEditModal() {
   document.getElementById('edit-modal').classList.add('hidden');
-  editingId=null;
-  editSelectedAmenities=[];
+  editingId = null; editSelectedAmenities = []; editSelectedLayout = '';
 }
 
-function toggleEditAmenity(id){
-  const el=document.getElementById('eao-'+id);
-  if(editSelectedAmenities.includes(id)){
-    editSelectedAmenities=editSelectedAmenities.filter(a=>a!==id);
+function selectEditLayout(id, name) {
+  editSelectedLayout = name;
+  document.querySelectorAll('#edit-layout-grid .layout-opt').forEach(function(el){ el.classList.remove('on'); });
+  var el = document.getElementById('elo-' + id);
+  if (el) el.classList.add('on');
+}
+
+function toggleEditAmenity(id) {
+  var el = document.getElementById('eao-' + id);
+  if (editSelectedAmenities.includes(id)) {
+    editSelectedAmenities = editSelectedAmenities.filter(function(a){ return a!==id; });
     el.classList.remove('on');
-  } else {
-    editSelectedAmenities.push(id);
-    el.classList.add('on');
-  }
+  } else { editSelectedAmenities.push(id); el.classList.add('on'); }
 }
 
-function setSelectValue(selectId, value){
-  const sel=document.getElementById(selectId);
-  for(let i=0;i<sel.options.length;i++){
-    if(sel.options[i].value===value){ sel.selectedIndex=i; return; }
+async function saveEdit() {
+  var b = bookings.find(function(x){ return x.id===editingId; });
+  if (!b) return;
+  var errEl = document.getElementById('edit-err');
+  var newDate = document.getElementById('edit-date').value;
+  if (!newDate) { errEl.style.display='block'; errEl.textContent='Please select a date.'; return; }
+  var newSt = b.st, newEn = b.en;
+  if (!b.allday) {
+    newSt = document.getElementById('edit-start').value;
+    newEn = document.getElementById('edit-end').value;
+    if (newSt >= newEn) { errEl.style.display='block'; errEl.textContent='End time must be after start time.'; return; }
   }
-}
-
-async function saveEdit(){
-  const b=bookings.find(x=>x.id===editingId);
-  if(!b) return;
-  const errEl=document.getElementById('edit-err');
-  const newDate=document.getElementById('edit-date').value;
-  if(!newDate){errEl.style.display='block';errEl.textContent='Please select a date.';return;}
-
-  let newSt=b.st, newEn=b.en;
-  if(!b.allday){
-    newSt=document.getElementById('edit-start').value;
-    newEn=document.getElementById('edit-end').value;
-    if(newSt>=newEn){errEl.style.display='block';errEl.textContent='End time must be after start time.';return;}
-  }
-
-  // Check for conflicts with OTHER bookings (not this one)
+  var hasMeeting = b.spaces.some(function(s){ return s.type==='meeting_room'; });
+  if (hasMeeting && !editSelectedLayout) { errEl.style.display='block'; errEl.textContent='Please select a room layout.'; return; }
   await loadBookings();
-  const conflict=bookings.some(other=>
-    other.id!==editingId &&
-    other.status==='confirmed' &&
-    other.date===newDate &&
-    b.spaces.some(s=>other.spaces.some(os=>os.id===s.id)) &&
-    !(newEn<=other.st || newSt>=other.en)
-  );
-  if(conflict){errEl.style.display='block';errEl.textContent='One of your spaces is already booked at that time. Please choose a different time or date.';return;}
-
-  // Validate layout if meeting room
-  const hasMeetingEdit=b.spaces.some(s=>s.type==='meeting_room');
-  if(hasMeetingEdit&&!editSelectedLayout){errEl.style.display='block';errEl.textContent='Please select a room layout.';return;}
-
-  // Apply changes
-  const idx=bookings.findIndex(x=>x.id===editingId);
-  const amenityLabels=AMENITY_OPTS.filter(a=>editSelectedAmenities.includes(a.id)).map(a=>a.icon+' '+a.label);
-  bookings[idx]={
-    ...b,
-    date:newDate,
-    st:newSt,
-    en:newEn,
-    amenities:hasMeetingEdit?amenityLabels:b.amenities,
-    layout:hasMeetingEdit?editSelectedLayout:b.layout,
-  };
-
+  var conflict = bookings.some(function(other){
+    return other.id!==editingId && other.status==='confirmed' && other.date===newDate &&
+      b.spaces.some(function(s){ return other.spaces.some(function(os){ return os.id===s.id; }); }) &&
+      !(newEn<=other.st || newSt>=other.en);
+  });
+  if (conflict) { errEl.style.display='block'; errEl.textContent='One of your spaces is already booked at that time.'; return; }
+  var idx = bookings.findIndex(function(x){ return x.id===editingId; });
+  var amenityLabels = AMENITY_OPTS.filter(function(a){ return editSelectedAmenities.includes(a.id); }).map(function(a){ return a.icon+' '+a.label; });
+  bookings[idx] = Object.assign({}, b, {
+    date: newDate, st: newSt, en: newEn,
+    amenities: hasMeeting ? amenityLabels : b.amenities,
+    layout:    hasMeeting ? editSelectedLayout : b.layout
+  });
   await saveBookings();
-  closeEditModal();
-  renderMine();
+  closeEditModal(); renderMine();
 }
 
-function renderDash(){
-  const conf=bookings.filter(b=>b.status==='confirmed'),td=today();
-  document.getElementById('dash-stats').innerHTML=[
-    {n:conf.length,l:'Total confirmed',cls:'green'},{n:conf.filter(b=>b.date===td).length,l:'Today',cls:''},
-    {n:conf.reduce((a,b)=>a+b.spaces.length,0),l:'Spaces booked',cls:''},{n:new Set(conf.map(b=>b.user)).size,l:'Active employees',cls:''}
-  ].map(s=>`<div class="stat ${s.cls}"><div class="stat-n">${s.n}</div><div class="stat-l">${s.l}</div></div>`).join('');
-  const tf=document.getElementById('df-type').value,df=document.getElementById('df-date').value;
-  let list=bookings.filter(b=>{if(df&&b.date!==df)return false;if(tf)return b.spaces.some(s=>s.type===tf);return true;});
-  const tbl=document.getElementById('dash-table');
-  if(!list.length){tbl.innerHTML='<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--text3)">No reservations match.</td></tr>';return;}
-  tbl.innerHTML=`<thead><tr><th style="width:14%">Employee</th><th style="width:30%">Spaces</th><th style="width:11%">Date</th><th style="width:12%">Time</th><th style="width:22%">Amenities</th><th style="width:11%">Status</th></tr></thead><tbody>`+
-  list.map(b=>`<tr><td>${b.user}</td><td style="overflow:visible;white-space:normal"><div style="display:flex;flex-wrap:wrap;gap:3px">${b.spaces.map(s=>`<span class="badge ${PILL[s.type]}" style="gap:3px">${ICONS[s.type]} ${s.n}</span>`).join('')}</div></td><td>${b.date}</td><td>${b.allday?'All day':b.st+'–'+b.en}</td><td style="white-space:normal;font-size:11px;color:var(--text2)">${b.amenities&&b.amenities.length?b.amenities.join(' '):'—'}</td><td><span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}</td></tr>`).join('')+'</tbody>';
+function renderDash() {
+  var conf = bookings.filter(function(b){ return b.status==='confirmed'; });
+  var td = today();
+  document.getElementById('dash-stats').innerHTML = [
+    {n:conf.length, l:'Total confirmed', cls:'green'},
+    {n:conf.filter(function(b){ return b.date===td; }).length, l:'Today', cls:''},
+    {n:conf.reduce(function(a,b){ return a+b.spaces.length; },0), l:'Spaces booked', cls:''},
+    {n:new Set(conf.map(function(b){ return b.user; })).size, l:'Active employees', cls:''}
+  ].map(function(s){ return '<div class="stat '+s.cls+'"><div class="stat-n">'+s.n+'</div><div class="stat-l">'+s.l+'</div></div>'; }).join('');
+  var tf = document.getElementById('df-type').value;
+  var df = document.getElementById('df-date').value;
+  var list = bookings.filter(function(b){
+    if (df && b.date!==df) return false;
+    if (tf) return b.spaces.some(function(s){ return s.type===tf; });
+    return true;
+  });
+  var tbl = document.getElementById('dash-table');
+  if (!list.length) { tbl.innerHTML='<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--text3)">No reservations match.</td></tr>'; return; }
+  tbl.innerHTML = '<thead><tr><th style="width:14%">Employee</th><th style="width:28%">Spaces</th><th style="width:11%">Date</th><th style="width:12%">Time</th><th style="width:12%">Layout</th><th style="width:13%">Amenities</th><th style="width:10%">Status</th></tr></thead><tbody>' +
+    list.map(function(b){
+      var spaceBadges = b.spaces.map(function(s){ return '<span class="badge '+PILL[s.type]+'" style="gap:3px">'+iconHTML(s.type)+' '+s.n+'</span>'; }).join('');
+      return '<tr><td>' + b.user + '</td>' +
+        '<td style="overflow:visible;white-space:normal"><div style="display:flex;flex-wrap:wrap;gap:3px">' + spaceBadges + '</div></td>' +
+        '<td>' + b.date + '</td>' +
+        '<td>' + (b.allday ? 'All day' : b.st+'\u2013'+b.en) + '</td>' +
+        '<td style="font-size:11px;color:var(--text2)">' + (b.layout||'\u2014') + '</td>' +
+        '<td style="white-space:normal;font-size:11px;color:var(--text2)">' + (b.amenities&&b.amenities.length ? b.amenities.join(' ') : '\u2014') + '</td>' +
+        '<td><span class="' + (b.status==='confirmed'?'dot-green':'dot-red') + '"></span>' + b.status + '</td></tr>';
+    }).join('') + '</tbody>';
 }
 
-function renderAdmin(){
-  const tf=document.getElementById('af-type').value,df=document.getElementById('af-date').value,sf=document.getElementById('af-status').value;
-  let list=bookings.filter(b=>{if(sf&&b.status!==sf)return false;if(df&&b.date!==df)return false;if(tf)return b.spaces.some(s=>s.type===tf);return true;});
-  const wrap=document.getElementById('admin-table-wrap');
-  if(!list.length){wrap.innerHTML='<div class="empty">No reservations match this filter.</div>';return;}
-  wrap.innerHTML=`<table><thead><tr><th style="width:13%">Employee</th><th style="width:27%">Spaces</th><th style="width:10%">Date</th><th style="width:12%">Time</th><th style="width:18%">Amenities</th><th style="width:9%">Status</th><th style="width:11%">Action</th></tr></thead><tbody>`+
-  list.map(b=>`<tr><td>${b.user}</td><td style="overflow:visible;white-space:normal"><div style="display:flex;flex-wrap:wrap;gap:3px">${b.spaces.map(s=>`<span class="badge ${PILL[s.type]}" style="gap:3px;font-size:9px">${ICONS[s.type]} ${s.n}</span>`).join('')}</div></td><td>${b.date}</td><td>${b.allday?'All day':b.st+'–'+b.en}</td><td style="white-space:normal;font-size:11px;color:var(--text2)">${b.amenities&&b.amenities.length?b.amenities.join(' '):'—'}</td><td><span class="${b.status==='confirmed'?'dot-green':'dot-red'}"></span>${b.status}</td>
-  <td>${b.status==='confirmed'?`<button class="admin-action-btn del" onclick="adminCancel('${b.id}')">Cancel</button>`:`<button class="admin-action-btn del" onclick="adminDelete('${b.id}')">Delete</button>`}</td></tr>`).join('')+'</tbody></table>';
+function renderAdmin() {
+  var tf = document.getElementById('af-type').value;
+  var df = document.getElementById('af-date').value;
+  var sf = document.getElementById('af-status').value;
+  var list = bookings.filter(function(b){
+    if (sf && b.status!==sf) return false;
+    if (df && b.date!==df)   return false;
+    if (tf) return b.spaces.some(function(s){ return s.type===tf; });
+    return true;
+  });
+  var wrap = document.getElementById('admin-table-wrap');
+  if (!list.length) { wrap.innerHTML='<div class="empty">No reservations match this filter.</div>'; return; }
+  wrap.innerHTML = '<table><thead><tr>' +
+    '<th style="width:13%">Employee</th><th style="width:25%">Spaces</th><th style="width:10%">Date</th>' +
+    '<th style="width:11%">Time</th><th style="width:11%">Layout</th><th style="width:15%">Amenities</th>' +
+    '<th style="width:8%">Status</th><th style="width:7%">Action</th>' +
+    '</tr></thead><tbody>' +
+    list.map(function(b){
+      var spaceBadges = b.spaces.map(function(s){ return '<span class="badge '+PILL[s.type]+'" style="gap:3px;font-size:9px">'+iconHTML(s.type)+' '+s.n+'</span>'; }).join('');
+      var action = b.status==='confirmed'
+        ? '<button class="admin-action-btn del" onclick="adminCancel(\''+b.id+'\')">Cancel</button>'
+        : '<button class="admin-action-btn del" onclick="adminDelete(\''+b.id+'\')">Delete</button>';
+      return '<tr><td>' + b.user + '</td>' +
+        '<td style="overflow:visible;white-space:normal"><div style="display:flex;flex-wrap:wrap;gap:3px">' + spaceBadges + '</div></td>' +
+        '<td>' + b.date + '</td>' +
+        '<td>' + (b.allday?'All day':b.st+'\u2013'+b.en) + '</td>' +
+        '<td style="font-size:11px;color:var(--text2)">' + (b.layout||'\u2014') + '</td>' +
+        '<td style="white-space:normal;font-size:11px;color:var(--text2)">' + (b.amenities&&b.amenities.length?b.amenities.join(' '):'\u2014') + '</td>' +
+        '<td><span class="' + (b.status==='confirmed'?'dot-green':'dot-red') + '"></span>' + b.status + '</td>' +
+        '<td>' + action + '</td></tr>';
+    }).join('') + '</tbody></table>';
 }
 
-async function adminCancel(id){ if(!confirm('Cancel this reservation?'))return; const b=bookings.find(x=>x.id===id);if(b)b.status='cancelled'; await saveBookings(); renderAdmin(); renderDash(); }
-async function adminDelete(id){ if(!confirm('Permanently delete this entry?'))return; bookings=bookings.filter(x=>x.id!==id); await saveBookings(); renderAdmin(); renderDash(); }
+async function adminCancel(id) {
+  if (!confirm('Cancel this reservation?')) return;
+  var b = bookings.find(function(x){ return x.id===id; });
+  if (b) b.status = 'cancelled';
+  await saveBookings(); renderAdmin(); renderDash();
+}
+async function adminDelete(id) {
+  if (!confirm('Permanently delete this entry?')) return;
+  bookings = bookings.filter(function(x){ return x.id!==id; });
+  await saveBookings(); renderAdmin(); renderDash();
+}
 
-// ── INIT ─────────────────────────────────────────────────────
-document.getElementById('bk-date').min=today();
-document.getElementById('bk-date').value=today();
+document.getElementById('bk-date').min   = today();
+document.getElementById('bk-date').value = today();
 </script>
 </body>
 </html>
