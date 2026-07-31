@@ -586,8 +586,38 @@ function isAlldayType(t) { return ALLDAY_TYPES.includes(t); }
 function cartNeedsTime() { return cart.some(function(c){ return TIMED_TYPES.includes(c.type); }); }
 function cartHasMeeting() { return cart.some(function(c){ return c.type === 'meeting_room'; }); }
 function cartHasAllday() { return cart.some(function(c){ return isAlldayType(c.type); }); }
-function isBooked(rid, date) { return bookings.some(function(b){ return b.spaces.some(function(s){ return s.id===rid; }) && b.date===date && b.status==='confirmed'; }); }
-function getBooking(rid, date) { return bookings.find(function(b){ return b.spaces.some(function(s){ return s.id===rid; }) && b.date===date && b.status==='confirmed'; }) || null; }
+
+// ── CHANGED: isBooked now respects time slots for meeting rooms ──────────────
+// For workstations/parking: any confirmed booking = full day blocked (unchanged)
+// For meeting rooms: only blocked if st+en provided AND times overlap
+// On map view (no st/en): meeting room always shows as available (green)
+function isBooked(rid, date, st, en) {
+  var res = RES.find(function(r){ return r.id===rid; });
+  var isMeeting = res && res.type === 'meeting_room';
+  return bookings.some(function(b){
+    if (!b.spaces.some(function(s){ return s.id===rid; })) return false;
+    if (b.date !== date) return false;
+    if (b.status !== 'confirmed') return false;
+    if (isMeeting) {
+      if (st && en) return !(en <= b.st || st >= b.en);
+      return false; // map view: never show as blocked; time overlap checked at checkout
+    }
+    return true; // workstation / parking / phone booth = full day block
+  });
+}
+
+// ── NEW: get all confirmed bookings for a space on a date (for meeting room display) ──
+function getMeetingBookings(rid, date) {
+  return bookings.filter(function(b){
+    return b.spaces.some(function(s){ return s.id===rid; }) && b.date===date && b.status==='confirmed';
+  });
+}
+
+function getBooking(rid, date) {
+  return bookings.find(function(b){
+    return b.spaces.some(function(s){ return s.id===rid; }) && b.date===date && b.status==='confirmed';
+  }) || null;
+}
 function inCart(rid) { return cart.some(function(c){ return c.id===rid; }); }
 
 async function doLogin() {
@@ -741,22 +771,29 @@ function renderMap() {
       list.map(makeCell).join('') + '</div>';
 
   } else if (activeType === 'meeting_room') {
+    // ── CHANGED: Meeting room shows time-slot bookings but stays available (green) ──
     var r = list[0];
-    var bk = isBooked(r.id, activeDate);
     var ic = inCart(r.id);
-    var bi = bk ? getBooking(r.id, activeDate) : null;
-    var cls = 'cell ' + (ic ? 'sl' : bk ? 'bk' : 'av');
-    var timeSub = bk && bi ? ('<div class="cell-sub">' + bi.st + '-' + bi.en + '</div>') : ic ? '<div class="cell-sub">In cart</div>' : '';
+    var mrBookings = getMeetingBookings(r.id, activeDate);
+    // Always available (green) unless in cart; time conflicts caught at checkout
+    var cls = 'cell ' + (ic ? 'sl' : 'av');
+    var timeSlotsHtml = mrBookings.map(function(b){
+      return '<div class="cell-sub" style="background:var(--red-bg);border-radius:3px;padding:1px 3px;font-size:7px;color:var(--red-t);margin-top:1px;line-height:1.3">' + b.st + '-' + b.en + '</div>';
+    }).join('');
+    var cellSub = ic ? '<div class="cell-sub">In cart</div>' : timeSlotsHtml;
+    var cellH = mrBookings.length > 0 ? '110px' : '84px';
+    var noteText = mrBookings.length > 0
+      ? '<span style="font-size:11px;color:var(--red-t);font-weight:500">Booked time slots shown \u2014 pick a different time at checkout</span>'
+      : '<span style="font-size:11px;color:var(--text3)">Select layout and amenities at checkout</span>';
     mc.innerHTML = '<div class="section-label">Meeting room</div>' +
       '<div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">' +
-      '<div class="' + cls + '" style="width:120px;height:84px" onclick="toggleCart(\'' + r.id + '\')">' +
+      '<div class="' + cls + '" style="width:120px;height:' + cellH + '" onclick="toggleCart(\'' + r.id + '\')">' +
       cellIconHTML(r.type) + '<div class="cell-lbl" style="font-size:10px">' + r.n + '</div>' +
-      '<div class="cell-sub">25 pax</div>' + timeSub + '</div>' +
+      '<div class="cell-sub">25 pax</div>' + cellSub + '</div>' +
       '<div style="font-size:12px;color:var(--text2);line-height:1.8;max-width:260px">' +
       '<div style="font-weight:600;color:var(--text);margin-bottom:4px">Fundadores meeting room</div>' +
       'Theater (25) \u00b7 Classroom (15)<br>U-shape (15) \u00b7 Boardroom (15)<br>' +
-      '<span style="font-size:11px;color:var(--text3)">Select layout and amenities at checkout</span>' +
-      '</div></div>';
+      noteText + '</div></div>';
 
   } else if (activeType === 'maternity_room') {
     mc.innerHTML = '<div class="section-label">Maternity room <span>1 room</span></div><div style="display:flex;gap:8px">' +
@@ -858,12 +895,19 @@ async function doConfirm() {
   }
   await loadBookings();
   var conflict = null;
+  // ── CHANGED: conflict check uses time-overlap for meeting rooms, full-day for others ──
   cart.forEach(function(c) {
+    var res = RES.find(function(r){ return r.id===c.id; });
+    var isMeeting = res && res.type === 'meeting_room';
     if (bookings.some(function(b){
-      return b.spaces.some(function(s){ return s.id===c.id; }) && b.date===activeDate && b.status==='confirmed' && !(en<=b.st || st>=b.en);
+      if (!b.spaces.some(function(s){ return s.id===c.id; })) return false;
+      if (b.date !== activeDate) return false;
+      if (b.status !== 'confirmed') return false;
+      if (isMeeting) return !(en <= b.st || st >= b.en);
+      return true;
     })) conflict = c.n;
   });
-  if (conflict) { errEl.style.display='block'; errEl.textContent='"'+conflict+'" is already booked at that time.'; return; }
+  if (conflict) { errEl.style.display='block'; errEl.textContent='"'+conflict+'" is already booked at that time. Please choose a different time slot.'; return; }
   errEl.style.display = 'none';
   var amenityLabels = AMENITY_OPTS.filter(function(a){ return selectedAmenities.includes(a.id); }).map(function(a){ return a.icon+' '+a.label; });
   var layoutObj = LAYOUT_OPTS.find(function(l){ return l.id===selectedLayout; });
@@ -1018,10 +1062,15 @@ async function saveEdit() {
   var hasMeeting = b.spaces.some(function(s){ return s.type==='meeting_room'; });
   if (hasMeeting && !editSelectedLayout) { errEl.style.display='block'; errEl.textContent='Please select a room layout.'; return; }
   await loadBookings();
+  // ── CHANGED: edit conflict check also respects time overlap for meeting rooms ──
   var conflict = bookings.some(function(other){
     return other.id!==editingId && other.status==='confirmed' && other.date===newDate &&
-      b.spaces.some(function(s){ return other.spaces.some(function(os){ return os.id===s.id; }); }) &&
-      !(newEn<=other.st || newSt>=other.en);
+      b.spaces.some(function(s){
+        if (!other.spaces.some(function(os){ return os.id===s.id; })) return false;
+        var isMeeting = s.type === 'meeting_room';
+        if (isMeeting) return !(newEn <= other.st || newSt >= other.en);
+        return true;
+      });
   });
   if (conflict) { errEl.style.display='block'; errEl.textContent='One of your spaces is already booked at that time.'; return; }
   var idx = bookings.findIndex(function(x){ return x.id===editingId; });
