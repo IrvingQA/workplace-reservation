@@ -177,6 +177,13 @@ tr:hover td{background:var(--bg)}
 </style>
 </head>
 <body>
+<!-- PRODUCTION SECURITY NOTE:
+This browser demo intentionally contains no API credentials. It is not a production
+authentication or authorization boundary. For Viatris deployment, host the UI behind
+approved SSO and route all reads/writes through a server/API that enforces identity,
+RBAC, validation, audit logging, rate limiting, and database-level authorization.
+-->
+
 
 <div id="scr-login" class="screen active">
   <div class="login-bg">
@@ -190,8 +197,10 @@ tr:hover td{background:var(--bg)}
       <div class="field"><label>First name</label><input type="text" id="i-first" placeholder="e.g. Ana"/><div class="err" id="e-first"></div></div>
       <div class="field"><label>Last name</label><input type="text" id="i-last" placeholder="e.g. Castro"/><div class="err" id="e-last"></div></div>
       <div class="field"><label>Manager <span style="font-weight:400;color:var(--text3)">(optional)</span></label><input type="text" id="i-mgr" placeholder="e.g. Roberto Salas"/></div>
+      <div class="field"><label>Demo role</label><select id="i-role"><option value="employee">Employee</option><option value="admin">Admin (demo only)</option></select></div>
       <button class="btn-primary" onclick="doLogin()">Enter WorkPlace &#8594;</button>
       <p class="login-footer">By entering, you agree to the workspace use policy.<br>Contact Facilities for support.</p>
+      <div style="margin-top:12px;padding:8px 10px;border-radius:6px;background:var(--amber-bg);color:var(--amber-t);font-size:10px;line-height:1.4;text-align:center">Browser demo mode: data is stored only in this browser. Production must use Viatris SSO + authenticated server-side data access.</div>
     </div>
   </div>
 </div>
@@ -415,32 +424,24 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <script>
-var SUPA_URL = 'https://hnkdzyovhkrzngatfzcb.supabase.co';
-var SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhua2R6eW92aGtyem5nYXRmemNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMDU1MjUsImV4cCI6MjA5MzU4MTUyNX0.dM9mfp8NNEcp-HHMpRGfjToAGlvU6yedhpOF587cDeI';
-var HEADERS = {
-  'apikey': SUPA_KEY,
-  'Authorization': 'Bearer ' + SUPA_KEY,
-  'Content-Type': 'application/json',
-  'Prefer': 'resolution=merge-duplicates,return=minimal'
-};
+// BROWSER DEMO STORAGE ONLY
+// No API keys, tokens, passwords, or service credentials are embedded in this file.
+// IMPORTANT: this localStorage backend is for browser functional testing only.
+// Production deployment should replace these functions with an authenticated server/API
+// protected by Viatris-approved SSO/RBAC. Never put service-role credentials in client JS.
+var DEMO_STORAGE_KEY = 'workplace_bookings_demo_v1';
 
 async function dbGet() {
   try {
-    var r = await fetch(SUPA_URL + '/rest/v1/workplace_bookings?key=eq.bookings&select=value', { headers: HEADERS });
-    if (!r.ok) return [];
-    var d = await r.json();
-    return (d && d[0] && d[0].value) ? d[0].value : [];
+    var raw = localStorage.getItem(DEMO_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
   } catch(e) { return []; }
 }
 
 async function dbSet(data) {
   try {
-    await fetch(SUPA_URL + '/rest/v1/workplace_bookings', {
-      method: 'POST',
-      headers: HEADERS,
-      body: JSON.stringify({ key: 'bookings', value: data })
-    });
-  } catch(e) { console.warn('Save error', e); }
+    localStorage.setItem(DEMO_STORAGE_KEY, JSON.stringify(data));
+  } catch(e) { console.warn('Local save error', e); }
 }
 
 var ALLDAY_TYPES = ['workstation','parking_slot'];
@@ -574,7 +575,7 @@ async function pollBookings() {
 }
 function setSyncStatus(ok) {
   document.getElementById('sync-dot').className = 'sync-dot' + (ok ? '' : ' stale');
-  document.getElementById('sync-label').textContent = ok ? 'Live' : 'Reconnecting\u2026';
+  document.getElementById('sync-label').textContent = ok ? 'Local demo' : 'Storage unavailable';
 }
 function startPolling() { pollTimer = setInterval(pollBookings, 15000); }
 function stopPolling()  { if (pollTimer) { clearInterval(pollTimer); pollTimer = null; } }
@@ -624,10 +625,12 @@ async function doLogin() {
   var f = document.getElementById('i-first').value.trim();
   var l = document.getElementById('i-last').value.trim();
   var m = document.getElementById('i-mgr').value.trim();
+  var roleEl = document.getElementById('i-role');
+  var demoRole = roleEl ? roleEl.value : 'employee';
   document.getElementById('e-first').textContent = f ? '' : 'First name is required.';
   document.getElementById('e-last').textContent  = l ? '' : 'Last name is required.';
   if (!f || !l) return;
-  var isAdmin = (m === 'admin2024');
+  var isAdmin = (demoRole === 'admin');
   user = {first:f, last:l, mgr:isAdmin ? 'Administrator' : (m||'N/A'), isAdmin:isAdmin};
   document.getElementById('top-avatar').textContent = initials();
   document.getElementById('top-avatar').className = 'avatar' + (isAdmin ? ' admin-av' : '');
@@ -649,6 +652,7 @@ function doLogout() {
   document.getElementById('scr-login').classList.add('active');
   document.getElementById('top-avatar').className = 'avatar';
   ['i-first','i-last','i-mgr'].forEach(function(id){ document.getElementById(id).value=''; });
+  var roleEl = document.getElementById('i-role'); if (roleEl) roleEl.value='employee';
   ['e-first','e-last'].forEach(function(id){ document.getElementById(id).textContent=''; });
   document.getElementById('map-card').style.display = 'none';
   document.getElementById('book-cart-preview').style.display = 'none';
